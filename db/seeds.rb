@@ -5,8 +5,8 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-User.destroy_all
 Restaurant.destroy_all
+User.destroy_all
 
 5.times do
   User.create!(
@@ -17,17 +17,16 @@ Restaurant.destroy_all
 end
 
 25.times do
-  Restaurant.create!(
+  restaurant = Restaurant.create!(
     user: User.all.sample,
     name: Faker::Restaurant.name,
     category: Faker::Food.ethnic_category,
     address: Faker::Address.street_address,
-    availability: [true, false].sample,
     maximum_number: rand(1..30),
     price_range: ["¥", "¥¥", "¥¥¥", "¥¥¥¥"].sample
   )
-  puts "Searching for an image for a #{restaurant}"
-  file = URI.open("http://source.unsplash.com/featured/?#{restaurant}")
-  restaurant.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+  puts "Searching for an image for a #{restaurant.name}"
+  file = URI.open("http://source.unsplash.com/featured/?#{restaurant.category}")
+  restaurant.photos.attach(io: file, filename: "nes.png", content_type: "image/png")
   restaurant.save
 end
