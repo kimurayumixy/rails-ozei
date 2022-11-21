@@ -7,7 +7,7 @@ class CreateRestaurants < ActiveRecord::Migration[7.0]
       t.string :address
       t.float :longitude
       t.float :latitude
-      t.boolean :availability
+      t.boolean :availability, default: true
       t.integer :maximum_number
       t.string :price_range
 

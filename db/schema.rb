@@ -21,7 +21,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_21_060048) do
     t.string "address"
     t.float "longitude"
     t.float "latitude"
-    t.boolean "availability"
+    t.boolean "availability", default: true
     t.integer "maximum_number"
     t.string "price_range"
     t.datetime "created_at", null: false
