@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema[7.0].define(version: 2022_11_21_081639) do
+=======
+ActiveRecord::Schema[7.0].define(version: 2022_11_21_063418) do
+>>>>>>> fd3c78172bf885c8843884d7463d1d5cadf74824
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -45,7 +49,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_21_081639) do
   create_table "bookings", force: :cascade do |t|
     t.integer "status"
     t.integer "number_of_people"
+<<<<<<< HEAD
     t.boolean "expired", default: true
+=======
+    t.boolean "expired", default: false
+>>>>>>> fd3c78172bf885c8843884d7463d1d5cadf74824
     t.bigint "user_id", null: false
     t.bigint "restaurant_id", null: false
     t.datetime "created_at", null: false
@@ -83,8 +91,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_21_081639) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+<<<<<<< HEAD
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+=======
+>>>>>>> fd3c78172bf885c8843884d7463d1d5cadf74824
   add_foreign_key "bookings", "restaurants"
   add_foreign_key "bookings", "users"
   add_foreign_key "restaurants", "users"
