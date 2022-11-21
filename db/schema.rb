@@ -17,7 +17,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_21_063418) do
   create_table "bookings", force: :cascade do |t|
     t.integer "status"
     t.integer "number_of_people"
-    t.boolean "expired", default: false
+    t.boolean "expired"
     t.bigint "user_id", null: false
     t.bigint "restaurant_id", null: false
     t.datetime "created_at", null: false
