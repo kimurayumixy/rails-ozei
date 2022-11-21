@@ -10,19 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema[7.0].define(version: 2022_11_21_060048) do
-=======
-
 ActiveRecord::Schema[7.0].define(version: 2022_11_21_063418) do
->>>>>>> ca4a85593a4bf4eec3add6e78c60fad883bbf3ee
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "bookings", force: :cascade do |t|
     t.integer "status"
     t.integer "number_of_people"
-    t.boolean "expired"
+    t.boolean "expired", default: true
     t.bigint "user_id", null: false
     t.bigint "restaurant_id", null: false
     t.datetime "created_at", null: false
@@ -30,7 +25,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_21_063418) do
     t.index ["restaurant_id"], name: "index_bookings_on_restaurant_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
-
 
   create_table "restaurants", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -61,9 +55,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_21_063418) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-
   add_foreign_key "bookings", "restaurants"
   add_foreign_key "bookings", "users"
-
   add_foreign_key "restaurants", "users"
 end
