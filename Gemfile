@@ -56,6 +56,7 @@ gem "simple_form", github: "heartcombo/simple_form"
 #manually added
 gem 'faker'
 gem "cloudinary"
+gem "geocoder"
 gem "pundit"
 gem 'acts-as-taggable-on', '~> 9.0'
 
