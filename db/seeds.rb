@@ -1,22 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
-def separator_line
-  puts "-------------------"
-  puts "-------------------"
-end
-
-puts "Destroying all restaurants 🔥 "
-Restaurant.destroy_all
-puts "👽: Deleting all humans"
-User.destroy_all
-
-separator_line
-
 ADDRESSES = [
   "1-291-8 Sarugakucho, Chiyoda ku, Tokyo to", #works
   "2-9 Sarugakucho, Chiyoda ku, Tokyo to", #works
@@ -72,76 +53,123 @@ ADDRESSES = [
   "1-3 Shoto, Shibuya ku, Tokyo to", #works
   "10-15 Maruyamacho, Shibuya ku, Tokyo to", #works
 ]
-
-puts "Generating humans 🤪"
-5.times do
-  User.create!(
-    email: Faker::Internet.unique.email,
-    password: Faker::Internet.password(min_length: 8),
-    name: Faker::Internet.unique.username
-  )
+def separator_line
+  puts "-------------------"
+  puts "-------------------"
 end
 
-separator_line
-puts "Building restaurants 🚧"
-seed_addresses = ADDRESSES.shuffle
-index = 0
-40.times do
-  restaurant = Restaurant.create!(
-    user: User.all.sample,
-    name: Faker::Restaurant.name,
+def destroy_all_things
+  puts "Destorying all bookings! 😈"
+  Booking.destroy_all
+  puts "Destroying all restaurants 🔥"
+  Restaurant.destroy_all
+  puts "Deleting all humans 👽"
+  User.destroy_all
+  separator_line
+end
+
+def create_users
+  puts "Generating humans 🤪"
+  5.times do
+    User.create!(
+      email: Faker::Internet.unique.email,
+      password: Faker::Internet.password(min_length: 8),
+      name: Faker::Internet.unique.username
+    )
+  end
+  separator_line
+end
+
+def create_restaurants
+  puts "Building restaurants 🚧"
+  seed_addresses = ADDRESSES.shuffle
+  index = 0
+  40.times do
+    restaurant = Restaurant.create!(
+      user: User.all.sample,
+      name: Faker::Restaurant.name,
+      category: Faker::Food.ethnic_category,
+      address: seed_addresses[index],
+      maximum_number: rand(1..30),
+      price_range: ["¥", "¥¥", "¥¥¥", "¥¥¥¥"].sample
+    )
+    index += 1
+    puts "Searching for an image for #{restaurant.name} 🌇"
+    file = URI.open("http://source.unsplash.com/featured/?#{restaurant.category}")
+    restaurant.photos.attach(io: file, filename: "nes.png", content_type: "image/png")
+    restaurant.save
+  end
+  separator_line
+end
+
+def add_restaurant_moods
+  puts "Adding some tags #️⃣"
+  mood = ["Hip", "Casual", "Relaxing", "Party", "Chill", "Energetic", "Modern"]
+  45.times do
+    mood_restaurant = Restaurant.all.sample
+    mood_restaurant.tag_list.add(mood.sample)
+    puts "#{mood_restaurant.name} is now: #{mood_restaurant.tag_list}"
+    mood_restaurant.save
+  end
+  separator_line
+end
+
+def create_ozei_accounts
+  puts "Generating Ozei 💎"
+  puts "....Soren created! 🤠"
+  User.create!(
+    email: "soren@ozei.fun",
+    password: "123123",
+    name: "Soren"
+  )
+  puts "....Mattias created! 🤓"
+  User.create!(
+    email: "mattias@ozei.fun",
+    password: "123123",
+    name: "Mattias"
+  )
+  puts "....Yumi created! 👩🏻"
+  User.create!(
+    email: "Yumi@ozei.fun",
+    password: "123123",
+    name: "Yumi"
+  )
+  puts "....Erika created! 💃🏻"
+  User.create!(
+    email: "Erika@ozei.fun",
+    password: "123123",
+    name: "Erika"
+  )
+  separator_line
+end
+
+def create_yumi_restaurant
+  puts "Creating Yumi's fat curry 🍛"
+  Restaurant.create!(
+    user: User.last,
+    name: "Yumi's fat curry",
     category: Faker::Food.ethnic_category,
-    address: seed_addresses[index],
-    maximum_number: rand(1..30),
+    address: "6-12 Jingumae, Shibuya Ku, Tokyo",
+    maximum_number: 10,
     price_range: ["¥", "¥¥", "¥¥¥", "¥¥¥¥"].sample
   )
-  index += 1
-  puts "Searching for an image for #{restaurant.name} 🌇"
-  file = URI.open("http://source.unsplash.com/featured/?#{restaurant.category}")
-  restaurant.photos.attach(io: file, filename: "nes.png", content_type: "image/png")
-  restaurant.save
+  separator_line
 end
 
-separator_line
-puts "Adding some tags #️⃣"
-mood = ["Cozy", "Vintage", "Modern"]
-7.times do
-  mood_restaurant = Restaurant.all.sample
-  mood_restaurant.tag_list.add(mood.sample)
-  puts "#{mood_restaurant.name} is now: #{mood_restaurant.tag_list}"
-  mood_restaurant.save
+def create_bookings
+  puts "Creating booking for #{User.last.name} "
+  Booking.create!(
+    user: User.last,
+    restaurant:  Restaurant.last,
+    number_of_people: 10
+  )
+  separator_line
 end
 
-separator_line
-puts "Generating Ozei 💎"
-puts "....Soren created! 🤠"
-User.create!(
-  email: "soren@ozei.fun",
-  password: "123123",
-  name: "Soren"
-)
-puts "....Mattias created! 🤓"
-User.create!(
-  email: "mattias@ozei.fun",
-  password: "123123",
-  name: "Mattias"
-)
-puts "....Erika created! 💃🏻"
-User.create!(
-  email: "Erika@ozei.fun",
-  password: "123123",
-  name: "Erika"
-)
-puts "....Yumi created! 👩🏻"
-User.create!(
-  email: "Yumi@ozei.fun",
-  password: "123123",
-  name: "Yumi"
-)
-
-#seeds for booking
-Booking.create!(
-  user: User.find(17), #set the user who made the bookign(In this case Erika id: 17)
-  restaurant:  Restaurant.find(51), #set the restaurant that Erika booked.(In this case Erika booked "Yumi's fat curry" id: 51)
-  number_of_people: 10
-)
+destroy_all_things
+create_users
+create_restaurants
+add_restaurant_moods
+create_ozei_accounts
+create_yumi_restaurant
+create_bookings
