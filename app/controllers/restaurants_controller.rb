@@ -3,14 +3,21 @@ class RestaurantsController < ApplicationController
   before_action :set_restaurant, only: [:show]
 
   def index
-    @restaurants = policy_scope(Restaurant)
-    @restuarants = Restaurant.all
+    @restaurants =
+      if params[:query].present?
+        policy_scope(Restaurant).search(params[:query])
+      else
+        policy_scope(Restaurant)
+      end
+    # @restaurants = Restaurant.all
     @markers = @restaurants.geocoded.map do |restaurant| {
       lat: restaurant.latitude,
       lng: restaurant.longitude,
       info_window: render_to_string(partial: "info_window", locals: {restaurant: restaurant})
     }
     end
+    @tags = restaurant_moods
+    @restaurants = @restaurants.tagged_with(params[:tags]) if params[:tags]&.any?
   end
 
   def show
@@ -25,5 +32,9 @@ class RestaurantsController < ApplicationController
 
   def set_restaurant
     @restaurant = Restaurant.find(params[:id])
+  end
+
+  def restaurant_moods
+    @moods = Restaurant::MOODS
   end
 end
