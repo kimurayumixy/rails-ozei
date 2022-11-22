@@ -1,4 +1,3 @@
 <% @restaurants.each do |restaurant|  %>
-  <h2><%= restaurant.name %></h1>
-  <p><%= restaurant.tag_list %> </p>
+  <%= render 'card', restaurant: restaurant %>
 <% end %>
