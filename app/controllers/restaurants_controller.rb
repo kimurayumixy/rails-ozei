@@ -11,7 +11,7 @@ class RestaurantsController < ApplicationController
         policy_scope(Restaurant)
       end
 
-    @tags = ActsAsTaggableOn::Tag.all
+    @tags = restaurant_moods
     @restaurants = @restaurants.tagged_with(params[:tags]) if params[:tags]&.any?
   end
 
