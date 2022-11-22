@@ -30,3 +30,28 @@ end
   restaurant.photos.attach(io: file, filename: "nes.png", content_type: "image/png")
   restaurant.save
 end
+
+puts "Creating Soren"
+  User.create!(
+    email: "soren@ozei.fun",
+    password: "123123",
+    name: "Soren"
+  )
+puts "Creating Mattias"
+User.create!(
+  email: "mattias@ozei.fun",
+  password: "123123",
+  name: "Mattias"
+)
+puts "Creating Erika"
+User.create!(
+  email: "Erika@ozei.fun",
+  password: "123123",
+  name: "Erika"
+)
+puts "Creating Yumi"
+User.create!(
+  email: "Yumi@ozei.fun",
+  password: "123123",
+  name: "Yumi"
+)
