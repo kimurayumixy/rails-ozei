@@ -1,7 +1,7 @@
 class Owner::BookingsController < ApplicationController
   def index
-    @bookings = policy_scope([:ower, Booking])
-    @restautants = current_user.restautants if current_user.restautants
+    @bookings = policy_scope([:owner, Booking])
+    @restaurants = current_user.restaurants if current_user.restaurants.any?
   end
 
   def update
