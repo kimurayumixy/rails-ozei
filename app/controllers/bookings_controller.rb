@@ -18,10 +18,17 @@ class BookingsController < ApplicationController
 
   def update
     @booking = Booking.find(params[:id])
-    if @booking.update
+    authorize @booking
+    if @booking.update(booking_params)
       redirect_to restaurants_path
     else
       render :index
     end
+  end
+
+  private
+
+  def booking_params
+    params.require(:booking).permit(:status)
   end
 end
