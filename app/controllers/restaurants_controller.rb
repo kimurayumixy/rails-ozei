@@ -13,7 +13,7 @@ class RestaurantsController < ApplicationController
   private
 
   def restaurant
-    params.require(:restaurant).permit(:name)
+    params.require(:restaurant).permit(:name, :tags_list)
   end
 
   def set_restaurant
