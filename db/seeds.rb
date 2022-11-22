@@ -80,7 +80,6 @@ end
 seed_addresses = ADDRESSES.shuffle
 index = 0
 25.times do
-  index += 1
   restaurant = Restaurant.create!(
     user: User.all.sample,
     name: Faker::Restaurant.name,
@@ -89,6 +88,7 @@ index = 0
     maximum_number: rand(1..30),
     price_range: ["¥", "¥¥", "¥¥¥", "¥¥¥¥"].sample
   )
+  index += 1
   puts "Searching for an image for #{restaurant.name} 🌇"
   file = URI.open("http://source.unsplash.com/featured/?#{restaurant.category}")
   restaurant.photos.attach(io: file, filename: "nes.png", content_type: "image/png")
