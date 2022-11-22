@@ -11,8 +11,8 @@ class RestaurantsController < ApplicationController
         policy_scope(Restaurant)
       end
 
-    # @tags = ActsAsTaggableOn::Tag.all
-    # @restaurant = @restaurant.tagged_with(params[:tags]) if params[:tags]&.any?
+    @tags = ActsAsTaggableOn::Tag.all
+    @restaurants = @restaurants.tagged_with(params[:tags]) if params[:tags]&.any?
   end
 
   def show
