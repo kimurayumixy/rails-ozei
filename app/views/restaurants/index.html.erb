@@ -1,3 +1,6 @@
 <h1>This will be the restaurants Index</h1>
+<%= simple_form_for @restaurant do |f| %>
+  <%= f.input :tags_list %>
+<% end %>
 <br>
 <%=render 'list' %>
