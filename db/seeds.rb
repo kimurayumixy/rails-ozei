@@ -16,7 +16,7 @@ User.destroy_all
   )
 end
 
-5.times do
+25.times do
   restaurant = Restaurant.create!(
     user: User.all.sample,
     name: Faker::Restaurant.name,
