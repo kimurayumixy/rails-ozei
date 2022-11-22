@@ -86,7 +86,8 @@ separator_line
 puts "Building restaurants 🚧"
 seed_addresses = ADDRESSES.shuffle
 index = 0
-25.times do
+
+10.times do
   restaurant = Restaurant.create!(
     user: User.all.sample,
     name: Faker::Restaurant.name,

@@ -1,4 +1,6 @@
 class Restaurant < ApplicationRecord
+  MOODS = ["Hip", "Casual", "Relaxing", "Party", "Chill", "Energetic", "Modern"]
+
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
   acts_as_taggable_on :tags
@@ -10,5 +12,8 @@ class Restaurant < ApplicationRecord
   validates :availability, presence: true
 
   include PgSearch::Model
-  pg_search_scope :search, against: [:name], using: { tsearch: { prefix: true } }
+  pg_search_scope :search, against: [:address, :name],
+  using: {
+    tsearch: { prefix: true }
+  }
 end

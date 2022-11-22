@@ -4,11 +4,15 @@ class RestaurantsController < ApplicationController
   before_action :restaurant_moods, only: [:index]
 
   def index
-    if params[:query].present?
-      @restaurants = policy_scope(Restaurant).search(params:[query])
-    else
-      @restaurants = policy_scope(Restaurant)
-    end
+    @restaurants =
+      if params[:query].present?
+        policy_scope(Restaurant).search(params[:query])
+      else
+        policy_scope(Restaurant)
+      end
+
+    # @tags = ActsAsTaggableOn::Tag.all
+    # @restaurant = @restaurant.tagged_with(params[:tags]) if params[:tags]&.any?
   end
 
   def show
@@ -26,6 +30,6 @@ class RestaurantsController < ApplicationController
   end
 
   def restaurant_moods
-    @moods = ["Hip", "Casual", "Relaxing", "Party", "Chill", "Energetic", "Modern"]
+    @moods = Restaurant::MOODS
   end
 end
