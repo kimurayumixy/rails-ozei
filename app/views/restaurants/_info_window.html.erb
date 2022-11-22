@@ -1,0 +1,6 @@
+<div>
+  <%= image_tag restaurant.photos.attached? ? cl_image_path(restaurant.photos[0].key): 'https://source.unsplash.com/200x200', width: "200" %>
+  <h2><%= restaurant.name %></h2>
+  <h4><%= restaurant.address %></h4>
+  <h4><%= restaurant.category %></h4>
+</div>
