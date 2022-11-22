@@ -12,8 +12,10 @@ end
 
 puts "Destroying all restaurants 🔥 "
 Restaurant.destroy_all
-puts "Deleting all humans 👽"
+puts "👽: Deleting all humans"
 User.destroy_all
+
+separator_line
 
 ADDRESSES = [
   "1-291-8 Sarugakucho, Chiyoda ku, Tokyo to", #works
@@ -70,6 +72,8 @@ ADDRESSES = [
   "1-3 Shoto, Shibuya ku, Tokyo to", #works
   "10-15 Maruyamacho, Shibuya ku, Tokyo to", #works
 ]
+
+puts "Generating humans 🤪"
 5.times do
   User.create!(
     email: Faker::Internet.unique.email,
@@ -77,6 +81,9 @@ ADDRESSES = [
     name: Faker::Internet.unique.username
   )
 end
+
+separator_line
+puts "Building restaurants 🚧"
 seed_addresses = ADDRESSES.shuffle
 index = 0
 25.times do
@@ -95,34 +102,37 @@ index = 0
   restaurant.save
 end
 
-mood = ["Cozy", "Vintage", "Modern"]
-
+separator_line
 puts "Adding some tags #️⃣"
+mood = ["Cozy", "Vintage", "Modern"]
 7.times do
   mood_restaurant = Restaurant.all.sample
   mood_restaurant.tag_list.add(mood.sample)
   puts "#{mood_restaurant.name} is now: #{mood_restaurant.tag_list}"
+  mood_restaurant.save
 end
 
-puts "Creating Soren"
+separator_line
+puts "Generating Ozei 💎"
+puts "....Soren created! 🤠"
 User.create!(
   email: "soren@ozei.fun",
   password: "123123",
   name: "Soren"
 )
-puts "Creating Mattias"
+puts "....Mattias created! 🤓"
 User.create!(
   email: "mattias@ozei.fun",
   password: "123123",
   name: "Mattias"
 )
-puts "Creating Erika"
+puts "....Erika created! 💃🏻"
 User.create!(
   email: "Erika@ozei.fun",
   password: "123123",
   name: "Erika"
 )
-puts "Creating Yumi"
+puts "....Yumi created! 👩🏻"
 User.create!(
   email: "Yumi@ozei.fun",
   password: "123123",
