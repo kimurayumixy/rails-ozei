@@ -1,14 +1,4 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
-Restaurant.destroy_all
-User.destroy_all
-ADDRESSES = [
-  "1-291-8 Sarugakucho, Chiyoda ku, Tokyo to", #works
+ "1-291-8 Sarugakucho, Chiyoda ku, Tokyo to", #works
 "2-9 Sarugakucho, Chiyoda ku, Tokyo to", #works
 "14-6 Daita, Setagaya ku, Tokyo to", #works
 "4-12-6 Omotesando, Shibuya ku, Tokyo to", #works
@@ -34,9 +24,6 @@ ADDRESSES = [
 "2-13 Shibuya, Shibuya ku, Tokyo to", #works
 "4-2-12 Shibuya, Shibuya ku, Tokyo to", #works
 "32-12 Udagawacho, Shibuya ku, Tokyo to", #works
-# "2 Kamimeguro, Meguro ku, Tokyo to",
-# "4-3 Nakameguro, Meguro ku, Tokyo to",
-# "4-1 Nakameguro, Meguro ku, Tokyo to",
 "5-5 Ginza, Chuo ku, Tokyo to", #works
 "5-8 Ginza, Chuo ku, Tokyo to", #works
 "2-6 Ginza, Chuo ku, Tokyo to", #works
@@ -61,65 +48,3 @@ ADDRESSES = [
 "6-12 Jingumae, Shibuya Ku, Tokyo to", #works
 "1-3 Shoto, Shibuya ku, Tokyo to", #works
 "10-15 Maruyamacho, Shibuya ku, Tokyo to", #works
-]
-5.times do
-  User.create!(
-    email: Faker::Internet.unique.email,
-    password: Faker::Internet.password(min_length: 8),
-    name: Faker::Internet.unique.username
-  )
-end
-seed_addresses = ADDRESSES.shuffle
-index = 0
-25.times do
-  index += 1
-  restaurant = Restaurant.create!(
-    user: User.all.sample,
-    name: Faker::Restaurant.name,
-    category: Faker::Food.ethnic_category,
-    address: seed_addresses[index],
-    maximum_number: rand(1..30),
-    price_range: ["¥", "¥¥", "¥¥¥", "¥¥¥¥"].sample
-  )
-  puts "Searching for an image for a #{restaurant.name}"
-  file = URI.open("http://source.unsplash.com/featured/?#{restaurant.category}")
-  restaurant.photos.attach(io: file, filename: "nes.png", content_type: "image/png")
-  restaurant.save
-end
-
-5.times do
-  puts "adding some tags...."
-  Restaurant.all.sample.tag_list.add("Cozy", "Fun")
-  Restaurant.all.sample.tag_list.add("Chill")
-  Restaurant.all.sample.tag_list.add("Dirty and boring")
-end
-
-puts "Creating Soren"
-User.create!(
-  email: "soren@ozei.fun",
-  password: "123123",
-  name: "Soren"
-)
-puts "Creating Mattias"
-User.create!(
-  email: "mattias@ozei.fun",
-  password: "123123",
-  name: "Mattias"
-)
-puts "Creating Erika"
-User.create!(
-  email: "Erika@ozei.fun",
-  password: "123123",
-  name: "Erika"
-)
-puts "Creating Yumi"
-User.create!(
-  email: "Yumi@ozei.fun",
-  password: "123123",
-  name: "Yumi"
-)
-
-Booking.create!(
-  user: User.all.sample,
-  restaurant:  Restaurant.all.sample
-)

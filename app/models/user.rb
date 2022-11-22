@@ -6,4 +6,8 @@ class User < ApplicationRecord
 
   has_many :bookings, dependent: :destroy
   has_many :restaurants
+
+  def has_restaurant?
+    restaurant.any?
+  end
 end
