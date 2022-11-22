@@ -55,3 +55,8 @@ User.create!(
   password: "123123",
   name: "Yumi"
 )
+
+Booking.create!(
+  user: User.all.sample,
+  restaurant:  Restaurant.all.sample
+)
