@@ -32,11 +32,11 @@ end
 end
 
 puts "Creating Soren"
-  User.create!(
-    email: "soren@ozei.fun",
-    password: "123123",
-    name: "Soren"
-  )
+User.create!(
+  email: "soren@ozei.fun",
+  password: "123123",
+  name: "Soren"
+)
 puts "Creating Mattias"
 User.create!(
   email: "mattias@ozei.fun",
