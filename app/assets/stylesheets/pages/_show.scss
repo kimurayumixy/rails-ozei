@@ -3,3 +3,22 @@
   background-position: center;
   padding: 150px 0;
 }
+
+.reserve-button {
+  border: 2px solid #D47AE8;
+  background-color: #D47AE8;
+  padding: 8px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: white;
+  box-shadow: 2px 2px 8px rgb(230, 230, 230);
+  &:hover {
+    text-decoration: none;
+    color: white;
+  }
+}
+
+.restaurant-display {
+  align-self: center;
+  margin: 16px;
+}
