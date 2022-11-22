@@ -104,8 +104,8 @@ end
 
 separator_line
 puts "Adding some tags #️⃣"
-mood = ["Cozy", "Vintage", "Modern"]
-7.times do
+mood = ["Hip", "Casual", "Relaxing", "Party", "Chill", "Energetic", "Modern"]
+45.times do
   mood_restaurant = Restaurant.all.sample
   mood_restaurant.tag_list.add(mood.sample)
   puts "#{mood_restaurant.name} is now: #{mood_restaurant.tag_list}"
