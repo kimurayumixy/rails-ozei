@@ -141,7 +141,7 @@ User.create!(
 
 #seeds for booking
 Booking.create!(
-  user: User.all.sample,
-  restaurant:  Restaurant.all.sample,
+  user: User.find(17), #set the user who made the bookign(In this case Erika id: 17)
+  restaurant:  Restaurant.find(51), #set the restaurant that Erika booked.(In this case Erika booked "Yumi's fat curry" id: 51)
   number_of_people: 10
 )

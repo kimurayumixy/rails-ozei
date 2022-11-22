@@ -1,8 +1,8 @@
 <div class="card-product mt-3">
-  <img style="height: 200px"  src="<%= booking.restaurant.photo.attached? ? cl_image_path(booking.restaurant.photo.key) : 'https://source.unsplash.com/200x200' %>" class="card-img-top" alt="...">
+  <img style="height: 200px" src="'https://source.unsplash.com/200x200" class="card-img-top" alt="...">
   <div class="content">
     <div class="card-product-infos">
-      <h2>Name: <%= booking.user.username %></h2>
+      <h2>Name: <%= booking.user.name %></h2>
     </div>
     <% if booking.status == "pending" %>
       <div class="d-flex m-2">
