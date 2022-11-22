@@ -10,13 +10,13 @@ class Owner::BookingsController < ApplicationController
     if @booking.update(booking_params)
       redirect_to owner_bookings_path
     else
-      render "owner/bookings", status: unprocessable_entity
+      render :index, status: unprocessable_entity
     end
   end
 
   private
 
   def booking_params
-    params.require(:booking).permit(:restaurant)
+    params.require(:booking).permit(:status)
   end
 end

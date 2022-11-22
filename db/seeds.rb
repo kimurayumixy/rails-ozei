@@ -128,11 +128,10 @@ User.create!(
   password: "123123",
   name: "Yumi"
 )
-<<<<<<< HEAD
 
+#seeds for booking
 Booking.create!(
   user: User.all.sample,
-  restaurant:  Restaurant.all.sample
+  restaurant:  Restaurant.all.sample,
+  number_of_people: 10
 )
-=======
->>>>>>> master
