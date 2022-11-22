@@ -138,3 +138,10 @@ User.create!(
   password: "123123",
   name: "Yumi"
 )
+
+#seeds for booking
+Booking.create!(
+  user: User.all.sample,
+  restaurant:  Restaurant.all.sample,
+  number_of_people: 10
+)

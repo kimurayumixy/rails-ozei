@@ -1,0 +1,9 @@
+<h1>This is owner bookings</h1>
+<div class="container mt-3 mb-3">
+  <div class="title">
+    <h2>My bookings</h2>
+  </div>
+  <% @bookings.each do |booking| %>
+    <%=  booking.user.username %>
+  <% end %>
+</div>
