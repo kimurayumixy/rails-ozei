@@ -14,7 +14,6 @@
       <% end %>
       <div class="select-card m-3">
         <%= simple_form_for [restaurant, @booking] do |f| %>
-          <%= f.input :number_of_people %>
           <%= button_tag type: 'submit', class: "btn btn-success" do %>
             Book<i class="bi bi-bag-check m-1"></i>
           <% end %>
