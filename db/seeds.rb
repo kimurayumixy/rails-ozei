@@ -202,6 +202,8 @@ def hotpepper_restaurants
         name: restaurant["name_kana"],
         category: restaurant["genre"]["name"],
         address: restaurant["address"],
+        longitude: restaurant["lng"],
+        latitude: restaurant["lat"],
         maximum_number: rand(1..30),
         price_range: ["¥", "¥¥", "¥¥¥", "¥¥¥¥"].sample
       )
