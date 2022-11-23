@@ -95,9 +95,11 @@ def create_restaurants
       price_range: ["¥", "¥¥", "¥¥¥", "¥¥¥¥"].sample
     )
     index += 1
-    puts "Searching for an image for #{restaurant.name} 🌇"
-    file = URI.open("http://source.unsplash.com/featured/?#{restaurant.category}")
-    restaurant.photos.attach(io: file, filename: "nes.png", content_type: "image/png")
+    puts "Finding two #{restaurant.category} images for #{restaurant.name}"
+    2.times do
+      file = URI.open("http://source.unsplash.com/featured/?#{restaurant.category}")
+      restaurant.photos.attach(io: file, filename: "nes.png", content_type: "image/png")
+    end
     restaurant.save
   end
   separator_line
@@ -143,30 +145,6 @@ def create_ozei_accounts
   )
   separator_line
 end
-
-# def create_yumi_restaurant
-#   puts "Creating Yumi's fat curry 🍛"
-#   Restaurant.create!(
-#     user: User.last,
-#     name: "Yumi's fat curry",
-#     category: Faker::Food.ethnic_category,
-#     address: "6-12 Jingumae, Shibuya Ku, Tokyo",
-#     maximum_number: 10,
-#     price_range: ["¥", "¥¥", "¥¥¥", "¥¥¥¥"].sample
-#   )
-#   separator_line
-# end
-
-
-# def create_bookings
-#   puts "Creating booking for #{User.last.name} "
-#   Booking.create!(
-#     user: User.last,
-#     restaurant:  Restaurant.last,
-#     number_of_people: 10
-#   )
-#   separator_line
-# end
 
 def create_yumi_restaurant
   puts "Creating Yumi's fat curry 🍛"
