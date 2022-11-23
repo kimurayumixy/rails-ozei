@@ -4,4 +4,7 @@ class Owner::BookingPolicy < ApplicationPolicy
       scope.joins(:restaurant).where(restaurants: { user: user})
     end
   end
+  def update?
+    record.user == user
+  end
 end
