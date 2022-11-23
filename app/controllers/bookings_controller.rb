@@ -19,9 +19,10 @@ class BookingsController < ApplicationController
 
   def update
     @booking = Booking.find(params[:id])
+    @restaurant = @booking.restaurant
     authorize @booking
     if @booking.update(booking_params)
-      redirect_to restaurants_path
+      redirect_to restaurant_path(@restaurant)
     else
       render :index
     end

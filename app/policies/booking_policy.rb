@@ -1,7 +1,7 @@
 class BookingPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.all
+      scope.where(bookings: { user: user})
     end
   end
   def index?
@@ -11,6 +11,6 @@ class BookingPolicy < ApplicationPolicy
     true
   end
   def update?
-    record.user == user
+    user == record.user || record.restaurant.user == user
   end
 end
