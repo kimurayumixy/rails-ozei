@@ -9,6 +9,7 @@ export default class extends Controller {
   }
 
   revealMap(){
-    
+    console.log(this.contentTarget)
+    this.contentTarget.classList.remove("modal-hide")
   }
 }
