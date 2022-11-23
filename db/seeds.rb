@@ -144,6 +144,30 @@ def create_ozei_accounts
   separator_line
 end
 
+# def create_yumi_restaurant
+#   puts "Creating Yumi's fat curry 🍛"
+#   Restaurant.create!(
+#     user: User.last,
+#     name: "Yumi's fat curry",
+#     category: Faker::Food.ethnic_category,
+#     address: "6-12 Jingumae, Shibuya Ku, Tokyo",
+#     maximum_number: 10,
+#     price_range: ["¥", "¥¥", "¥¥¥", "¥¥¥¥"].sample
+#   )
+#   separator_line
+# end
+
+
+# def create_bookings
+#   puts "Creating booking for #{User.last.name} "
+#   Booking.create!(
+#     user: User.last,
+#     restaurant:  Restaurant.last,
+#     number_of_people: 10
+#   )
+#   separator_line
+# end
+
 def create_yumi_restaurant
   puts "Creating Yumi's fat curry 🍛"
   Restaurant.create!(
