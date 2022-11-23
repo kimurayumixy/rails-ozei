@@ -6,15 +6,6 @@ class RestaurantsController < ApplicationController
   require 'json'
 
   def index
-    key = "eb23cb3ca1015ddc"
-    lat = '35.658'
-    lng = '139.7016'
-    range = 1
-    api = URI.parse("http://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=#{key}&large_area=Z011&format=json")
-    json = Net::HTTP.get(api)
-    parseResult = JSON.parse(json)
-    @result = parseResult["results"]["shop"]
-
     @restaurants =
       if params[:query].present?
         policy_scope(Restaurant).search(params[:query])
