@@ -1,13 +1,20 @@
-<%= link_to restaurant_path(restaurant) do %>
+<div>
   <div class="card-restaurant">
-    <img src="https://source.unsplash.com/random" />
-    <div class="card-restaurant-infos">
-      <div class="m-3">
-        <h2><%= restaurant.name %></h2>
-        <p><%= restaurant.category %></p>
-        <p>Tags: <%= restaurant.tag_list %></p>
-        <h2 class="card-restaurant-pricing"><%= restaurant.price_range %></h2>
+    <%= link_to restaurant_path(restaurant) do %>
+      <img src="https://source.unsplash.com/random" />
+      <div class="card-content">
+        <div class="card-restaurant-infos">
+          <div class="m-3">
+            <h2><%= restaurant.name %></h2>
+            <p><%= restaurant.category %></p>
+            <p>Tags: <%= restaurant.tag_list %></p>
+            <h2 class="card-restaurant-pricing"><%= restaurant.price_range %></h2>
+          <% end %>
+        </div>
+      </div>
+      <div class="select-card m-3">
+        <%= link_to "reserve", bookings_path %>
       </div>
     </div>
   </div>
-<% end %>
+</div>

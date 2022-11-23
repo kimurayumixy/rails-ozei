@@ -182,6 +182,17 @@ def create_yumi_restaurant
 end
 
 def create_bookings
+  20.times do
+    puts "Creating random bookings"
+  Booking.create!(
+    status: 0,
+    user: User.all.sample,
+    restaurant:  Restaurant.all.sample,
+    number_of_people: rand(1..30)
+  )
+end
+  separator_line
+
   puts "Creating booking for #{User.last.name} "
   Booking.create!(
     user: User.last,
