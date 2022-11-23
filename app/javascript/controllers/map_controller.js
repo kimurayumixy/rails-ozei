@@ -18,7 +18,7 @@ export default class extends Controller {
 
     this.#addMarkersToMap()
     this.#fitMapToMarkers()
-    this.#addControl()
+    this.#addGeolocation()
   }
 
   #addMarkersToMap() {
@@ -42,14 +42,17 @@ export default class extends Controller {
     this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0})
   }
 
-  #addControl(){
-    new mapboxgl.GeolocateControl({
+  #addGeolocation(){
+    this.map.addControl(
+      new mapboxgl.GeolocateControl({
       positionOptions: {
       enableHighAccuracy: true
       },
+      // When active the map will receive updates to the device's location as it changes.
       trackUserLocation: true,
+      // Draw an arrow next to the location dot to indicate which direction the device is heading.
       showUserHeading: true
-      });
+      })
+      );
   }
-
 }
