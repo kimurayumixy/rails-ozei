@@ -1,1 +1,4 @@
 <h1>testing</h1>
+<% current_user.bookings.each  do |booking| %>
+  <p><%= booking.restaurant.name %></p>
+<% end %>

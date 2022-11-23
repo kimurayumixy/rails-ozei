@@ -12,5 +12,8 @@
       </label>
     </div>
   <% end %>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
-<% end %>
+  <%= submit_tag "Search", class: "btn btn-primary" do %>
+    <%= simple_form_for [restaurant, @booking] do |f| %>
+      <%= f.input :number_of_people %>
+    <% end %>
+  <% end %>

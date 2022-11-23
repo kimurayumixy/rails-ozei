@@ -18,6 +18,7 @@ class RestaurantsController < ApplicationController
     end
     @tags = restaurant_moods
     @restaurants = @restaurants.tagged_with(params[:tags]) if params[:tags]&.any?
+    @booking = Booking.new
   end
 
   def show

@@ -9,11 +9,16 @@
             <p><%= restaurant.category %></p>
             <p>Tags: <%= restaurant.tag_list %></p>
             <h2 class="card-restaurant-pricing"><%= restaurant.price_range %></h2>
-          <% end %>
+          </div>
         </div>
-      </div>
+      <% end %>
       <div class="select-card m-3">
-        <%= link_to "reserve", bookings_path %>
+        <%= simple_form_for [restaurant, @booking] do |f| %>
+          <%= f.input :number_of_people %>
+          <%= button_tag type: 'submit', class: "btn btn-success" do %>
+            Book<i class="bi bi-bag-check m-1"></i>
+          <% end %>
+        <% end %>
       </div>
     </div>
   </div>

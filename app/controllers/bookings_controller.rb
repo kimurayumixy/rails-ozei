@@ -8,6 +8,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new
     @booking.restaurant = @restaurant
     @booking.user = current_user
+    @booking.number_of_people = (params[:booking][:number_of_people]).to_i
     authorize @booking
     if @booking.save
       redirect_to bookings_path
@@ -29,6 +30,6 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:status)
+    params.require(:booking).permit(:status, :number_of_people)
   end
 end
