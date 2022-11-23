@@ -21,7 +21,7 @@ class BookingsController < ApplicationController
     @restaurant = @booking.restaurant
     authorize @booking
     if @booking.update(booking_params)
-      redirect_to restaurant_path(@restaurant)
+      redirect_to bookings_path
     else
       render :index
     end
