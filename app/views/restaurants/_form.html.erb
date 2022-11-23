@@ -1,16 +1,18 @@
-<%= form_with url: restaurants_path, method: :get, class: "d-flex" do %>
-  <%= text_field_tag :query,
+<div class="searchbar">
+  <%= form_with url: restaurants_path, method: :get, class: "d-flex" do %>
+    <%= text_field_tag :query,
     params[:query],
     class: "form-control",
     placeholder: "Find restaurant"
   %>
-  <% @tags.each do |tag| %>
-    <div class="form-check">
-      <input name="tags[]" class="form-check-input" type="checkbox" value="<%= tag %>" id="flexCheckDefault<%= tag %>" <%= "checked" if params[:tags]&.include?(tag) %>>
-      <label class="form-check-label" for="flexCheckDefault<%= tag %>">
-        <%= tag %>
-      </label>
-    </div>
+    <% @tags.each do |tag| %>
+      <div class="button-group-pills text-center" data-toggle="buttons">
+        <label class="btn btn-default">
+          <input type="checkbox" value="<%= tag %>" <%= "checked" if params[:tags]&.include?(tag) %>>
+          <%= tag %>
+        </label>
+      </div>
+    <% end %>
+    <%= submit_tag "Search", class: "btn btn-primary" %>
   <% end %>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
-<% end %>
+</div>
