@@ -85,7 +85,7 @@ def create_restaurants
   categories = ["All you can eat", "All you can drink", "Japanese, Kaiseki, Washoku", "Sushi", "Soba", "Tempura", "Yakiniku", "Steak, Teppanyaki", "Yakitori", "French", "Italian, Trattoria", "Western Cousine", "Chinese", "Bar", "Pub", "Izakaya"]
   seed_addresses = ADDRESSES.shuffle
   index = 0
-  40.times do
+  3.times do
     restaurant = Restaurant.create!(
       user: User.all.sample,
       name: Faker::Restaurant.name,
@@ -162,14 +162,17 @@ end
 def create_bookings
   20.times do
     puts "Creating random bookings"
-  Booking.create!(
-    status: 0,
-    user: User.all.sample,
-    restaurant:  Restaurant.all.sample,
-    number_of_people: rand(1..30)
-  )
+    Booking.create!(
+      status: 0,
+      user: User.all.sample,
+      restaurant:  Restaurant.all.sample,
+      number_of_people: rand(1..30)
+    )
+  end
   separator_line
+end
 
+def create_erika_booking
   puts "Creating booking for #{User.last.name} "
   Booking.create!(
     user: User.last,
@@ -179,12 +182,11 @@ def create_bookings
   separator_line
 end
 
-def
-
 destroy_all_things
 create_users
 create_restaurants
 add_restaurant_moods
 create_ozei_accounts
 create_yumi_restaurant
+create_erika_booking
 create_bookings
