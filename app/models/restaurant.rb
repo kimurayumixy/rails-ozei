@@ -12,7 +12,7 @@ class Restaurant < ApplicationRecord
   validates :availability, presence: true
 
   include PgSearch::Model
-  pg_search_scope :search, against: [:address, :name],
+  pg_search_scope :search, against: [:address, :name, :category],
   using: {
     tsearch: { prefix: true }
   }
