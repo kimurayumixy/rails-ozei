@@ -95,7 +95,6 @@ def create_restaurants
       price_range: ["¥", "¥¥", "¥¥¥", "¥¥¥¥"].sample
     )
     index += 1
-    puts "Searching for an image for #{restaurant.name} 🌇"
     file = URI.open("http://source.unsplash.com/featured/?#{restaurant.category}")
     restaurant.photos.attach(io: file, filename: "nes.png", content_type: "image/png")
     restaurant.save
@@ -143,7 +142,6 @@ def create_ozei_accounts
   )
   separator_line
 end
-
 
 def create_yumi_restaurant
   puts "Creating Yumi's fat curry 🍛"
