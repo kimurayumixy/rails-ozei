@@ -85,7 +85,7 @@ def create_restaurants
   categories = ["All you can eat", "All you can drink", "Japanese, Kaiseki, Washoku", "Sushi", "Soba", "Tempura", "Yakiniku", "Steak, Teppanyaki", "Yakitori", "French", "Italian, Trattoria", "Western Cousine", "Chinese", "Bar", "Pub", "Izakaya"]
   seed_addresses = ADDRESSES.shuffle
   index = 0
-  40.times do
+  3.times do
     restaurant = Restaurant.create!(
       user: User.all.sample,
       name: Faker::Restaurant.name,
@@ -95,8 +95,11 @@ def create_restaurants
       price_range: ["¥", "¥¥", "¥¥¥", "¥¥¥¥"].sample
     )
     index += 1
-    file = URI.open("http://source.unsplash.com/featured/?#{restaurant.category}")
-    restaurant.photos.attach(io: file, filename: "nes.png", content_type: "image/png")
+    2.times do
+      file = URI.open("http://source.unsplash.com/featured/?#{restaurant.category}")
+      restaurant.photos.attach(io: file, filename: "nes.png", content_type: "image/png")
+    end
+
     restaurant.save
   end
   separator_line
