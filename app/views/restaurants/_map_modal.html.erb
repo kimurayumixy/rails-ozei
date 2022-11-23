@@ -1,13 +1,17 @@
-<div id='map-modal-container' class='modal-hide'>
-  <div style="width: 100%; height: 300px;"
-    data-controller="map"
-    data-map-markers-value="<%= @markers.to_json %>"
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-  </div>
-</div>
+<div id='modal-main' data-controller='modal'>
   <div class ='button-container d-flex align-items-center justify-content-center'>
-    <button id="map-modal-button" class='map-modal'>
+    <button id="map-modal-button" class='map-modal' data-action="click->modal#launchTest">
       Show Map
       <i class="fa-regular fa-map"></i>
     </button>
   </div>
+  <div class="modal-body">
+    <div id='map-modal-container' class='modal-hide' data-modal-target='modalContainer'>
+      <div style="width: 100%; height: 80vh;"
+        data-controller="map"
+        data-map-markers-value="<%= @markers.to_json %>"
+        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
+    </div>
+  </div>
+</div>
