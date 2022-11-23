@@ -156,6 +156,7 @@ def create_yumi_restaurant
   separator_line
 end
 
+
 def create_bookings
   puts "Creating booking for #{User.last.name} "
   Booking.create!(
