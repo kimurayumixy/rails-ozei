@@ -1,0 +1,15 @@
+.map-modal {
+  background-color: #000000;
+  color: #ffffff;
+  border-radius: 50px;
+  width: 150px;
+  text-align: center;
+  box-shadow: 0 0 8px #000000;
+
+}
+
+button {
+  :hover {
+    transform: scale(1.2);
+  }
+}
