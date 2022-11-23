@@ -1,5 +1,5 @@
 class Restaurant < ApplicationRecord
-  MOODS = ["Hip", "Casual", "Relaxing", "Party", "Chill", "Energetic", "Modern"]
+  MOODS = ["Hip", "Casual", "Relaxing", "Party", "Chill", "Energetic", "Modern", "Fancy"]
 
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
@@ -12,7 +12,7 @@ class Restaurant < ApplicationRecord
   validates :availability, presence: true
 
   include PgSearch::Model
-  pg_search_scope :search, against: [:address, :name],
+  pg_search_scope :search, against: [:address, :name, :category],
   using: {
     tsearch: { prefix: true }
   }

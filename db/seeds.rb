@@ -82,13 +82,14 @@ end
 
 def create_restaurants
   puts "Building restaurants 🚧"
+  categories = ["All you can eat", "All you can drink", "Japanese, Kaiseki, Washoku", "Sushi", "Soba", "Tempura", "Yakiniku", "Steak, Teppanyaki", "Yakitori", "French", "Italian, Trattoria", "Western Cousine", "Chinese", "Bar", "Pub", "Izakaya"]
   seed_addresses = ADDRESSES.shuffle
   index = 0
   40.times do
     restaurant = Restaurant.create!(
       user: User.all.sample,
       name: Faker::Restaurant.name,
-      category: Faker::Food.ethnic_category,
+      category: categories.sample,
       address: seed_addresses[index],
       maximum_number: rand(1..30),
       price_range: ["¥", "¥¥", "¥¥¥", "¥¥¥¥"].sample
@@ -104,7 +105,7 @@ end
 
 def add_restaurant_moods
   puts "Adding some tags #️⃣"
-  mood = ["Hip", "Casual", "Relaxing", "Party", "Chill", "Energetic", "Modern"]
+  mood = ["Hip", "Casual", "Relaxing", "Party", "Chill", "Energetic", "Modern", "Fancy"]
   45.times do
     mood_restaurant = Restaurant.all.sample
     mood_restaurant.tag_list.add(mood.sample)
@@ -166,6 +167,29 @@ end
 #   )
 #   separator_line
 # end
+
+def create_yumi_restaurant
+  puts "Creating Yumi's fat curry 🍛"
+  Restaurant.create!(
+    user: User.last,
+    name: "Yumi's fat curry",
+    category: "All you can eat",
+    address: "6-12 Jingumae, Shibuya Ku, Tokyo",
+    maximum_number: 10,
+    price_range: ["¥", "¥¥", "¥¥¥", "¥¥¥¥"].sample
+  )
+  separator_line
+end
+
+def create_bookings
+  puts "Creating booking for #{User.last.name} "
+  Booking.create!(
+    user: User.last,
+    restaurant:  Restaurant.last,
+    number_of_people: 10
+  )
+  separator_line
+end
 
 destroy_all_things
 create_users
