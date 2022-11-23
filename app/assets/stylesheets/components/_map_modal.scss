@@ -1,0 +1,23 @@
+
+#map{
+  width: 100vw;
+  height: 80vh;
+  overflow-y: hidden;
+}
+
+.modal-hide {
+  display: none
+}
+
+#map-modal-button {
+  position: fixed;
+  bottom: 16px;
+  margin: auto;
+  z-index: 1;
+  background-color: #000000;
+  color: #ffffff;
+  border-radius: 20px;
+  width: 100px;
+  text-align: center;
+  box-shadow: 0 0 4px #000000;
+}
