@@ -13,11 +13,12 @@ export default class extends Controller {
   //   this.contentTarget.classList.remove("modal-hide")
   // }
 
-  launchTest() {
+  toggleMap() {
     console.log(this.modalContainerTarget)
     this.modalContainerTarget.classList.toggle('modal-hide')
   }
-//   open() {
-//     console.log("The modal has been opened!");
-// }
+
+  // changeButton(){
+  //   this.element.innerHTML = '<span>Show List</span><i class="fa-solid fa-list"></i>'
+  // }
 }
