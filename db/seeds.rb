@@ -168,7 +168,6 @@ def create_bookings
     restaurant:  Restaurant.all.sample,
     number_of_people: rand(1..30)
   )
-end
   separator_line
 
   puts "Creating booking for #{User.last.name} "
@@ -179,6 +178,8 @@ end
   )
   separator_line
 end
+
+def
 
 destroy_all_things
 create_users
