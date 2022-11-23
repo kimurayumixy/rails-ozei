@@ -9,7 +9,6 @@ class RestaurantsController < ApplicationController
       else
         policy_scope(Restaurant)
       end
-    # @restaurants = Restaurant.all
     @markers = @restaurants.geocoded.map do |restaurant| {
       lat: restaurant.latitude,
       lng: restaurant.longitude,
@@ -17,7 +16,9 @@ class RestaurantsController < ApplicationController
     }
     end
     @tags = restaurant_moods
+    @restaurants = @restaurants.where('maximum_number >= ?', params[:group_size]) if params[:group_size].present?
     @restaurants = @restaurants.tagged_with(params[:tags]) if params[:tags]&.any?
+    @booking = Booking.new
   end
 
   def show

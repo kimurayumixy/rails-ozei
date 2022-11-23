@@ -5,8 +5,8 @@ class Owner::BookingsController < ApplicationController
   end
 
   def update
-    @booking = Booking.find(param[:id])
-    authorize @booking
+    @booking = Booking.find(params[:id])
+    authorize [:owner, @booking]
     if @booking.update(booking_params)
       redirect_to owner_bookings_path
     else

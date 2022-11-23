@@ -95,9 +95,11 @@ def create_restaurants
       price_range: ["¥", "¥¥", "¥¥¥", "¥¥¥¥"].sample
     )
     index += 1
-    puts "Searching for an image for #{restaurant.name} 🌇"
-    file = URI.open("http://source.unsplash.com/featured/?#{restaurant.category}")
-    restaurant.photos.attach(io: file, filename: "nes.png", content_type: "image/png")
+    puts "Finding two #{restaurant.category} images for #{restaurant.name}"
+    2.times do
+      file = URI.open("http://source.unsplash.com/featured/?#{restaurant.category}")
+      restaurant.photos.attach(io: file, filename: "nes.png", content_type: "image/png")
+    end
     restaurant.save
   end
   separator_line

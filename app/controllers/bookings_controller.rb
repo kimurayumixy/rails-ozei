@@ -9,6 +9,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new
     @booking.restaurant = @restaurant
     @booking.user = current_user
+    @booking.number_of_people = (params[:booking][:number_of_people]).to_i
     authorize @booking
     if @booking.save
       redirect_to bookings_path
@@ -19,9 +20,14 @@ class BookingsController < ApplicationController
 
   def update
     @booking = Booking.find(params[:id])
+    @restaurant = @booking.restaurant
+    # raise
+    @user = current_user
     authorize @booking
     if @booking.update(booking_params)
-      redirect_to restaurants_path
+      bookings = current_user.bookings.where(status: %w[pending restaurant_accepted])
+      bookings.update_all(status: "user_rejected")
+      redirect_to bookings_path
     else
       render :index
     end
@@ -30,6 +36,6 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:status)
+    params.require(:booking).permit(:status, :number_of_people)
   end
 end
