@@ -207,8 +207,9 @@ def hotpepper_restaurants
         maximum_number: rand(1..30),
         price_range: ["¥", "¥¥", "¥¥¥", "¥¥¥¥"].sample
       )
-      # file = URI.open("#{restaurant["logo_image"]}")
-      # restaurant.photos.attach(io: file, filename: "nes.png", content_type: "image/png")
+      file = URI.open("#{restaurant["logo_image"]}")
+      puts "#{restaurant["logo_image"]}"
+      new_restaurant.photos.attach(io: file, filename: "nes.png", content_type: "image/png")
       new_restaurant.save
     end
 end

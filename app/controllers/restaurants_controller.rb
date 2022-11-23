@@ -1,9 +1,6 @@
 class RestaurantsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home, :index, :show]
   before_action :set_restaurant, only: [:show]
-  require 'net/http'
-  require 'uri'
-  require 'json'
 
   def index
     @restaurants =
