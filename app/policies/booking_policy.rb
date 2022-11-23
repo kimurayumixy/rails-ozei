@@ -8,6 +8,6 @@ class BookingPolicy < ApplicationPolicy
     true
   end
   def update?
-    user == record.user
+    user == record.user || record.restaurant.user == user
   end
 end

@@ -6,11 +6,11 @@
     </div>
     <% if booking.status == "pending" %>
       <div class="d-flex m-2">
-        <%= simple_form_for booking do |f| %>
+        <%= simple_form_for booking, url: owner_booking_path(booking) do |f| %>
           <%= f.input :status, as: :hidden, input_html: { value: 'restaurant_accepted'} %>
           <%= f.submit 'Accept', class: 'btn btn-info' %>
         <% end %>
-        <%= simple_form_for booking do |f| %>
+        <%= simple_form_for booking, url: owner_booking_path(booking) do |f| %>
           <%= f.input :status, as: :hidden, input_html: { value: 'restaurant_rejected'} %>
           <%= f.submit 'Reject', class: 'btn btn-light' %>
         <% end %>

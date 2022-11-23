@@ -5,6 +5,8 @@ class Owner::BookingPolicy < ApplicationPolicy
     end
   end
   def update?
-    record.user == user
+    # raise
+    true
+    # record.restaurant.user == user
   end
 end
