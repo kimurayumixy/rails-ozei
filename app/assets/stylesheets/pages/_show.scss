@@ -13,10 +13,12 @@
   color: white;
   box-shadow: 2px 2px 8px rgb(230, 230, 230);
   margin: 24px;
+  font-weight: 500;
   &:hover {
     text-decoration: none;
     color: white;
     box-shadow: 2px 2px 8px rgb(182, 182, 182);
+    font-weight: 900;
   }
 }
 
