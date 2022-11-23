@@ -54,5 +54,6 @@ export default class extends Controller {
       showUserHeading: true
       })
       );
+      console.log('Added geolocation to map');
   }
 }

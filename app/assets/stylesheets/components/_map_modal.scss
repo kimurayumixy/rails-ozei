@@ -1,15 +1,30 @@
 .map-modal {
   background-color: #000000;
   color: #ffffff;
-  border-radius: 50px;
-  width: 150px;
+  border-radius: 20px;
+  width: 100px;
   text-align: center;
-  box-shadow: 0 0 8px #000000;
+  box-shadow: 0 0 4px #000000;
 
 }
 
 button {
-  :hover {
-    transform: scale(1.2);
-  }
+  position: fixed;
+  bottom: 16px;
+  margin: auto;
+  z-index: 1;
 }
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
