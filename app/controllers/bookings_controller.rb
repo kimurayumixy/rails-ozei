@@ -19,8 +19,12 @@ class BookingsController < ApplicationController
   def update
     @booking = Booking.find(params[:id])
     @restaurant = @booking.restaurant
+    # raise
+    @user = current_user
     authorize @booking
     if @booking.update(booking_params)
+      bookings = current_user.bookings.where(status: %w[pending restaurant_accepted])
+      bookings.update_all(status: "user_rejected")
       redirect_to bookings_path
     else
       render :index
