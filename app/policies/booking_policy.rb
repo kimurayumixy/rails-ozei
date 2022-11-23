@@ -4,6 +4,9 @@ class BookingPolicy < ApplicationPolicy
       scope.where(bookings: { user: user})
     end
   end
+  def index?
+    true
+  end
   def create?
     true
   end
