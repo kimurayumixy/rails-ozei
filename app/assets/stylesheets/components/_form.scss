@@ -1,0 +1,48 @@
+$pill-border-radius:  20px !default;
+$pill-margin-x:       10px !default;
+$pill-margin-y:       15px !default;
+
+$pill-bg:             #FFF !default;
+$pill-border:         rgb(187, 187, 187) !default;
+$pill-font:           rgb(212, 122, 232) !default;
+
+$pill-hover-bg:       rgb(212, 122, 232) !default;
+$pill-hover-border:   rgb(177, 100, 195) !default;
+$pill-hover-font:     #FFF !default;
+
+$pill-active-bg:      rgb(212, 122, 232) !default;
+$pill-active-border:  rgb(177, 100, 195) !default;
+$pill-active-font:    #FFF !default;
+
+body {
+  font-family: "Open Sans";
+}
+
+.button-group-pills {
+  .btn {
+    border-radius: $pill-border-radius;
+    line-height: 1.2;
+
+    margin-bottom: $pill-margin-y;
+    margin-left:   $pill-margin-x;
+
+    border-color: $pill-border;
+    background-color: $pill-bg;
+    color: $pill-font;
+
+    &.active {
+      border-color:     $pill-active-border;
+      background-color: $pill-active-bg;
+      color:            $pill-active-font;
+
+      box-shadow: none;
+    }
+
+    &:hover {
+      border-color:     $pill-hover-border;
+      background-color: $pill-hover-bg;
+      color:            $pill-hover-font;
+    }
+
+  }
+}
