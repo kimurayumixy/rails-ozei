@@ -2,10 +2,10 @@
   <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false">
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="<%= restaurant.photos.attached? ? cl_image_path(restaurant.photos.first.key) : 'https://images.unsplash.com/photo-1592861956120-e524fc739696?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80' %>" alt="...", class="d-block w-100" alt="...">
+        <img src="<%= restaurant.photos.attached? ? cl_image_path(restaurant.photos.first.key) : 'https://images.unsplash.com/photo-1592861956120-e524fc739696?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80' %>" class="d-block w-100" alt="...">
       </div>
       <div class="carousel-item">
-        <img src="https://images.unsplash.com/photo-1592861956120-e524fc739696?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80" class="d-block w-100" alt="...">
+        <img src="<%= restaurant.photos.attached? ? cl_image_path(restaurant.photos.last.key) : 'https://images.unsplash.com/photo-1592861956120-e524fc739696?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80' %>" class="d-block w-100" alt="...">
       </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev">
