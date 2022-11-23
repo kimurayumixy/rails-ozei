@@ -1,30 +1,24 @@
 <%# <div class="banner" style="background-image: url(https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80);">
 </div> %>
-<div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="https://images.unsplash.com/photo-1592861956120-e524fc739696?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80" class="d-block w-100" alt="...">
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
-<div class="restaurant-display">
-  <div class="restaurant-content">
+<div class="restaurant">
+  <%= render 'carousel', restaurant: @restaurant %>
+  <div class="restaurant-display">
     <h1><%= @restaurant.name %></h1>
-    <p><%= @restaurant.address %></p>
-    <p><%= @restaurant.category %></p>
-    <p><%= @restaurant.price_range %></p>
-    <p><%= @restaurant.maximum_number %></p>
+    <p class="address"><%= @restaurant.address %></p>
+    <hr>
+    <div class="restaurant-content">
+      <p><%= @restaurant.category %></p>
+      <div>
+        <i class="fa-solid fa-user-group"></i>
+        <%= @restaurant.maximum_number %>
+      </div>
+      <div class="d-flex">
+        <% @restaurant.price_range.length.times do %>
+          <i class="fa-solid fa-yen-sign"></i>
+        <% end %>
+      </div>
+    </div>
+    <strong><a class="reserve-button" style="float: right;" href="#">Reserve</a></strong>
   </div>
-  <strong><a class="reserve-button" style="float: right;" href="#">Reserve</a></strong>
 </div>
+<%= link_to "#check position for back button#", restaurants_path, class: "btn btn-primary" %>

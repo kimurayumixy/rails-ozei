@@ -1,3 +1,7 @@
-<% @restaurants.each do |restaurant|  %>
-  <%= render 'card', restaurant: restaurant %>
-<% end %>
+<div class="container">
+  <div class="cards">
+    <% @restaurants.each do |restaurant|  %>
+      <%= render 'card', restaurant: restaurant %>
+    <% end %>
+  </div>
+</div>
