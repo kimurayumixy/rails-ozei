@@ -85,7 +85,7 @@ def create_restaurants
   categories = ["All you can eat", "All you can drink", "Japanese, Kaiseki, Washoku", "Sushi", "Soba", "Tempura", "Yakiniku", "Steak, Teppanyaki", "Yakitori", "French", "Italian, Trattoria", "Western Cousine", "Chinese", "Bar", "Pub", "Izakaya"]
   seed_addresses = ADDRESSES.shuffle
   index = 0
-  10.times do
+  40.times do
     restaurant = Restaurant.create!(
       user: User.all.sample,
       name: Faker::Restaurant.name,
