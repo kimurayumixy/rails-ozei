@@ -2,7 +2,7 @@
   <%= text_field_tag :query,
     params[:query],
     class: "form-control",
-    placeholder: "Find a restaurant"
+    placeholder: "Find restaurant"
   %>
   <%= form.number_field :group_size, in: 1..50, value: params[:group_size] %>
   <% @tags.each do |tag| %>
