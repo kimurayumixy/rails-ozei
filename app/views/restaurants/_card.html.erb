@@ -1,7 +1,7 @@
 <div>
   <div class="card-restaurant">
     <%= link_to restaurant_path(restaurant) do %>
-      <img src="<%= restaurant.photos.attached? ? cl_image_path(restaurant.photo.key) : 'https://source.unsplash.com/200x200' %>" alt="...">
+      <img src="<%= restaurant.photos.attached? ? cl_image_path(restaurant.photos.first.key) : 'https://source.unsplash.com/200x200' %>" alt="...">
       <div class="card-content">
         <div class="card-restaurant-infos">
           <div class="m-3">
