@@ -4,4 +4,6 @@
 <br>
 <%= render 'list' %>
 Test
-<h1><%= @result %></h1>
+<% @result.each do |restaurant|  %>
+  <p><%= restaurant["name"]  %></p>
+<% end %>
