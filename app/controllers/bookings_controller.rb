@@ -21,7 +21,6 @@ class BookingsController < ApplicationController
   def update
     @booking = Booking.find(params[:id])
     @restaurant = @booking.restaurant
-    # raise
     @user = current_user
     authorize @booking
     if @booking.update(booking_params)

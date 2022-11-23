@@ -2,6 +2,7 @@ class Owner::BookingsController < ApplicationController
   def index
     @bookings = policy_scope([:owner, Booking])
     @restaurants = current_user.restaurants if current_user.restaurants.any?
+    @tags =  Restaurant::MOODS
   end
 
   def update
