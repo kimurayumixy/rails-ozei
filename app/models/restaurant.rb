@@ -1,5 +1,5 @@
 class Restaurant < ApplicationRecord
-  MOODS = ["Hip", "Casual", "Relaxing", "Party", "Chill", "Energetic", "Modern"]
+  MOODS = ["Hip", "Casual", "Relaxing", "Party", "Chill", "Energetic", "Modern", "Fancy"]
 
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?

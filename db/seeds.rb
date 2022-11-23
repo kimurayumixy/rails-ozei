@@ -104,7 +104,7 @@ end
 
 def add_restaurant_moods
   puts "Adding some tags #️⃣"
-  mood = ["Hip", "Casual", "Relaxing", "Party", "Chill", "Energetic", "Modern"]
+  mood = ["Hip", "Casual", "Relaxing", "Party", "Chill", "Energetic", "Modern", "Fancy"]
   45.times do
     mood_restaurant = Restaurant.all.sample
     mood_restaurant.tag_list.add(mood.sample)
@@ -155,7 +155,6 @@ def create_yumi_restaurant
   )
   separator_line
 end
-
 
 def create_bookings
   puts "Creating booking for #{User.last.name} "
