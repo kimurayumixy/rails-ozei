@@ -18,6 +18,7 @@ export default class extends Controller {
 
     this.#addMarkersToMap()
     this.#fitMapToMarkers()
+    this.#addControl()
   }
 
   #addMarkersToMap() {
@@ -40,4 +41,15 @@ export default class extends Controller {
       marker.lng, marker.lat]))
     this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0})
   }
+
+  #addControl(){
+    new mapboxgl.GeolocateControl({
+      positionOptions: {
+      enableHighAccuracy: true
+      },
+      trackUserLocation: true,
+      showUserHeading: true
+      });
+  }
+
 }
