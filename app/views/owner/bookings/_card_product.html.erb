@@ -1,0 +1,38 @@
+<div class="card-product mt-3">
+  <img style="height: 200px" src="'https://source.unsplash.com/200x200" class="card-img-top" alt="...">
+  <div class="content">
+    <div class="card-product-infos">
+      <h2>Name: <%= booking.user.name %></h2>
+    </div>
+    <% if booking.status == "pending" %>
+      <div class="d-flex m-2">
+        <%= simple_form_for booking do |f| %>
+          <%= f.input :status, as: :hidden, input_html: { value: 'restaurant_accepted'} %>
+          <%= f.submit 'Accept', class: 'btn btn-info' %>
+        <% end %>
+        <%= simple_form_for booking do |f| %>
+          <%= f.input :status, as: :hidden, input_html: { value: 'restaurant_rejected'} %>
+          <%= f.submit 'Reject', class: 'btn btn-light' %>
+        <% end %>
+      </div>
+    <% else %>
+      <div class="accept">
+        <div class="d-flex justify-content-center">
+          <% if booking.status == "restaurant_accepted" %>
+            <a href="#" class="btn btn-success">
+              <%= "Accepted" %>
+            </a>
+          <% elsif booking.status == "restaurant_rejected" %>
+            <a href="#" class="btn btn-body-color">
+              <%= "Rejected" %>
+            </a>
+          <% elsif booking.status == "pending" %>
+            <a href="#" class="btn btn-primary">
+              <%= "Pending" %>
+            </a>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

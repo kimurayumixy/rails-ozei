@@ -1,0 +1,18 @@
+<h1>This is owner bookings</h1>
+<div class="container mt-3 mb-3">
+  <div class="title">
+    <h2>My bookings</h2>
+  </div>
+  <% @bookings.each do |booking| %>
+    <%= render "card_product", booking: booking %>
+  <% end %>
+  <div class="title mt-3">
+    <h2>My Restaurant</h2>
+  </div>
+  <div class="cards-my-restaurant d-flex gap-4 mb-3">
+    <% @current_user.restaurants.order("created_at desc").each do |restaurant| %>
+      <%= restaurant.name %>
+    <% end %>
+  </div>
+</div>
+</div>
