@@ -199,15 +199,15 @@ def hotpepper_restaurants
     @result.each do |restaurant|
       new_restaurant = Restaurant.create!(
         user: User.all.sample,
-        name: restaurant["name_kana"],
+        name: restaurant["name"],
         category: restaurant["genre"]["name"],
         address: restaurant["address"],
         longitude: restaurant["lng"],
         latitude: restaurant["lat"],
-        maximum_number: rand(1..30),
-        price_range: ["¥", "¥¥", "¥¥¥", "¥¥¥¥"].sample
+        maximum_number: restaurant["capacity"],
+        price_range: restaurant["budget"]["average"]
       )
-      file = URI.open("#{restaurant["logo_image"]}")
+      file = URI.open("#{restaurant["photo"]["pc"]["l"]}")
       puts "#{restaurant["logo_image"]}"
       new_restaurant.photos.attach(io: file, filename: "nes.png", content_type: "image/png")
       new_restaurant.save
