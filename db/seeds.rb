@@ -210,7 +210,7 @@ def hotpepper_restaurants
         longitude: restaurant["lng"],
         latitude: restaurant["lat"],
         maximum_number: restaurant["capacity"],
-        price_range: restaurant["budget"]["average"]
+        price_range: "¥ #{[1000,2000,3000,4000,5000,6000,7000,8000,9000,10000].sample}"
       )
       file = URI.open("#{restaurant["photo"]["pc"]["l"]}")
       new_restaurant.photos.attach(io: file, filename: "nes.png", content_type: "image/png")
@@ -239,7 +239,7 @@ def hotpepper_restaurants
         longitude: restaurant["lng"],
         latitude: restaurant["lat"],
         maximum_number: restaurant["capacity"],
-        price_range: restaurant["budget"]["average"]
+        price_range: "¥ #{[1000,2000,3000,4000,5000,6000,7000,8000,9000,10000].sample}"
       )
       file = URI.open("#{restaurant["photo"]["pc"]["l"]}")
       new_restaurant.photos.attach(io: file, filename: "nes.png", content_type: "image/png")
@@ -268,7 +268,7 @@ def hotpepper_restaurants
         longitude: restaurant["lng"],
         latitude: restaurant["lat"],
         maximum_number: restaurant["capacity"],
-        price_range: restaurant["budget"]["average"]
+        price_range: "¥ #{[1000,2000,3000,4000,5000,6000,7000,8000,9000,10000].sample}"
       )
       file = URI.open("#{restaurant["photo"]["pc"]["l"]}")
       new_restaurant.photos.attach(io: file, filename: "nes.png", content_type: "image/png")
@@ -297,7 +297,7 @@ def hotpepper_restaurants
         longitude: restaurant["lng"],
         latitude: restaurant["lat"],
         maximum_number: restaurant["capacity"],
-        price_range: restaurant["budget"]["average"]
+        price_range: "¥ #{[1000,2000,3000,4000,5000,6000,7000,8000,9000,10000].sample}"
       )
       file = URI.open("#{restaurant["photo"]["pc"]["l"]}")
       new_restaurant.photos.attach(io: file, filename: "nes.png", content_type: "image/png")
@@ -326,7 +326,7 @@ def hotpepper_restaurants
         longitude: restaurant["lng"],
         latitude: restaurant["lat"],
         maximum_number: restaurant["capacity"],
-        price_range: restaurant["budget"]["average"]
+        price_range: "¥ #{[1000,2000,3000,4000,5000,6000,7000,8000,9000,10000].sample}"
       )
       file = URI.open("#{restaurant["photo"]["pc"]["l"]}")
       new_restaurant.photos.attach(io: file, filename: "nes.png", content_type: "image/png")
@@ -355,7 +355,7 @@ def hotpepper_restaurants
         longitude: restaurant["lng"],
         latitude: restaurant["lat"],
         maximum_number: restaurant["capacity"],
-        price_range: restaurant["budget"]["average"]
+        price_range: "¥ #{[1000,2000,3000,4000,5000,6000,7000,8000,9000,10000].sample}"
       )
       file = URI.open("#{restaurant["photo"]["pc"]["l"]}")
       new_restaurant.photos.attach(io: file, filename: "nes.png", content_type: "image/png")
@@ -384,7 +384,7 @@ def hotpepper_restaurants
         longitude: restaurant["lng"],
         latitude: restaurant["lat"],
         maximum_number: restaurant["capacity"],
-        price_range: restaurant["budget"]["average"]
+        price_range: "¥ #{[1000,2000,3000,4000,5000,6000,7000,8000,9000,10000].sample}"
       )
       file = URI.open("#{restaurant["photo"]["pc"]["l"]}")
       new_restaurant.photos.attach(io: file, filename: "nes.png", content_type: "image/png")
@@ -393,9 +393,43 @@ def hotpepper_restaurants
 
   end
 
-  izakayas
-  italian
+
+
+  def demo_restaurant
+    puts "Creating Demo Restaurant 🚧"
+    restaurant = Restaurant.create!(
+      user: User.find(1),
+      name: "Bettako",
+      description: "Come drink, eat and have a real local experience in Meguro! Maybe even make some new friends?",
+      category: "Izakaya",
+      address: "1-chome-5-21 Shimomeguro Meguro City Tokyo to",
+      maximum_number: 80,
+      price_range: "¥2000"
+    )
+    index = 0
+    images = [
+      "https://tabelog.com/imgview/original?id=r44612125955057",
+      "https://tabelog.com/imgview/original?id=r78907187882174",
+      "https://tabelog.com/imgview/original?id=r79711187883032",
+      "https://tabelog.com/imgview/original?id=r47981190098591"
+    ]
+    4.times do
+      file = URI.open("#{images[index]}")
+      restaurant.photos.attach(io: file, filename: "nes.png", content_type: "image/png")
+      index += 1
+      puts "added image #{images[index - 1]}"
+    end
+    restaurant.save
+  end
+  demo_restaurant
   puts "Finished creating restaurants"
+  # izakayas
+  # italian
+  # french
+  # bar
+  # chinese
+  # asia
+  # karaoke
 end
 
 destroy_all_things
