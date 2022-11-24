@@ -228,7 +228,7 @@ def hotpepper_restaurants
     parse_result = JSON.parse(json)
     @result = parse_result["results"]["shop"]
 
-    puts "Creating Italian.."
+    puts "Creating Italian restaurants"
     @result.each do |restaurant|
       new_restaurant = Restaurant.create!(
         user: User.all.sample,
@@ -257,7 +257,7 @@ def hotpepper_restaurants
     parse_result = JSON.parse(json)
     @result = parse_result["results"]["shop"]
 
-    puts "Creating Italian.."
+    puts "Creating French Restaurants.."
     @result.each do |restaurant|
       new_restaurant = Restaurant.create!(
         user: User.all.sample,
@@ -286,6 +286,35 @@ def hotpepper_restaurants
     parse_result = JSON.parse(json)
     @result = parse_result["results"]["shop"]
 
+    puts "Creating bars.."
+    @result.each do |restaurant|
+      new_restaurant = Restaurant.create!(
+        user: User.all.sample,
+        name: restaurant["name"],
+        description: Faker::Restaurant.description,
+        category: restaurant["genre"]["name"],
+        address: restaurant["address"],
+        longitude: restaurant["lng"],
+        latitude: restaurant["lat"],
+        maximum_number: restaurant["capacity"],
+        price_range: restaurant["budget"]["average"]
+      )
+      file = URI.open("#{restaurant["photo"]["pc"]["l"]}")
+      new_restaurant.photos.attach(io: file, filename: "nes.png", content_type: "image/png")
+      new_restaurant.save
+    end
+
+  end
+
+  def chinese
+    categories = ["izakaya", "italian", "french", "bar", "chinese", "asia", "karaoke"]
+    key = "eb23cb3ca1015ddc"
+    url = "https://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=#{key}&name=#{categories[4]}&large_area=Z011&format=json"
+    api = URI.parse(url)
+    json = Net::HTTP.get(api)
+    parse_result = JSON.parse(json)
+    @result = parse_result["results"]["shop"]
+
     puts "Creating Italian.."
     @result.each do |restaurant|
       new_restaurant = Restaurant.create!(
@@ -305,6 +334,65 @@ def hotpepper_restaurants
     end
 
   end
+
+  def asia
+    categories = ["izakaya", "italian", "french", "bar", "chinese", "asia", "karaoke"]
+    key = "eb23cb3ca1015ddc"
+    url = "https://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=#{key}&name=#{categories[5]}&large_area=Z011&format=json"
+    api = URI.parse(url)
+    json = Net::HTTP.get(api)
+    parse_result = JSON.parse(json)
+    @result = parse_result["results"]["shop"]
+
+    puts "Creating Italian.."
+    @result.each do |restaurant|
+      new_restaurant = Restaurant.create!(
+        user: User.all.sample,
+        name: restaurant["name"],
+        description: Faker::Restaurant.description,
+        category: restaurant["genre"]["name"],
+        address: restaurant["address"],
+        longitude: restaurant["lng"],
+        latitude: restaurant["lat"],
+        maximum_number: restaurant["capacity"],
+        price_range: restaurant["budget"]["average"]
+      )
+      file = URI.open("#{restaurant["photo"]["pc"]["l"]}")
+      new_restaurant.photos.attach(io: file, filename: "nes.png", content_type: "image/png")
+      new_restaurant.save
+    end
+
+  end
+
+  def karaoke
+    categories = ["izakaya", "italian", "french", "bar", "chinese", "asia", "karaoke"]
+    key = "eb23cb3ca1015ddc"
+    url = "https://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=#{key}&name=#{categories[6]}&large_area=Z011&format=json"
+    api = URI.parse(url)
+    json = Net::HTTP.get(api)
+    parse_result = JSON.parse(json)
+    @result = parse_result["results"]["shop"]
+
+    puts "Creating Italian.."
+    @result.each do |restaurant|
+      new_restaurant = Restaurant.create!(
+        user: User.all.sample,
+        name: restaurant["name"],
+        description: Faker::Restaurant.description,
+        category: restaurant["genre"]["name"],
+        address: restaurant["address"],
+        longitude: restaurant["lng"],
+        latitude: restaurant["lat"],
+        maximum_number: restaurant["capacity"],
+        price_range: restaurant["budget"]["average"]
+      )
+      file = URI.open("#{restaurant["photo"]["pc"]["l"]}")
+      new_restaurant.photos.attach(io: file, filename: "nes.png", content_type: "image/png")
+      new_restaurant.save
+    end
+
+  end
+
   izakayas
   italian
   puts "Finished creating restaurants"
