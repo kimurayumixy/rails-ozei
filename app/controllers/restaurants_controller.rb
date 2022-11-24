@@ -19,9 +19,12 @@ class RestaurantsController < ApplicationController
     @restaurants = @restaurants.where('maximum_number >= ?', params[:group_size]) if params[:group_size].present?
     @restaurants = @restaurants.tagged_with(params[:tags]) if params[:tags]&.any?
     @booking = Booking.new
+    @group_size = params[:group_size]
   end
 
   def show
+    @booking = Booking.new
+    @tags = Restaurant::MOODS
     authorize @restaurant
     @markers = [{
       lat: @restaurant.latitude,

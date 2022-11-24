@@ -1,10 +1,6 @@
 <div class="searchbar">
-<%= form_with url: restaurants_path, method: :get, class: "d-flex" do |form| %>
-  <%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "Find restaurant"
-  %>
+  <%= form_with url: restaurants_path, method: :get, class: "d-flex" do |form| %>
+    <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Find restaurant" %>
     <%= form.number_field :group_size, in: 1..50, value: params[:group_size] %>
     <% @tags.each do |tag| %>
       <div class="button-group-pills text-center" data-toggle="buttons">
