@@ -1,7 +1,7 @@
 class BookingsController < ApplicationController
   def index
     @bookings = policy_scope(Booking)
-    @tags =  Restaurant::MOODS
+    @tags = Restaurant::MOODS
   end
 
   def create
