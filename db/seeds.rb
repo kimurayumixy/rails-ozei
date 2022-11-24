@@ -104,21 +104,19 @@ def create_restaurants
     2.times do
       file = URI.open("http://source.unsplash.com/featured/?#{restaurant.category}")
       restaurant.photos.attach(io: file, filename: "nes.png", content_type: "image/png")
+      add_restaurant_moods(restaurant)
     end
     restaurant.save
   end
   separator_line
 end
 
-def add_restaurant_moods
+def add_restaurant_moods(restaurant)
   puts "Adding some tags #️⃣"
   mood = ["Hip", "Casual", "Relaxing", "Party", "Chill", "Energetic", "Modern", "Fancy"]
-  45.times do
-    mood_restaurant = Restaurant.all.sample
-    mood_restaurant.tag_list.add(mood.sample)
-    puts "#{mood_restaurant.name} is now: #{mood_restaurant.tag_list}"
-    mood_restaurant.save
-  end
+  restaurant.tag_list.add(mood.sample)
+  puts "#{restaurant.name} is now: #{restaurant.tag_list}"
+  restaurant.save
   separator_line
 end
 
@@ -214,6 +212,7 @@ def hotpepper_restaurants
       )
       file = URI.open("#{restaurant["photo"]["pc"]["l"]}")
       new_restaurant.photos.attach(io: file, filename: "nes.png", content_type: "image/png")
+      add_restaurant_moods(new_restaurant)
       new_restaurant.save
     end
 
@@ -243,6 +242,7 @@ def hotpepper_restaurants
       )
       file = URI.open("#{restaurant["photo"]["pc"]["l"]}")
       new_restaurant.photos.attach(io: file, filename: "nes.png", content_type: "image/png")
+      add_restaurant_moods(new_restaurant)
       new_restaurant.save
     end
 
@@ -272,9 +272,9 @@ def hotpepper_restaurants
       )
       file = URI.open("#{restaurant["photo"]["pc"]["l"]}")
       new_restaurant.photos.attach(io: file, filename: "nes.png", content_type: "image/png")
+      add_restaurant_moods(new_restaurant)
       new_restaurant.save
     end
-
   end
 
   def bar
@@ -301,6 +301,7 @@ def hotpepper_restaurants
       )
       file = URI.open("#{restaurant["photo"]["pc"]["l"]}")
       new_restaurant.photos.attach(io: file, filename: "nes.png", content_type: "image/png")
+      add_restaurant_moods(new_restaurant)
       new_restaurant.save
     end
 
@@ -330,6 +331,7 @@ def hotpepper_restaurants
       )
       file = URI.open("#{restaurant["photo"]["pc"]["l"]}")
       new_restaurant.photos.attach(io: file, filename: "nes.png", content_type: "image/png")
+      add_restaurant_moods(new_restaurant)
       new_restaurant.save
     end
 
@@ -359,6 +361,7 @@ def hotpepper_restaurants
       )
       file = URI.open("#{restaurant["photo"]["pc"]["l"]}")
       new_restaurant.photos.attach(io: file, filename: "nes.png", content_type: "image/png")
+      add_restaurant_moods(new_restaurant)
       new_restaurant.save
     end
 
@@ -388,6 +391,7 @@ def hotpepper_restaurants
       )
       file = URI.open("#{restaurant["photo"]["pc"]["l"]}")
       new_restaurant.photos.attach(io: file, filename: "nes.png", content_type: "image/png")
+      add_restaurant_moods(new_restaurant)
       new_restaurant.save
     end
 
@@ -437,8 +441,8 @@ end
 destroy_all_things
 create_users
 # create_restaurants
-# add_restaurant_moods
 create_ozei_accounts
+add_restaurant_moods
 hotpepper_restaurants
 # create_yumi_restaurant
 # create_erika_booking
