@@ -112,12 +112,12 @@ def create_restaurants
 end
 
 def add_restaurant_moods(restaurant)
+  my_restaurant = restaurant
   puts "Adding some tags #️⃣"
   mood = ["Hip", "Casual", "Relaxing", "Party", "Chill", "Energetic", "Modern", "Fancy"]
-  restaurant.tag_list.add(mood.sample)
-  puts "#{restaurant.name} is now: #{restaurant.tag_list}"
-  restaurant.save
-  separator_line
+  my_restaurant.tag_list.add(mood.sample)
+  puts "#{my_restaurant.name} is now: #{my_restaurant.tag_list} 🤙🏻"
+  my_restaurant.save
 end
 
 def create_ozei_accounts
@@ -154,12 +154,27 @@ def create_yumi_restaurant
   Restaurant.create!(
     user: User.find(3),
     name: "Yumi's fat curry",
-    description: "Curry, curry, curry and more curry!!!",
+    description: "Curry, curry, curry and more curry!!! 🍛",
     category: "All you can eat",
     address: "6-12 Jingumae, Shibuya Ku, Tokyo",
     maximum_number: 10,
-    price_range: ["¥", "¥¥", "¥¥¥", "¥¥¥¥"].sample
+    price_range: "¥1000"
   )
+  index = 0
+    images = [
+      "https://pbs.twimg.com/media/FLuh35iaMAIgaI4.jpg",
+      "https://i8b2m3d9.stackpathcdn.com/wp-content/uploads/2021/12/Katsu_Curry_7011bsq.jpg",
+      "https://rimage.gnst.jp/livejapan.com/public/article/detail/a/00/00/a0000480/img/basic/a0000480_main.jpg?20201023102522",
+      "https://grapee.jp/en/wp-content/uploads/73879_03.jpg"
+    ]
+  4.times do
+    file = URI.open("#{images[index]}")
+    restaurant.photos.attach(io: file, filename: "nes.png", content_type: "image/png")
+    index += 1
+    puts "added image #{images[index - 1]}"
+  end
+  add_restaurant_moods(restaurant)
+  restaurant.save
   separator_line
 end
 
@@ -187,6 +202,7 @@ def create_erika_booking
 end
 
 def hotpepper_restaurants
+  puts "Getting Hotpepper restaurants 🌶️"
 
   def izakayas
     categories = ["izakaya", "italian", "french", "bar", "chinese", "asia", "karaoke"]
@@ -402,7 +418,7 @@ def hotpepper_restaurants
     restaurant = Restaurant.create!(
       user: User.find(1),
       name: "Bettako",
-      description: "Come drink, eat and have a real local experience in Meguro! Maybe even make some new friends.",
+      description: "Come drink, eat and have a real local experience in Meguro! Maybe even make some new friends?",
       category: "Izakaya",
       address: "1-5-21 Shimomeguro, Meguro City, Tokyo to",
       longitude: 139.712492,
@@ -425,26 +441,24 @@ def hotpepper_restaurants
     end
     add_restaurant_moods(restaurant)
     restaurant.save
-
-
   end
+
+  izakayas
+  italian
+  french
+  bar
+  chinese
+  asia
+  karaoke
   demo_restaurant
-  # izakayas
-  # italian
-  # french
-  # bar
-  # chinese
-  # asia
-  # karaoke
-  puts "Finished creating restaurants"
+  puts "Finished creating API-restaurants"
 end
 
 destroy_all_things
 create_users
-# create_restaurants
+create_restaurants
 create_ozei_accounts
-add_restaurant_moods
 hotpepper_restaurants
-# create_yumi_restaurant
-# create_erika_booking
+create_yumi_restaurant
+create_erika_booking
 # create_bookings
