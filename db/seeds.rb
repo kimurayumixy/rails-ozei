@@ -84,32 +84,6 @@ def create_users
   separator_line
 end
 
-<<<<<<< HEAD
-# def create_restaurants
-#   puts "Building restaurants 🚧"
-#   categories = ["All you can eat", "All you can drink", "Japanese, Kaiseki, Washoku", "Sushi", "Soba", "Tempura", "Yakiniku", "Steak, Teppanyaki", "Yakitori", "French", "Italian, Trattoria", "Western Cousine", "Chinese", "Bar", "Pub", "Izakaya"]
-#   seed_addresses = ADDRESSES.shuffle
-#   index = 0
-#   3.times do
-#     restaurant = Restaurant.create!(
-#       user: User.all.sample,
-#       name: Faker::Restaurant.name,
-#       category: categories.sample,
-#       address: seed_addresses[index],
-#       maximum_number: rand(1..30),
-#       price_range: ["¥", "¥¥", "¥¥¥", "¥¥¥¥"].sample
-#     )
-#     index += 1
-#     puts "Finding two #{restaurant.category} images for #{restaurant.name}"
-#     2.times do
-#       file = URI.open("http://source.unsplash.com/featured/?#{restaurant.category}")
-#       restaurant.photos.attach(io: file, filename: "nes.png", content_type: "image/png")
-#     end
-#     restaurant.save
-#   end
-#   separator_line
-# end
-=======
 def create_restaurants
   puts "Building restaurants 🚧"
   categories = ["All you can eat", "All you can drink", "Japanese, Kaiseki, Washoku", "Sushi", "Soba", "Tempura", "Yakiniku", "Steak, Teppanyaki", "Yakitori", "French", "Italian, Trattoria", "Western Cousine", "Chinese", "Bar", "Pub", "Izakaya"]
@@ -135,7 +109,6 @@ def create_restaurants
   end
   separator_line
 end
->>>>>>> origin
 
 # def add_restaurant_moods
 #   puts "Adding some tags #️⃣"
@@ -178,20 +151,6 @@ def create_ozei_accounts
   separator_line
 end
 
-<<<<<<< HEAD
-# def create_yumi_restaurant
-#   puts "Creating Yumi's fat curry 🍛"
-#   Restaurant.create!(
-#     user: User.last,
-#     name: "Yumi's fat curry",
-#     category: "All you can eat",
-#     address: "6-12 Jingumae, Shibuya Ku, Tokyo",
-#     maximum_number: 10,
-#     price_range: ["¥", "¥¥", "¥¥¥", "¥¥¥¥"].sample
-#   )
-#   separator_line
-# end
-=======
 def create_yumi_restaurant
   puts "Creating Yumi's fat curry 🍛"
   Restaurant.create!(
@@ -205,7 +164,6 @@ def create_yumi_restaurant
   )
   separator_line
 end
->>>>>>> origin
 
 # def create_bookings
 #   20.times do
@@ -232,13 +190,10 @@ end
 
 def hotpepper_restaurants
   key = "eb23cb3ca1015ddc"
-    lat = '35.658'
-    lng = '139.7016'
-    range = 1
-    api = URI.parse("http://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=#{key}&large_area=Z011&format=json")
-    json = Net::HTTP.get(api)
-    parseResult = JSON.parse(json)
-    @result = parseResult["results"]["shop"]
+  api = URI.parse("http://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=#{key}&large_area=Z011&format=json")
+  json = Net::HTTP.get(api)
+  parseResult = JSON.parse(json)
+  @result = parseResult["results"]["shop"]
 
     @result.each do |restaurant|
       new_restaurant = Restaurant.create!(
@@ -252,7 +207,6 @@ def hotpepper_restaurants
         price_range: restaurant["budget"]["average"]
       )
       file = URI.open("#{restaurant["photo"]["pc"]["l"]}")
-      puts "#{restaurant["logo_image"]}"
       new_restaurant.photos.attach(io: file, filename: "nes.png", content_type: "image/png")
       new_restaurant.save
     end
