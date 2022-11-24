@@ -26,7 +26,7 @@ class BookingsController < ApplicationController
     if @booking.update(booking_params)
       bookings = current_user.bookings.where(status: %w[pending restaurant_accepted])
       bookings.update_all(status: "user_rejected")
-      redirect_to bookings_path
+      redirect_to restaurant_path(@restaurant)
     else
       render :index
     end
