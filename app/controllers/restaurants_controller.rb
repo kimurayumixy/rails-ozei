@@ -23,6 +23,11 @@ class RestaurantsController < ApplicationController
 
   def show
     authorize @restaurant
+    @markers = [{
+      lat: @restaurant.latitude,
+      lng: @restaurant.longitude,
+      info_window: render_to_string(partial: "info_window", locals: {restaurant: @restaurant})
+    }]
   end
 
   private

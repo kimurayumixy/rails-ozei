@@ -1,13 +1,7 @@
 <div id='modal-main' data-controller='modal'>
-  <div class ='button-container d-flex align-items-center justify-content-center'>
-    <button id="map-modal-button" class='map-modal' data-action="click->modal#toggleMap">
-      <span>Show Map</span>
-      <i class="fa-regular fa-map"></i>
-    </button>
-  </div>
   <div class="modal-body">
-    <div id='map-modal-container' class='modal-hide' data-modal-target='modalContainer'>
-      <div id="map" style="width: 100%; height: 80vh;"
+    <div id='map-modal-container' class='' data-modal-target='modalContainer'>
+      <div id="map" style="width: 100%; height: 300px;"
         data-controller="map"
         data-map-markers-value="<%= @markers.to_json %>"
         data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
