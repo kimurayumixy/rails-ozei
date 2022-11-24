@@ -12,3 +12,6 @@ application.register("map", MapController)
 
 import ModalController from "./modal_controller"
 application.register("modal", ModalController)
+
+import RestaurantSubscriptionController from "./restaurant_subscription_controller"
+application.register("restaurant-subscription", RestaurantSubscriptionController)

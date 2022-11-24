@@ -10,9 +10,14 @@ class BookingsController < ApplicationController
     @booking.restaurant = @restaurant
     @booking.user = current_user
     @booking.number_of_people = (params[:booking][:number_of_people]).to_i
+    @booking.status = "pending"
     authorize @booking
     if @booking.save
-      redirect_to bookings_path
+      RestaurantChannel.broadcast_to(
+        @restaurant.user,
+        render_to_string(partial: "card_product", locals: { booking: @booking })
+      )
+      head :ok
     else
       render "restaurants/show", status: :unprocessable_entity
     end
