@@ -101,10 +101,10 @@ def create_restaurants
     )
     index += 1
     puts "Finding two #{restaurant.category} images for #{restaurant.name}"
+    add_restaurant_moods(restaurant)
     2.times do
       file = URI.open("http://source.unsplash.com/featured/?#{restaurant.category}")
       restaurant.photos.attach(io: file, filename: "nes.png", content_type: "image/png")
-      add_restaurant_moods(restaurant)
     end
     restaurant.save
   end
@@ -151,7 +151,7 @@ end
 
 def create_yumi_restaurant
   puts "Creating Yumi's fat curry 🍛"
-  Restaurant.create!(
+ restaurant = Restaurant.create!(
     user: User.find(3),
     name: "Yumi's fat curry",
     description: "Curry, curry, curry and more curry!!! 🍛",
@@ -161,7 +161,7 @@ def create_yumi_restaurant
     price_range: "¥1000"
   )
   index = 0
-    images = [
+  images = [
       "https://pbs.twimg.com/media/FLuh35iaMAIgaI4.jpg",
       "https://i8b2m3d9.stackpathcdn.com/wp-content/uploads/2021/12/Katsu_Curry_7011bsq.jpg",
       "https://rimage.gnst.jp/livejapan.com/public/article/detail/a/00/00/a0000480/img/basic/a0000480_main.jpg?20201023102522",
@@ -460,5 +460,5 @@ create_restaurants
 create_ozei_accounts
 hotpepper_restaurants
 create_yumi_restaurant
-create_erika_booking
+# create_erika_booking
 # create_bookings
