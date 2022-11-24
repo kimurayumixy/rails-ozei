@@ -8,7 +8,7 @@
   </div>
   <div class="bookings" data-restaurant-subscription-target="bookings">
     <% @bookings.each do |booking| %>
-      <%= render "owner/bookings/card_product", booking: booking %>
+      <%= render "card_product", booking: booking %>
     <% end %>
   </div>
   <div class="title mt-3">

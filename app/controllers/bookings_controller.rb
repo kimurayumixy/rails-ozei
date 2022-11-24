@@ -15,7 +15,7 @@ class BookingsController < ApplicationController
     if @booking.save
       RestaurantChannel.broadcast_to(
         @restaurant.user,
-        render_to_string(partial: "card_product", locals: { booking: @booking })
+        render_to_string(partial: "owner/bookings/card_product", locals: { booking: @booking })
       )
       head :ok
     else
