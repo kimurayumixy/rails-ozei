@@ -1,9 +1,6 @@
 class BookingChannel < ApplicationCable::Channel
   def subscribed
-    # stream_from "some_channel"
-  end
-
-  def unsubscribed
-    # Any cleanup needed when channel is unsubscribed
+    booking = Booking.find(params[:id])
+    stream_for booking
   end
 end

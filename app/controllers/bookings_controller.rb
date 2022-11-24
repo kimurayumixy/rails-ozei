@@ -17,7 +17,7 @@ class BookingsController < ApplicationController
         @restaurant.user,
         render_to_string(partial: "owner/bookings/card_product", locals: { booking: @booking })
       )
-      head :ok
+      redirect_to bookings_path
     else
       render "restaurants/show", status: :unprocessable_entity
     end
