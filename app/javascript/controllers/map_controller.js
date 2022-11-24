@@ -1,5 +1,5 @@
 import { Controller } from "@hotwired/stimulus"
-
+const MapboxDirections = require('@mapbox/mapbox-gl-directions')
 
 // Connects to data-controller="map"
 export default class extends Controller {
@@ -19,6 +19,7 @@ export default class extends Controller {
     this.#addMarkersToMap()
     this.#fitMapToMarkers()
     this.#addGeolocation()
+    this.#addDirections()
   }
 
   #addMarkersToMap() {
@@ -42,6 +43,21 @@ export default class extends Controller {
     this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0})
   }
 
+  // Adds directions if we are in show page /restaurants/:id
+  #addDirections() {
+    // if (!this.#isInShowPage()) {
+      this.map.addControl(
+        new MapboxDirections({
+        accessToken: mapboxgl.accessToken
+        }),
+        'top-left'
+        );
+          console.log('Directions added')
+    // }
+  }
+
+
+
   #addGeolocation(){
     this.map.addControl(
       new mapboxgl.GeolocateControl({
@@ -55,5 +71,11 @@ export default class extends Controller {
       })
       );
       console.log('Added geolocation to map');
+      console.log(GeolocationPosition.coords)
+  }
+
+  /* ------------------------- PRIVATE ------------------------------- */
+  #isInShowPage() {
+    return /\/restaurants\/\d+.*/.test(window.location.pathname);
   }
 }

@@ -1,6 +1,9 @@
-<div>
-  <%= render 'carousel', restaurant: restaurant %>
-  <h3><%= restaurant.name %></h2>
-  <h5><%= restaurant.address %></h4>
-  <h5><%= restaurant.category %></h4>
+<div class='map>
+  <div class='pop-up-image'>
+    <%= render 'carousel', restaurant: restaurant %>
+  </div>
+  <h5><%= restaurant.name %></h2>
+  <p><strong><%= restaurant.address %></strong></p>
+  <p>Type: <%= restaurant.category %></p>
+  <p>Vibe: <%=restaurant.tag_list unless restaurant.tag_list.nil? %></p>
 </div>

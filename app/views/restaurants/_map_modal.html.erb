@@ -1,9 +1,9 @@
 <div id='modal-main' data-controller='modal'>
   <div class ='button-container d-flex align-items-center justify-content-center'>
-    <button id="map-modal-button" class='map-modal' data-action="click->modal#toggleMap">
-      <span>Show Map</span>
+    <div id="map-modal-button" class='map-modal d-flex flex-column' data-action="click->modal#toggleMap">
+      <span class='map-text'>Show Map</span>
       <i class="fa-regular fa-map"></i>
-    </button>
+    </div>
   </div>
   <div class="modal-body">
     <div id='map-modal-container' class='modal-hide' data-modal-target='modalContainer'>

@@ -18,7 +18,11 @@ export default class extends Controller {
     this.modalContainerTarget.classList.toggle('modal-hide')
   }
 
-  // changeButton(){
-  //   this.element.innerHTML = '<span>Show List</span><i class="fa-solid fa-list"></i>'
+  // toggleButton(){
+  //   console.log(modalContainerTarget.classList)
   // }
+
+  changeButton(){
+    this.element.innerHTML = '<span class="map-text">Show List</span><i class="fa-solid fa-list"></i>'
+  }
 }
