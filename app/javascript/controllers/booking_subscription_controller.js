@@ -12,8 +12,6 @@ export default class extends Controller {
         console.log(this.bookingsTarget);
         console.log(data);
         this.bookingsTarget.innerHTML = data
-        this.bookingsTarget.style.backgroundColor = "pink"
-        this.element.style.backgroundColor = "pink"
         }
       }
     )
