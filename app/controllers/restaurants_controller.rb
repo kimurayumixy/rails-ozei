@@ -22,6 +22,7 @@ class RestaurantsController < ApplicationController
   end
 
   def show
+    @tags = Restaurant::MOODS
     authorize @restaurant
     @markers = [{
       lat: @restaurant.latitude,
