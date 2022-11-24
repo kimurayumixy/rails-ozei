@@ -9,7 +9,7 @@ class Restaurant < ApplicationRecord
   validates :name, presence: true
   validates :description, presence: true
   validates :category, presence: true
-  validates :address, presence: true, uniqueness: true
+  validates :address, presence: true #uniqueness: true
   validates :availability, presence: true
 
   include PgSearch::Model
