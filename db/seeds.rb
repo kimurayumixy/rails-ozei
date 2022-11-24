@@ -315,7 +315,7 @@ def hotpepper_restaurants
     parse_result = JSON.parse(json)
     @result = parse_result["results"]["shop"]
 
-    puts "Creating Italian.."
+    puts "Creating chinese restaurants.."
     @result.each do |restaurant|
       new_restaurant = Restaurant.create!(
         user: User.all.sample,
@@ -344,7 +344,7 @@ def hotpepper_restaurants
     parse_result = JSON.parse(json)
     @result = parse_result["results"]["shop"]
 
-    puts "Creating Italian.."
+    puts "Creating asian restaurants.."
     @result.each do |restaurant|
       new_restaurant = Restaurant.create!(
         user: User.all.sample,
@@ -373,7 +373,7 @@ def hotpepper_restaurants
     parse_result = JSON.parse(json)
     @result = parse_result["results"]["shop"]
 
-    puts "Creating Italian.."
+    puts "Creating Karaoke bars.."
     @result.each do |restaurant|
       new_restaurant = Restaurant.create!(
         user: User.all.sample,
