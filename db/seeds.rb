@@ -110,17 +110,17 @@ def create_restaurants
   separator_line
 end
 
-# def add_restaurant_moods
-#   puts "Adding some tags #️⃣"
-#   mood = ["Hip", "Casual", "Relaxing", "Party", "Chill", "Energetic", "Modern", "Fancy"]
-#   45.times do
-#     mood_restaurant = Restaurant.all.sample
-#     mood_restaurant.tag_list.add(mood.sample)
-#     puts "#{mood_restaurant.name} is now: #{mood_restaurant.tag_list}"
-#     mood_restaurant.save
-#   end
-#   separator_line
-# end
+def add_restaurant_moods
+  puts "Adding some tags #️⃣"
+  mood = ["Hip", "Casual", "Relaxing", "Party", "Chill", "Energetic", "Modern", "Fancy"]
+  45.times do
+    mood_restaurant = Restaurant.all.sample
+    mood_restaurant.tag_list.add(mood.sample)
+    puts "#{mood_restaurant.name} is now: #{mood_restaurant.tag_list}"
+    mood_restaurant.save
+  end
+  separator_line
+end
 
 def create_ozei_accounts
   puts "Generating Ozei 💎"
@@ -154,7 +154,7 @@ end
 def create_yumi_restaurant
   puts "Creating Yumi's fat curry 🍛"
   Restaurant.create!(
-    user: User.last,
+    user: User.find(3),
     name: "Yumi's fat curry",
     description: "Curry, curry, curry and more curry!!!",
     category: "All you can eat",
@@ -165,28 +165,28 @@ def create_yumi_restaurant
   separator_line
 end
 
-# def create_bookings
-#   20.times do
-#     puts "Creating random bookings"
-#     Booking.create!(
-#       status: 0,
-#       user: User.all.sample,
-#       restaurant:  Restaurant.all.sample,
-#       number_of_people: rand(1..30)
-#     )
-#   end
-#   separator_line
-# end
+def create_bookings
+  20.times do
+    puts "Creating random bookings"
+    Booking.create!(
+      status: 0,
+      user: User.all.sample,
+      restaurant:  Restaurant.all.sample,
+      number_of_people: rand(1..30)
+    )
+  end
+  separator_line
+end
 
-# def create_erika_booking
-#   puts "Creating booking for #{User.last.name} "
-#   Booking.create!(
-#     user: User.last,
-#     restaurant:  Restaurant.last,
-#     number_of_people: 10
-#   )
-#   separator_line
-# end
+def create_erika_booking
+  puts "Creating booking for #{User.last.name} "
+  Booking.create!(
+    user: User.last,
+    restaurant:  Restaurant.last,
+    number_of_people: 10
+  )
+  separator_line
+end
 
 def hotpepper_restaurants
 
@@ -393,16 +393,16 @@ def hotpepper_restaurants
 
   end
 
-
-
   def demo_restaurant
     puts "Creating Demo Restaurant 🚧"
     restaurant = Restaurant.create!(
       user: User.find(1),
       name: "Bettako",
-      description: "Come drink, eat and have a real local experience in Meguro! Maybe even make some new friends?",
+      description: "Come drink, eat and have a real local experience in Meguro! Maybe even make some new friends.",
       category: "Izakaya",
-      address: "1-chome-5-21 Shimomeguro Meguro City Tokyo to",
+      address: "1-5-21 Shimomeguro, Meguro City, Tokyo to",
+      longitude: 139.712492,
+      latitude: 35.635164,
       maximum_number: 80,
       price_range: "¥2000"
     )
@@ -420,16 +420,18 @@ def hotpepper_restaurants
       puts "added image #{images[index - 1]}"
     end
     restaurant.save
+
+
   end
   demo_restaurant
+  izakayas
+  italian
+  french
+  bar
+  chinese
+  asia
+  karaoke
   puts "Finished creating restaurants"
-  # izakayas
-  # italian
-  # french
-  # bar
-  # chinese
-  # asia
-  # karaoke
 end
 
 destroy_all_things
