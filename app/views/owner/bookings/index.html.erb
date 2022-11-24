@@ -1,11 +1,16 @@
 <h1>This is owner bookings</h1>
-<div class="container mt-3 mb-3">
+<div class="container mt-3 mb-3"
+    data-controller="restaurant-subscription"
+    data-restaurant-subscription-owner-id-value="<%= current_user.id %>"
+    >
   <div class="title">
     <h2>My bookings</h2>
   </div>
-  <% @bookings.each do |booking| %>
-    <%= render "card_product", booking: booking %>
-  <% end %>
+  <div class="bookings" data-restaurant-subscription-target="bookings">
+    <% @bookings.each do |booking| %>
+      <%= render "card_product", booking: booking %>
+    <% end %>
+  </div>
   <div class="title mt-3">
     <h2>My Restaurant</h2>
   </div>

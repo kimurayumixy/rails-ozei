@@ -5,32 +5,36 @@
       <div class="card-product-infos">
         <h2>Name: <%= booking.restaurant.name %></h2>
       </div>
-      <% if booking.status == "restaurant_accepted" %>
-        <div class="d-flex m-2">
-          <%= simple_form_for booking do |f| %>
-            <%= f.input :status, as: :hidden, input_html: { value: 'user_accepted'} %>
-            <%= f.submit 'Confirm', class: 'btn btn-info' %>
-          <% end %>
-        </div>
-      <% else %>
-        <div class="accept">
-          <div class="d-flex justify-content-center">
-            <% if booking.status == "user_accepted" %>
-              <a href="#" class="btn btn-success">
-                <%= "Confirmed" %>
-              </a>
-            <% elsif booking.status == "restaurant_rejected" %>
-              <a href="#" class="btn btn-body-color">
-                <%= "Rejected" %>
-              </a>
-            <% elsif booking.status == "user_rejected" %>
-              <a href="#" class="btn btn-primary">
-                <%= "Pending" %>
-              </a>
+      <div class="status-buttons"
+              data-controller="booking-subscription"
+              data-booking-subscription-booking-id-value="<%= booking.id %>"
+              data-booking-subscription-target="bookings"
+        >
+        <% if booking.status == "restaurant_accepted" %>
+          <div class="d-flex m-2">
+            <%= simple_form_for booking do |f| %>
+              <%= f.input :status, as: :hidden, input_html: { value: 'user_accepted'} %>
+              <%= f.submit 'Confirm', class: 'btn btn-info' %>
             <% end %>
           </div>
-        </div>
-      <% end %>
+        <% else %>
+          <div class="d-flex justify-content-center">
+            <div class="user-accepted">
+              <% if booking.status == "user_accepted" %>
+                <% render "user_accepted" %>
+              </div>
+              <div class="restaurant-rejected">
+              <% elsif booking.status == "restaurant_rejected" %>
+                <% render "restaurant_rejected" %>
+              </div>
+              <div class="user-rejected">
+              <% elsif booking.status == "user_rejected" %>
+                <% render "user_rejected" %>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
       <%= link_to "See details", restaurant_path(booking.restaurant) %>
     </div>
   </div>

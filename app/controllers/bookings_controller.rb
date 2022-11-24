@@ -1,7 +1,7 @@
 class BookingsController < ApplicationController
   def index
     @bookings = policy_scope(Booking)
-    @tags =  Restaurant::MOODS
+    @tags = Restaurant::MOODS
   end
 
   def create
@@ -10,8 +10,13 @@ class BookingsController < ApplicationController
     @booking.restaurant = @restaurant
     @booking.user = current_user
     @booking.number_of_people = (params[:booking][:number_of_people]).to_i
+    @booking.status = "pending"
     authorize @booking
     if @booking.save
+      RestaurantChannel.broadcast_to(
+        @restaurant.user,
+        render_to_string(partial: "owner/bookings/card_product", locals: { booking: @booking })
+      )
       redirect_to bookings_path
     else
       render "restaurants/show", status: :unprocessable_entity
