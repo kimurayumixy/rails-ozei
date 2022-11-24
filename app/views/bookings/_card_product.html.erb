@@ -1,35 +1,37 @@
-<div class="card-product mt-3">
-  <img style="height: 200px" src="'https://source.unsplash.com/200x200" class="card-img-top" alt="...">
-  <div class="content">
-    <div class="card-product-infos">
-      <h2>Name: <%= booking.restaurant.name %></h2>
-    </div>
-    <% if booking.status == "restaurant_accepted" %>
-      <div class="d-flex m-2">
-        <%= simple_form_for booking do |f| %>
-          <%= f.input :status, as: :hidden, input_html: { value: 'user_accepted'} %>
-          <%= f.submit 'Confirm', class: 'btn btn-info' %>
-        <% end %>
+<% unless booking.status == "user_rejected" || booking.status == "restaurant_rejected" %>
+  <div class="card-product mt-3">
+    <img src="<%= booking.restaurant.photos.attached? ? cl_image_path(booking.restaurant.photos.first.key) : 'https://images.unsplash.com/photo-1592861956120-e524fc739696?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80' %>" class="d-block w-100" alt="...">
+    <div class="content">
+      <div class="card-product-infos">
+        <h2>Name: <%= booking.restaurant.name %></h2>
       </div>
-    <% else %>
-      <div class="accept">
-        <div class="d-flex justify-content-center">
-          <% if booking.status == "user_accepted" %>
-            <a href="#" class="btn btn-success">
-              <%= "Confirmed" %>
-            </a>
-          <% elsif booking.status == "restaurant_rejected" %>
-            <a href="#" class="btn btn-body-color">
-              <%= "Rejected" %>
-            </a>
-          <% elsif booking.status == "user_rejected" %>
-            <a href="#" class="btn btn-primary">
-              <%= "Pending" %>
-            </a>
+      <% if booking.status == "restaurant_accepted" %>
+        <div class="d-flex m-2">
+          <%= simple_form_for booking do |f| %>
+            <%= f.input :status, as: :hidden, input_html: { value: 'user_accepted'} %>
+            <%= f.submit 'Confirm', class: 'btn btn-info' %>
           <% end %>
         </div>
-      </div>
-    <% end %>
-    <%= link_to "See details", restaurant_path(booking.restaurant) %>
+      <% else %>
+        <div class="accept">
+          <div class="d-flex justify-content-center">
+            <% if booking.status == "user_accepted" %>
+              <a href="#" class="btn btn-success">
+                <%= "Confirmed" %>
+              </a>
+            <% elsif booking.status == "restaurant_rejected" %>
+              <a href="#" class="btn btn-body-color">
+                <%= "Rejected" %>
+              </a>
+            <% elsif booking.status == "user_rejected" %>
+              <a href="#" class="btn btn-primary">
+                <%= "Pending" %>
+              </a>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+      <%= link_to "See details", restaurant_path(booking.restaurant) %>
+    </div>
   </div>
-</div>
+<% end %>
