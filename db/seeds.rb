@@ -423,18 +423,19 @@ def hotpepper_restaurants
       index += 1
       puts "added image #{images[index - 1]}"
     end
+    add_restaurant_moods(restaurant)
     restaurant.save
 
 
   end
   demo_restaurant
-  izakayas
-  italian
-  french
-  bar
-  chinese
-  asia
-  karaoke
+  # izakayas
+  # italian
+  # french
+  # bar
+  # chinese
+  # asia
+  # karaoke
   puts "Finished creating restaurants"
 end
 
