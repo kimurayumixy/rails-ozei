@@ -2,14 +2,7 @@
   <%= form_with url: restaurants_path, method: :get, class: "d-flex" do |form| %>
     <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Find restaurant" %>
     <%= form.number_field :group_size, in: 1..50, value: params[:group_size] %>
-    <% @tags.each do |tag| %>
-      <div class="button-group-pills text-center" data-toggle="buttons">
-        <label class="btn btn-default">
-          <input type="checkbox" value="<%= tag %>" <%= "checked" if params[:tags]&.include?(tag) %>>
-          <%= tag %>
-        </label>
-      </div>
-    <% end %>
+    <%# render 'restaurants/tags_form' %>
     <%= submit_tag "Search", class: "btn btn-primary" %>
   <% end %>
 </div>
