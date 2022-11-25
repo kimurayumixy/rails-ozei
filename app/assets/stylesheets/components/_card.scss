@@ -55,6 +55,27 @@
   grid-gap: 16px;
 }
 
+.button-card {
+  border: 2px solid #D47AE8;
+  background-color: #D47AE8;
+  padding: 8px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: white;
+  box-shadow: 2px 2px 8px rgb(230, 230, 230);
+  font-weight: 500;
+  &:hover {
+    text-decoration: none;
+    color: white;
+    box-shadow: 2px 2px 8px rgb(182, 182, 182);
+    font-weight: 600;
+  }
+  }
+
+.info-search-text {
+  color: #D47AE8;
+}
+
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
   .cards {
