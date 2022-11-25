@@ -72,4 +72,5 @@ Rails.application.configure do
   # Allow requests localtunnel
   config.hosts.clear
   config.hosts << ".loca.lt"
+  config.hosts << "localhost"
 end
