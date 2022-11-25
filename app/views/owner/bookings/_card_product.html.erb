@@ -3,6 +3,8 @@
   <div class="content">
     <div class="card-product-infos">
       <h2>Name: <%= booking.user.name %></h2>
+      <p>Number: <%= booking.number_of_people %></p>
+      <p>Restaurant: <%= booking.restaurant.name %></p>
     </div>
     <% if booking.status == "pending" %>
       <div class="d-flex m-2">
@@ -26,9 +28,9 @@
             <a href="#" class="btn btn-body-color">
               <%= "Rejected" %>
             </a>
-          <% elsif booking.status == "pending" %>
+          <% elsif booking.status == "user_accepted" %>
             <a href="#" class="btn btn-primary">
-              <%= "Pending" %>
+              <%= "Arriving soon" %>
             </a>
           <% end %>
         </div>
