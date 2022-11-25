@@ -23,6 +23,10 @@
               <% if booking.status == "user_accepted" %>
                 <% render "user_accepted" %>
               </div>
+              <%# <div class="pending"> %>
+              <%# <% elsif booking.status == "pending" should be out side of the if restaurant accepted statement?%>
+              <%# <% render "pending" "pending" should be out side of the if restaurant accepted statement? %>
+              <%# </div> %>
               <div class="restaurant-rejected">
               <% elsif booking.status == "restaurant_rejected" %>
                 <% render "restaurant_rejected" %>
