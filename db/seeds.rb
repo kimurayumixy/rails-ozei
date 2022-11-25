@@ -62,6 +62,16 @@ def separator_line
   puts "-------------------"
 end
 
+def destroy_all_things
+  puts "Destorying all bookings! 😈"
+  Booking.destroy_all
+  puts "Destroying all restaurants 🔥"
+  Restaurant.destroy_all
+  puts "Deleting all humans 👽"
+  User.destroy_all
+  separator_line
+end
+
 def create_users
   puts "Generating humans 🤪"
   5.times do
@@ -110,31 +120,7 @@ def add_restaurant_moods(restaurant)
   my_restaurant.save
 end
 
-def create_bookings
-  20.times do
-    puts "Creating random bookings"
-    Booking.create!(
-      status: 0,
-      user: User.all.sample,
-      restaurant:  Restaurant.all.sample,
-      number_of_people: rand(1..30)
-    )
-  end
-  separator_line
-end
-
-def create_erika_booking
-  puts "Creating booking for #{User.last.name} "
-  Booking.create!(
-    user: User.last,
-    restaurant:  Restaurant.last,
-    number_of_people: 10
-  )
-  separator_line
-end
-
-# categories = ["izakaya", "italian", "french", "bar", "chinese", "asia", "karaoke"]
-def hotpepper_restaurants(category)
+def create_hotpepper_restaurants(category)
   puts "Getting Hotpepper restaurants 🌶️"
   key = "eb23cb3ca1015ddc"
   url = "https://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=#{key}&name=#{category}&large_area=Z011&format=json"
@@ -161,223 +147,23 @@ def hotpepper_restaurants(category)
     add_restaurant_moods(new_restaurant)
     new_restaurant.save
   end
-
-  # end
-
-  # def italian
-  #   categories = ["izakaya", "italian", "french", "bar", "chinese", "asia", "karaoke"]
-  #   key = "eb23cb3ca1015ddc"
-  #   url = "https://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=#{key}&name=#{categories[1]}&large_area=Z011&format=json"
-  #   api = URI.parse(url)
-  #   json = Net::HTTP.get(api)
-  #   parse_result = JSON.parse(json)
-  #   @result = parse_result["results"]["shop"]
-
-  #   puts "Creating Italian restaurants"
-  #   @result.each do |restaurant|
-  #     new_restaurant = Restaurant.create!(
-  #       user: User.all.sample,
-  #       name: restaurant["name"],
-  #       description: Faker::Restaurant.description,
-  #       category: restaurant["genre"]["name"],
-  #       address: restaurant["address"],
-  #       longitude: restaurant["lng"],
-  #       latitude: restaurant["lat"],
-  #       maximum_number: restaurant["capacity"],
-  #       price_range: "¥ #{[1000,2000,3000,4000,5000,6000,7000,8000,9000,10000].sample}"
-  #     )
-  #     file = URI.open("#{restaurant["photo"]["pc"]["l"]}")
-  #     new_restaurant.photos.attach(io: file, filename: "nes.png", content_type: "image/png")
-  #     add_restaurant_moods(new_restaurant)
-  #     new_restaurant.save
-  #   end
-
-  # end
-
-  # def french
-  #   categories = ["izakaya", "italian", "french", "bar", "chinese", "asia", "karaoke"]
-  #   key = "eb23cb3ca1015ddc"
-  #   url = "https://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=#{key}&name=#{categories[2]}&large_area=Z011&format=json"
-  #   api = URI.parse(url)
-  #   json = Net::HTTP.get(api)
-  #   parse_result = JSON.parse(json)
-  #   @result = parse_result["results"]["shop"]
-
-  #   puts "Creating French Restaurants.."
-  #   @result.each do |restaurant|
-  #     new_restaurant = Restaurant.create!(
-  #       user: User.all.sample,
-  #       name: restaurant["name"],
-  #       description: Faker::Restaurant.description,
-  #       category: restaurant["genre"]["name"],
-  #       address: restaurant["address"],
-  #       longitude: restaurant["lng"],
-  #       latitude: restaurant["lat"],
-  #       maximum_number: restaurant["capacity"],
-  #       price_range: "¥ #{[1000,2000,3000,4000,5000,6000,7000,8000,9000,10000].sample}"
-  #     )
-  #     file = URI.open("#{restaurant["photo"]["pc"]["l"]}")
-  #     new_restaurant.photos.attach(io: file, filename: "nes.png", content_type: "image/png")
-  #     add_restaurant_moods(new_restaurant)
-  #     new_restaurant.save
-  #   end
-  # end
-
-  # def bar
-  #   categories = ["izakaya", "italian", "french", "bar", "chinese", "asia", "karaoke"]
-  #   key = "eb23cb3ca1015ddc"
-  #   url = "https://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=#{key}&name=#{categories[3]}&large_area=Z011&format=json"
-  #   api = URI.parse(url)
-  #   json = Net::HTTP.get(api)
-  #   parse_result = JSON.parse(json)
-  #   @result = parse_result["results"]["shop"]
-
-  #   puts "Creating bars.."
-  #   @result.each do |restaurant|
-  #     new_restaurant = Restaurant.create!(
-  #       user: User.all.sample,
-  #       name: restaurant["name"],
-  #       description: Faker::Restaurant.description,
-  #       category: restaurant["genre"]["name"],
-  #       address: restaurant["address"],
-  #       longitude: restaurant["lng"],
-  #       latitude: restaurant["lat"],
-  #       maximum_number: restaurant["capacity"],
-  #       price_range: "¥ #{[1000,2000,3000,4000,5000,6000,7000,8000,9000,10000].sample}"
-  #     )
-  #     file = URI.open("#{restaurant["photo"]["pc"]["l"]}")
-  #     new_restaurant.photos.attach(io: file, filename: "nes.png", content_type: "image/png")
-  #     add_restaurant_moods(new_restaurant)
-  #     new_restaurant.save
-  #   end
-
-  # end
-
-  # def chinese
-  #   categories = ["izakaya", "italian", "french", "bar", "chinese", "asia", "karaoke"]
-  #   key = "eb23cb3ca1015ddc"
-  #   url = "https://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=#{key}&name=#{categories[4]}&large_area=Z011&format=json"
-  #   api = URI.parse(url)
-  #   json = Net::HTTP.get(api)
-  #   parse_result = JSON.parse(json)
-  #   @result = parse_result["results"]["shop"]
-
-  #   puts "Creating chinese restaurants.."
-  #   @result.each do |restaurant|
-  #     new_restaurant = Restaurant.create!(
-  #       user: User.all.sample,
-  #       name: restaurant["name"],
-  #       description: Faker::Restaurant.description,
-  #       category: restaurant["genre"]["name"],
-  #       address: restaurant["address"],
-  #       longitude: restaurant["lng"],
-  #       latitude: restaurant["lat"],
-  #       maximum_number: restaurant["capacity"],
-  #       price_range: "¥ #{[1000,2000,3000,4000,5000,6000,7000,8000,9000,10000].sample}"
-  #     )
-  #     file = URI.open("#{restaurant["photo"]["pc"]["l"]}")
-  #     new_restaurant.photos.attach(io: file, filename: "nes.png", content_type: "image/png")
-  #     add_restaurant_moods(new_restaurant)
-  #     new_restaurant.save
-  #   end
-
-  # end
-
-  # def asia
-  #   categories = ["izakaya", "italian", "french", "bar", "chinese", "asia", "karaoke"]
-  #   key = "eb23cb3ca1015ddc"
-  #   url = "https://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=#{key}&name=#{categories[5]}&large_area=Z011&format=json"
-  #   api = URI.parse(url)
-  #   json = Net::HTTP.get(api)
-  #   parse_result = JSON.parse(json)
-  #   @result = parse_result["results"]["shop"]
-
-  #   puts "Creating asian restaurants.."
-  #   @result.each do |restaurant|
-  #     new_restaurant = Restaurant.create!(
-  #       user: User.all.sample,
-  #       name: restaurant["name"],
-  #       description: Faker::Restaurant.description,
-  #       category: restaurant["genre"]["name"],
-  #       address: restaurant["address"],
-  #       longitude: restaurant["lng"],
-  #       latitude: restaurant["lat"],
-  #       maximum_number: restaurant["capacity"],
-  #       price_range: "¥ #{[1000,2000,3000,4000,5000,6000,7000,8000,9000,10000].sample}"
-  #     )
-  #     file = URI.open("#{restaurant["photo"]["pc"]["l"]}")
-  #     new_restaurant.photos.attach(io: file, filename: "nes.png", content_type: "image/png")
-  #     add_restaurant_moods(new_restaurant)
-  #     new_restaurant.save
-  #   end
-
-  # end
-
-  # def karaoke
-  #   categories = ["izakaya", "italian", "french", "bar", "chinese", "asia", "karaoke"]
-  #   key = "eb23cb3ca1015ddc"
-  #   url = "https://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=#{key}&name=#{categories[6]}&large_area=Z011&format=json"
-  #   api = URI.parse(url)
-  #   json = Net::HTTP.get(api)
-  #   parse_result = JSON.parse(json)
-  #   @result = parse_result["results"]["shop"]
-
-  #   puts "Creating Karaoke bars.."
-  #   @result.each do |restaurant|
-  #     new_restaurant = Restaurant.create!(
-  #       user: User.all.sample,
-  #       name: restaurant["name"],
-  #       description: Faker::Restaurant.description,
-  #       category: restaurant["genre"]["name"],
-  #       address: restaurant["address"],
-  #       longitude: restaurant["lng"],
-  #       latitude: restaurant["lat"],
-  #       maximum_number: restaurant["capacity"],
-  #       price_range: "¥ #{[1000,2000,3000,4000,5000,6000,7000,8000,9000,10000].sample}"
-  #     )
-  #     file = URI.open("#{restaurant["photo"]["pc"]["l"]}")
-  #     new_restaurant.photos.attach(io: file, filename: "nes.png", content_type: "image/png")
-  #     add_restaurant_moods(new_restaurant)
-  #     new_restaurant.save
-  #   end
-
-  # end
-
-  # izakayas
-  # italian
-  # french
-  # bar
-  # chinese
-  # asia
-  # karaoke
-  puts "Finished creating #{category}-restaurants"
-end
-
-def destroy_all_things
-  puts "Destorying all bookings! 😈"
-  Booking.destroy_all
-  puts "Destroying all restaurants 🔥"
-  Restaurant.destroy_all
-  puts "Deleting all humans 👽"
-  User.destroy_all
   separator_line
+  puts "Finished creating #{category}-restaurants"
 end
 
 # Creating all random stuff
 destroy_all_things
 create_users
-# create_restaurants
-hotpepper_restaurants("izakaya")
-hotpepper_restaurants("italian")
-hotpepper_restaurants("french")
-hotpepper_restaurants("bar")
-hotpepper_restaurants("chinese")
-hotpepper_restaurants("asia")
-hotpepper_restaurants("karaoke")
-
+create_restaurants
+create_hotpepper_restaurants("izakaya")
+create_hotpepper_restaurants("italian")
+create_hotpepper_restaurants("french")
+create_hotpepper_restaurants("bar")
+create_hotpepper_restaurants("chinese")
+create_hotpepper_restaurants("asia")
+create_hotpepper_restaurants("karaoke")
 
 # Creating All Demo-specific-things
-
 puts "Generating Ozei 💎"
 puts "....Soren created! 🤠"
 soren = User.create!(
@@ -462,5 +248,4 @@ demo_images = [
 end
 add_restaurant_moods(demo_restaurant)
 demo_restaurant.save
-
 separator_line
