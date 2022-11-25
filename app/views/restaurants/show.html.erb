@@ -1,23 +1,33 @@
+<%= render "shared/navbar" %>
 <div class="restaurant">
   <%= render 'carousel', restaurant: @restaurant %>
   <div class="restaurant-display">
     <h1><%= @restaurant.name %></h1>
     <p class="address"><%= @restaurant.address %></p>
     <hr>
-    <div class="restaurant-content">
-      <p><%= @restaurant.category %></p>
-      <div>
-        <i class="fa-solid fa-user-group"></i>
-        <%= @restaurant.maximum_number %>
-      </div>
-      <div class="d-flex">
-        <% @restaurant.price_range.length.times do %>
-          <i class="fa-solid fa-yen-sign"></i>
-        <% end %>
+    <div>
+      <div class="restaurant-content">
+        <p><%= @restaurant.category %></p>
+        <div>
+          <i class="fa-solid fa-user-group"></i>
+          <%= @restaurant.maximum_number %>
+        </div>
+        <div class="d-flex">
+          <% @restaurant.price_range.length.times do %>
+            <i class="fa-solid fa-yen-sign"></i>
+          <% end %>
+        </div>
       </div>
     </div>
-    <a class="reserve-button" style="float: right;" href="/bookings">Reserve</a>
+    <%# linking to form  %>
+    <div class="select-card m-3">
+      <%= simple_form_for [@restaurant, @booking] do |f| %>
+        <%= f.input :number_of_people, as: :hidden, input_html: {value: params[:group_size]} %>
+        <%= button_tag type: 'submit', class: "reserve-button" do %>
+          Reserve<i class="bi bi-bag-check m-1"></i>
+        <% end %>
+      <% end %>
+      <%# linking to form  %>
+    </div>
   </div>
   <%= render "show_map" %>
-</div>
-<%= link_to "#check position for back button#", restaurants_path, class: "btn btn-primary" %>

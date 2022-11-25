@@ -1,0 +1,8 @@
+<%= simple_form_for booking do |f| %>
+  <%= f.input :status, as: :hidden, input_html: { value: 'user_accepted'} %>
+  <%= f.submit 'Confirm', class: 'btn btn-info' %>
+<% end %>
+<%= simple_form_for booking do |f| %>
+  <%= f.input :status, as: :hidden, input_html: { value: 'user_rejected'} %>
+  <%= f.submit 'Reject', class: 'btn btn-info' %>
+<% end %>

@@ -1,6 +1,6 @@
 <div>
   <div class="card-restaurant">
-    <%= link_to restaurant_path(restaurant) do %>
+    <%= link_to restaurant_path(restaurant, group_size: @group_size) do %>
       <%= render 'carousel', restaurant: restaurant%>
       <div class="card-content">
         <div class="card-restaurant-infos">
