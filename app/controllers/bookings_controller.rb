@@ -15,7 +15,12 @@ class BookingsController < ApplicationController
     if @booking.save
       RestaurantChannel.broadcast_to(
         @restaurant.user,
-        render_to_string(partial: "owner/bookings/card_product", locals: { booking: @booking })
+        {
+          partial: render_to_string(partial: "owner/bookings/card_product", locals: { booking: @booking }),
+          action: "create",
+          id: @booking.id
+        }
+
       )
       redirect_to bookings_path
     else
@@ -31,6 +36,14 @@ class BookingsController < ApplicationController
     if @booking.update(booking_params)
       bookings = current_user.bookings.where(status: %w[pending restaurant_accepted])
       bookings.update_all(status: "user_rejected")
+      RestaurantChannel.broadcast_to(
+        @restaurant.user,
+      {
+        partial: render_to_string(partial: "owner/bookings/card_product", locals: { booking: @booking }),
+        action: "update",
+        id: @booking.id
+      }
+    )
       redirect_to restaurant_path(@restaurant)
     else
       render :index
