@@ -3,7 +3,7 @@
 <div class="container mt-3 mb-3"
     data-controller="restaurant-subscription"
     data-restaurant-subscription-owner-id-value="<%= current_user.id %>"
-    >
+>
   <div class="title">
     <h2>My bookings</h2>
   </div>
@@ -15,10 +15,9 @@
   <div class="title mt-3">
     <h2>My Restaurant</h2>
   </div>
-  <div class="cards-my-restaurant d-flex gap-4 mb-3">
+  <div class="cards-my-restaurant d-flex gap-4 mb-3 width: 200px">
     <% @current_user.restaurants.order("created_at desc").each do |restaurant| %>
-      <%= restaurant.name %>
+      <%= render "restaurants/card", restaurant: restaurant %>
     <% end %>
   </div>
-</div>
 </div>
