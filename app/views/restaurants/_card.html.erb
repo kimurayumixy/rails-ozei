@@ -16,8 +16,8 @@
         <div class="select-card m-3">
           <%= simple_form_for [restaurant, @booking] do |f| %>
             <%= f.input :number_of_people, as: :hidden, input_html: {value: params[:group_size]} %>
-            <%= button_tag type: 'submit', class: "btn btn-success" do %>
-              Book<i class="bi bi-bag-check m-1"></i>
+            <%= button_tag type: 'submit', class: "button-card" do %>
+              Reserve
             <% end %>
           <% end %>
         </div>

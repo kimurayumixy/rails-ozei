@@ -1,30 +1,15 @@
+
 .card-product {
   overflow: hidden;
-  height: 120px;
+  height: 200px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
 }
 
-.home {
-  margin-top: 30px;
-}
-.home a {
-  font-size: 30px;
-}
-
-h1 {
-  text-align: center;
-}
-
-
-.card-product-infos a {
-  text-decoration: none;
-}
-
-.card-product-infos {
-  flex-grow: 1 ;
+.pending {
+  color: #D47AE8;;
 }
 
 .content {
@@ -39,15 +24,17 @@ h1 {
 }
 
 .card-product img {
+  min-width: 100px;
   height: 100%;
-  width: 120px;
   object-fit: cover;
+  margin-right: 16px;
 }
 
 .card-product h2 {
   font-size: 16px;
   font-weight: bold;
   margin: 0;
+  padding-right: 8px;
 }
 
 .card-product p {
@@ -59,9 +46,5 @@ h1 {
 }
 
 .card-product .card-product-infos {
-  padding: 16px;
-}
-
-.title h2 {
-  text-align: center;
+  padding: none
 }
