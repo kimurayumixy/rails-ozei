@@ -1,5 +1,14 @@
 <%= render "shared/navbar" %>
 <%= render 'form' %>
+<div class="container">
+  <div class="info-search-text">
+    <% if @group_size == nil %>
+      <small> <%= "All restaurants" %></small>
+    <% else %>
+      <small><%=  "Places that can fit #{@group_size} people" %></small>
+    <% end %>
+  </div>
+</div>
 <br>
 <%= render 'map_modal' %>
 <br>
