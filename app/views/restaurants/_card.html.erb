@@ -1,7 +1,7 @@
 <div>
   <div class="card-restaurant">
     <%= link_to restaurant_path(restaurant, group_size: @group_size) do %>
-      <%= render 'carousel', restaurant: restaurant%>
+      <%= render 'restaurants/carousel', restaurant: restaurant%>
       <div class="card-content">
         <div class="card-restaurant-infos">
           <div class="m-3">
@@ -12,14 +12,16 @@
           </div>
         </div>
       <% end %>
-      <div class="select-card m-3">
-        <%= simple_form_for [restaurant, @booking] do |f| %>
-          <%= f.input :number_of_people, as: :hidden, input_html: {value: params[:group_size]} %>
-          <%= button_tag type: 'submit', class: "btn btn-success" do %>
-            Book<i class="bi bi-bag-check m-1"></i>
+      <% if @booking.present? %>
+        <div class="select-card m-3">
+          <%= simple_form_for [restaurant, @booking] do |f| %>
+            <%= f.input :number_of_people, as: :hidden, input_html: {value: params[:group_size]} %>
+            <%= button_tag type: 'submit', class: "btn btn-success" do %>
+              Book<i class="bi bi-bag-check m-1"></i>
+            <% end %>
           <% end %>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
