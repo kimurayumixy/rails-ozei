@@ -10,7 +10,18 @@ export default class extends Controller {
     console.log(`Subscribe to the owner with the id ${this.ownerIdValue}.`)
     this.channel = createConsumer().subscriptions.create(
       { channel: "RestaurantChannel", id: this.ownerIdValue },
-      { received: data => this.bookingsTarget.insertAdjacentHTML("beforeend", data) }
+      { received: data => {
+        console.log(data);
+        if(data.action === "create") {
+          this.bookingsTarget.insertAdjacentHTML("beforeend", data.partial)
+          } else {
+            const card = document.getElementById(`booking-${data.id}`)
+            console.log(card);
+            console.log(data.partial);
+            card.outerHTML = data.partial
+          }
+        }
+      }
     )
   }
 }
