@@ -4,6 +4,7 @@
 
 import { application } from "./application"
 
+
 import BookingSubscriptionController from "./booking_subscription_controller"
 application.register("booking-subscription", BookingSubscriptionController)
 
