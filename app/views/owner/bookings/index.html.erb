@@ -21,13 +21,13 @@
   })
 </script>
 <%# notification %>
-<h1>Owner bookings page</h1>
 <div class="container mt-3 mb-3"
     data-controller="restaurant-subscription"
     data-restaurant-subscription-owner-id-value="<%= current_user.id %>"
 >
+  <h1 class="text-center">Owner bookings page</h1>
   <div class="title">
-    <h2>Bookings</h2>
+    <h2 class="text-center">Bookings</h2>
   </div>
   <%# bookings %>
   <div class="bookings" data-restaurant-subscription-target="bookings">
@@ -37,7 +37,7 @@
   </div>
   <%# bookings %>
   <div class="title mt-3">
-    <h2>My Restaurant</h2>
+    <h2 class="text-center">My Restaurant</h2>
   </div>
   <div class="cards-my-restaurant">
     <% @current_user.restaurants.order("created_at desc").each do |restaurant| %>
