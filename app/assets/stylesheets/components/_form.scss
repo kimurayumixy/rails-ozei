@@ -46,3 +46,24 @@ body {
 
   }
 }
+
+
+@media screen and (max-width: 992px) {
+  .restaurant-form {
+    flex-direction: column;
+  }
+
+  .searchbar {
+     justify-content: center;
+  }
+}
+
+@media screen and (max-width: 600px) {
+    .restaurant-form {
+      flex-direction: column;
+    }
+    .searchbar {
+      justify-content: center;
+   }
+
+}

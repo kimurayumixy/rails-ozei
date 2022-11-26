@@ -1,5 +1,5 @@
-<div class="searchbar">
-  <%= form_with url: restaurants_path, method: :get, class: "d-flex" do |form| %>
+<div class="searchbar d-flex">
+  <%= form_with url: restaurants_path, method: :get, class: "d-flex restaurant-form" do |form| %>
     <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Find restaurant" %>
     <%= form.number_field :group_size, in: 1..50, value: params[:group_size] %>
     <%# render 'restaurants/tags_form' %>
