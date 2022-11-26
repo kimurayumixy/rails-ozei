@@ -8,6 +8,7 @@
     "@rails/actioncable": "^7.0.4",
     "animate.css": "^4.1.1",
     "bootstrap": "^5.2.2",
+    "stimulus-notification": "^2.1.0",
     "webpack": "^5.75.0",
     "webpack-cli": "^5.0.0"
   },
