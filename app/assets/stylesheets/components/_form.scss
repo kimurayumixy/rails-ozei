@@ -51,6 +51,7 @@ body {
 @media screen and (max-width: 992px) {
   .restaurant-form {
     flex-direction: column;
+    width:80%
   }
 
   .searchbar {
@@ -61,6 +62,7 @@ body {
 @media screen and (max-width: 600px) {
     .restaurant-form {
       flex-direction: column;
+      width:80%
     }
     .searchbar {
       justify-content: center;
