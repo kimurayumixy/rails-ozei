@@ -18,34 +18,34 @@ body {
   font-family: "Open Sans";
 }
 
-.button-group-pills {
-  .btn {
-    border-radius: $pill-border-radius;
-    line-height: 1.2;
+// .button-group-pills {
+//   .btn {
+//     border-radius: $pill-border-radius;
+//     line-height: 1.2;
 
-    margin-bottom: $pill-margin-y;
-    margin-left:   $pill-margin-x;
+//     margin-bottom: $pill-margin-y;
+//     margin-left:   $pill-margin-x;
 
-    border-color: $pill-border;
-    background-color: $pill-bg;
-    color: $pill-font;
+//     border-color: $pill-border;
+//     background-color: $pill-bg;
+//     color: $pill-font;
 
-    &.active {
-      border-color:     $pill-active-border;
-      background-color: $pill-active-bg;
-      color:            $pill-active-font;
+//     &.active {
+//       border-color:     $pill-active-border;
+//       background-color: $pill-active-bg;
+//       color:            $pill-active-font;
 
-      box-shadow: none;
-    }
+//       box-shadow: none;
+//     }
 
-    &:hover {
-      border-color:     $pill-hover-border;
-      background-color: $pill-hover-bg;
-      color:            $pill-hover-font;
-    }
+//     &:hover {
+//       border-color:     $pill-hover-border;
+//       background-color: $pill-hover-bg;
+//       color:            $pill-hover-font;
+//     }
 
-  }
-}
+//   }
+// }
 
 
 @media screen and (max-width: 992px) {

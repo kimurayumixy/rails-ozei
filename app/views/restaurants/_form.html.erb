@@ -2,7 +2,7 @@
   <%= form_with url: restaurants_path, method: :get, class: "d-flex restaurant-form" do |form| %>
     <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Location · Name · Category"%>
     <%= form.number_field :group_size, in: 1..50, value: params[:group_size], placeholder: "Add people"%>
-    <%# render 'restaurants/tags_form' %>
+    <% render 'restaurants/tags_form' %>
     <%= submit_tag "Search", class: "btn btn-primary" %>
   <% end %>
 </div>
