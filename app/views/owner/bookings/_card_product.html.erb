@@ -6,7 +6,12 @@
       <p>Number: <%= booking.number_of_people %></p>
       <p>Restaurant: <%= booking.restaurant.name %></p>
       <%# time out %>
-      <p><%= ((Time.now - booking.created_at)/60).to_int %>mins since booking was made</p>
+      <% time = ((900- (Time.now - booking.created_at))/60).to_int %>
+      <% if time > 0 %>
+        <p>expire in <%= time %>mins</p>
+      <% else %>
+        <p>Booking expired</p>
+      <% end %>
       <%# time out %>
     </div>
     <%# buttons to accept/reject to customer's request(in case pending) %>
