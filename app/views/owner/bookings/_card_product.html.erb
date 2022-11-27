@@ -5,6 +5,9 @@
       <h2>Name: <%= booking.user.name %></h2>
       <p>Number: <%= booking.number_of_people %></p>
       <p>Restaurant: <%= booking.restaurant.name %></p>
+      <%# time out %>
+      <p><%= ((Time.now - booking.created_at)/60).to_int %>mins since booking was made</p>
+      <%# time out %>
     </div>
     <%# buttons to accept/reject to customer's request(in case pending) %>
     <% if booking.status == "pending" %>
