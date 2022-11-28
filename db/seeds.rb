@@ -102,10 +102,10 @@ def create_restaurants
     index += 1
     puts "Finding two #{restaurant.category} images for #{restaurant.name}"
     add_restaurant_moods(restaurant)
-    2.times do
-      file = URI.open("http://source.unsplash.com/featured/?#{restaurant.category}")
-      restaurant.photos.attach(io: file, filename: "nes.png", content_type: "image/png")
-    end
+    # 2.times do
+    #   file = URI.open("http://source.unsplash.com/featured/?#{restaurant.category}")
+    #   restaurant.photos.attach(io: file, filename: "nes.png", content_type: "image/png")
+    # end
     restaurant.save
   end
   separator_line
@@ -171,24 +171,40 @@ soren = User.create!(
   password: "123123",
   name: "Soren"
 )
+soren_img = "https://res.cloudinary.com/dmnm5ct2h/image/upload/v1669602938/Ozei/user_egrawp.jpg"
+file = URI.open(soren_img)
+soren.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+
 puts "....Mattias created! 🤓"
 mattias = User.create!(
   email: "mattias@ozei.fun",
   password: "123123",
   name: "Mattias"
 )
+mattias_img = "https://res.cloudinary.com/dmnm5ct2h/image/upload/v1669606745/Ozei/user2_uqspmm.jpg"
+file = URI.open(mattias_img)
+mattias.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+
 puts "....Yumi created! 👩🏻"
 yumi = User.create!(
   email: "Yumi@ozei.fun",
   password: "123123",
   name: "Yumi"
 )
+yumi_img = "https://res.cloudinary.com/dmnm5ct2h/image/upload/v1669602940/Ozei/owner_bk6w9q.jpg"
+file = URI.open(yumi_img)
+yumi.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+
 puts "....Erika created! 💃🏻"
 erika = User.create!(
   email: "Erika@ozei.fun",
   password: "123123",
   name: "Erika"
 )
+erika_img = "https://res.cloudinary.com/dmnm5ct2h/image/upload/v1669606747/Ozei/user3_z8b9za.jpg"
+file = URI.open(erika_img)
+erika.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+
 soren.save
 mattias.save
 yumi.save

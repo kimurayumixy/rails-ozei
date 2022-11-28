@@ -1,5 +1,5 @@
 <div class="card-product mt-3" id="booking-<%= booking.id %>">
-  <%= image_tag "https://source.unsplash.com/random?person" %>
+  <%= image_tag booking.user.photo.attached? ? cl_image_path(booking.user.photo.key) : 'https://cdn2.aprico-media.com/production/imgs/images/000/029/940/original.png?1553946576' %>
   <div class="content">
     <div class="card-product-infos">
       <h2>Name: <%= booking.user.name %></h2>

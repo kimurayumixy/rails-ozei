@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :bookings, dependent: :destroy
   has_many :restaurants
+  has_one_attached :photo
 
   def has_restaurants?
     restaurants.any?
