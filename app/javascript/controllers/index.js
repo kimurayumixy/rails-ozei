@@ -4,16 +4,17 @@
 
 import { application } from "./application"
 
-
 import BookingSubscriptionController from "./booking_subscription_controller"
 application.register("booking-subscription", BookingSubscriptionController)
-
 
 import MapController from "./map_controller"
 application.register("map", MapController)
 
 import ModalController from "./modal_controller"
 application.register("modal", ModalController)
+
+import NavbarController from "./navbar_controller"
+application.register("navbar", NavbarController)
 
 import RestaurantSubscriptionController from "./restaurant_subscription_controller"
 application.register("restaurant-subscription", RestaurantSubscriptionController)
