@@ -12,3 +12,10 @@
 <%= render 'map_modal' %>
 <br>
 <%= render 'list' %>
+<div id='bookings-modal'>
+  <% if @bookings.present? %>
+    <% @bookings.each do |booking| %>
+      <%= render "card_product", booking: booking %>
+    <% end %>
+  <% end %>
+</div>
