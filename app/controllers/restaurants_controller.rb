@@ -20,6 +20,7 @@ class RestaurantsController < ApplicationController
     @restaurants = @restaurants.tagged_with(params[:tags]) if params[:tags]&.any?
     @booking = Booking.new
     @group_size = params[:group_size]
+    @bookings = policy_scope(Booking)
   end
 
   def show
