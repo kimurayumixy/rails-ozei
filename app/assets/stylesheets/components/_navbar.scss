@@ -143,7 +143,14 @@
     color:white;
     border-radius: 8px;
     width: 50%;
+    margin-top: 2rem;
+
+    &:hover {
+      border-color:grey;
+    }
   }
+
+
 
 }
 

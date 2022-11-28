@@ -18,7 +18,6 @@ class RestaurantsController < ApplicationController
     @tags = restaurant_moods
     @restaurants = @restaurants.where('maximum_number >= ?', params[:group_size]) if params[:group_size].present?
     @restaurants = @restaurants.tagged_with(params[:tag_list]) if params[:tag_list]&.any?
-    raise
     @booking = Booking.new
     @group_size = params[:group_size]
   end
