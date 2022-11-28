@@ -214,8 +214,8 @@ separator_line
 puts "Creating Yumi's fat curry 🍛"
 yumi_restaurant = Restaurant.create!(
   user: yumi,
-  name: "Yumi's fat curry",
-  description: "Curry, curry, curry and more curry!!! 🍛",
+  name: "Yumi's fut Izakaya",
+  description: "Izakaya, Izakaya, Izakaya and more Izakaya!!! 🍛",
   category: "All you can eat",
   address: "6-12 Jingumae, Shibuya Ku, Tokyo",
   maximum_number: 10,
