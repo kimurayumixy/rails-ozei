@@ -5,4 +5,3 @@ import "bootstrap"
 
 ////////////////////////////////////
 // MAP MODAL FUNCTIONALITY //
-

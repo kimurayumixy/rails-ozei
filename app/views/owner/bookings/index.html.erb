@@ -1,19 +1,23 @@
 <%= render "shared/navbar" %>
-<h1>Owner bookings page</h1>
 <div class="container mt-3 mb-3"
     data-controller="restaurant-subscription"
     data-restaurant-subscription-owner-id-value="<%= current_user.id %>"
->
+    data-action="click->restaurant-subscription#unmute"
+  >
+  <%= audio_tag "notification.mp3", class: "audio-play",muted: true, data: {restaurant_subscription_target: "notification"} %>
+  <h1 class="text-center">Owner bookings page</h1>
   <div class="title">
-    <h2>Bookings</h2>
+    <h2 class="text-center">Bookings</h2>
   </div>
+  <%# bookings %>
   <div class="bookings" data-restaurant-subscription-target="bookings">
     <% @bookings.each do |booking| %>
       <%= render "card_product", booking: booking %>
     <% end %>
   </div>
+  <%# bookings %>
   <div class="title mt-3">
-    <h2>My Restaurant</h2>
+    <h2 class="text-center">My Restaurant</h2>
   </div>
   <div class="cards-my-restaurant">
     <% @current_user.restaurants.order("created_at desc").each do |restaurant| %>
