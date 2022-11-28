@@ -1,43 +1,40 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon" data-controller="navbar">
   <div class="container-fluid">
     <%= link_to restaurants_path, class: "navbar-brand" do %>
       <%= image_tag "https://res.cloudinary.com/dmnm5ct2h/image/upload/v1669092922/Ozei/ozei_logo_armhnm.svg" %>
     <% end %>
     <div class="dropdown justify-content-center">
-      <%# <button type="button" class="btn dropdown-toggle text-white" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
-        Find a restaurant
-      </button> %>
       <div class="mb-3">
         <%= render 'restaurants/form' %>
       </div>
     </div>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-action="click->navbar#openNav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
+    <div id="myNav" data-navbar-target="nav" class="overlay">
+      <a href="javascript:void(0)" class="closebtn" data-controller="navbar" data-action="click->navbar#closeNav">&times;</a>
+      <div class="overlay-content">
         <% if user_signed_in? %>
-          <li class="nav-item active">
+          <small><%= "Welcome, #{current_user.name}!"%></small>
+          <li class="nav-item">
             <%= link_to bookings_path, class: "nav-link text-white" do %>
-              <small><%= "Welcome, #{current_user.name}!"%></small>
+              <%= "My Bookings" %>
             <% end %>
+            <%= link_to "My restaurants", owner_bookings_path, class: "nav-link text-white" if current_user.has_restaurants? %>
           </li>
-          <li class="nav-item dropdown">
-            <%= image_tag "https://source.unsplash.com/random?person", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "#{current_user.name}", bookings_path, class: "dropdown-item" %>
-              <%= link_to "My restaurants", owner_bookings_path, class: "dropdown-item" if current_user.has_restaurants? %>
-              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
-            </div>
+          <li class="nav-item">
+            <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "nav-link text-white" %>
           </li>
         <% else %>
           <li class="nav-item d-flex">
-            <%= link_to new_user_session_path, class: "nav-link text-white opacity-50" do %>
-              <%= image_tag "https://res.cloudinary.com/dmnm5ct2h/image/upload/v1669182822/Ozei/avatar_white_x4upmf.svg" %>
+            <%= link_to new_user_session_path, class: "nav-link text-white" do %>
+              <%= "Login" %>
             <% end %>
-          </li>
-        <% end %>
+          <% end %>
+        </li>
       </ul>
+      <%= render 'restaurants/form' %>
     </div>
   </div>
+</div>
 </div>
