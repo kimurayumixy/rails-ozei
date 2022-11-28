@@ -25,8 +25,8 @@ class BookingsController < ApplicationController
       )
 
       respond_to do |format|
-        if @review.save
-          format.html head :ok 
+        if @booking.save
+          format.html head :ok
           format.json # Follow the classic Rails flow and look for a create.json view
         else
           format.html { render "bookings/card_product", status: :unprocessable_entity }
