@@ -25,6 +25,25 @@
 }
 
 
+.form-mobile {
+  display: none;
+}
+.form-desktop {
+  display: flex;
+
+  .searchbar .query-form {
+    display:flex;
+    gap:10px;
+  }
+
+  .searchbar .query-form #mood-div{
+    display:none !important;
+  }
+}
+
+
+// <------ MOBILE NAVBAR DROPDOWN START ------->
+
 /* The Overlay (Mobile Navbar) (background) */
 .overlay {
   /* Height & width depends on how you want to reveal the overlay (see JS below) */
@@ -81,16 +100,10 @@
   }
 }
 
-.form-mobile {
-  display: none;
-}
-.form-desktop {
-  display: none;
-}
-
 @media (max-width: 600px) {
   .form-mobile {
     display: flex;
+    flex-direction: column !important;
   }
   .form-desktop {
     display: none;

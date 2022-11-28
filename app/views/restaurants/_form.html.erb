@@ -1,7 +1,9 @@
 <div class="searchbar">
-  <%= form_with url: restaurants_path, method: :get, class: "d-flex flex-column" do |form| %>
+  <%= form_with url: restaurants_path, method: :get, class: "query-form" do |form| %>
     <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Find restaurant" %>
-    <%= form.number_field :group_size, in: 1..50, value: params[:group_size] %>
+    <%= form.select :group_size, in: 1..50, value: params[:group_size] do %>
+      <i class="fa-regular fa-user">Users:</i>
+    <% end %>
     <%= render 'restaurants/tags_form', tags: @tags %>
     <%= submit_tag "Search", class: "btn btn-primary" %>
   <% end %>
