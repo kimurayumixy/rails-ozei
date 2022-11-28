@@ -5,6 +5,7 @@ class Restaurant < ApplicationRecord
   after_validation :geocode, if: :will_save_change_to_address?
   acts_as_taggable_on :tags
   has_many_attached :photos
+  has_many :bookings
   belongs_to :user
   validates :name, presence: true
   validates :description, presence: true

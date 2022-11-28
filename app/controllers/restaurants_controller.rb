@@ -24,6 +24,11 @@ class RestaurantsController < ApplicationController
 
   def show
     @booking = Booking.new
+    @restaurant.bookings.each do |booking|
+      if booking.user == current_user && booking.status == "user_accepted"
+        @user_confirmed = true
+      end
+    end
     @tags = Restaurant::MOODS
     authorize @restaurant
     @markers = [{
