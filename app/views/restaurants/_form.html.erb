@@ -1,7 +1,10 @@
 <div class="searchbar">
   <%= form_with url: restaurants_path, method: :get, class: "query-form" do |form| %>
     <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Find restaurant" %>
-    <%= form.select :group_size, options_for_select(1..50), value: params[:group_size] %>
+    <div class="icon-div d-flex">
+      <i class="fa fa-user-group icon"></i>
+      <%= form.select :group_size, options_for_select(1..50), value: params[:group_size] %>
+    </div>
     <%= render 'restaurants/tags_form', tags: @tags %>
     <%= submit_tag "Search", class: "btn btn-primary" %>
   <% end %>

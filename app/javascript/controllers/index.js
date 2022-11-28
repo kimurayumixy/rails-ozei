@@ -18,3 +18,6 @@ application.register("navbar", NavbarController)
 
 import RestaurantSubscriptionController from "./restaurant_subscription_controller"
 application.register("restaurant-subscription", RestaurantSubscriptionController)
+
+import TagsController from "./tags_controller"
+application.register("tags", TagsController)

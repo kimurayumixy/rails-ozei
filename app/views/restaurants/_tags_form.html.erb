@@ -1,8 +1,8 @@
 <div class="d-flex" id="mood-div">
   <% tags.each do |tag| %>
     <div class="button-group-pills text-center" data-toggle="buttons">
-      <label class="btn btn-default">
-        <input type="checkbox" value="<%= tag %>" name="tag_list[]" <%= "checked" if params[:tags]&.include?(tag) %>>
+      <input id="<%= tag %>" class="tags-checkbox" type="checkbox" value="<%= tag %>" name="tag_list[]" <%= "checked" if params[:tags]&.include?(tag) %>>
+      <label for="<%= tag %>" class="btn btn-default">
         <%= tag %>
       </label>
     </div>
