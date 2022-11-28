@@ -1,30 +1,10 @@
 <%= render "shared/navbar" %>
-<%# notification %>
-<div
-  data-controller="notification"
-  data-notification-hidden-value="true"
-  data-action="awesome@window->notification#show"
-  class="transition transform duration-1000 hidden"
-  data-transition-enter-from="opacity-0 translate-x-6"
-  data-transition-enter-to="opacity-100 translate-x-0"
-  data-transition-leave-from="opacity-100 translate-x-0"
-  data-transition-leave-to="opacity-0 translate-x-6"
-  >
-  <p>This alert will magically disappear!</p>
-  <button data-action="notification#hide">Close</button>
-</div>
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const event = new CustomEvent('awesome')
-
-    window.dispatchEvent(event)
-  })
-</script>
-<%# notification %>
 <div class="container mt-3 mb-3"
     data-controller="restaurant-subscription"
     data-restaurant-subscription-owner-id-value="<%= current_user.id %>"
->
+    data-action="click->restaurant-subscription#unmute"
+  >
+  <%= audio_tag "notification.mp3", class: "audio-play",muted: true, data: {restaurant_subscription_target: "notification"} %>
   <h1 class="text-center">Owner bookings page</h1>
   <div class="title">
     <h2 class="text-center">Bookings</h2>
