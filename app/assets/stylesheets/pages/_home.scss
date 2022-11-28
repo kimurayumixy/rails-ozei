@@ -16,8 +16,8 @@
 }
 
 .logo {
-  max-height: 350px;
-  padding-top: 160px;
+  max-height: 400px;
+  padding: 160px 8px 24px 8px;
   margin-left: auto;
   margin-right: auto;
   display: block;
@@ -75,14 +75,16 @@
     to { opacity: 1 }
   }
 }
+.lp-menu{
 
-input {
-  min-width: 300px;
-  color: white;
-  background-color: transparent;
-  padding: 8px;
-  p {
-    font-weight: 100;
+  input {
+    min-width: 300px;
+    color: white;
+    background-color: transparent;
+    padding: 8px;
+    p {
+      font-weight: 100;
+    }
   }
 }
 ::placeholder {
