@@ -38,11 +38,10 @@ $pill-active-font:    #FFF !default;
     //   box-shadow: none;
     // }
 
-    // &:hover {
-    //   border-color:     $pill-hover-border;
-    //   background-color: $pill-hover-bg;
-    //   color:            $pill-hover-font;
-    // }
+    &:hover {
+      color:            $pill-hover-font;
+      border-color:     $pill-hover-font;
+    }
 
   }
 }

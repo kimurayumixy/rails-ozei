@@ -49,7 +49,7 @@
             <% end %>
             <%= link_to "My restaurants", owner_bookings_path, class: "nav-link text-white" if current_user.has_restaurants? %>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" id="logout">
             <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "nav-link text-white" %>
           </li>
         <% else %>

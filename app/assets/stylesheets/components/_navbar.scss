@@ -71,6 +71,7 @@
       background-color:transparent;
       color:white;
       border-radius: 0px 8px 8px 0px;
+      margin-top: 3rem;
 
       &:active {
         background-color:black;
@@ -118,7 +119,7 @@
 /* Position the content inside the overlay */
 .overlay-content {
   position: relative;
-  top: 25%; /* 25% from the top */
+  top: 10%; /* 25% from the top */
   width: 100%; /* 100% width */
   text-align: center; /* Centered text/links */
   margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
@@ -127,6 +128,14 @@
   gap:8px;
   align-items: center;
 
+  #logout {
+
+    a {
+      font-size: 16px;
+      color:#818181;
+    }
+
+  }
   small {
     font-size:36px;
     color:white;
@@ -137,20 +146,27 @@
   }
 
   .btn {
-    border-style: solid;
+    // border-style: solid;
+    border: 2px solid;
     border-color:white;
     background-color:transparent;
     color:white;
     border-radius: 8px;
-    width: 50%;
-    margin-top: 2rem;
+    width: 65%;
+    font-size: 24px;
+    margin-top: 5rem;
+    padding:8px;
 
     &:hover {
-      border-color:grey;
+      border-color: rgb(177, 100, 195);
+      color: rgb(177, 100, 195);
+    }
+
+    &:active {
+      background-color: rgb(177, 100, 195);
+      color:white;
     }
   }
-
-
 
 }
 
@@ -192,16 +208,16 @@
     flex-direction: column !important;
     align-items: center;
     width: 85%;
+    margin-top: 2rem;
+
 
     .searchbar {
       margin-top: 3rem;
     }
 
-    .query-form
-
     .icon-div {
       position: relative;
-      bottom: 5rem;
+      bottom: 6rem;
       left: 40%;
       height: 30px;
       border-style: none;
@@ -232,6 +248,7 @@
       #mood-div {
       flex-wrap:wrap;
       justify-content: center;
+      margin-bottom: 3rem;
 
       .tags-checkbox {
         // position: absolute;
