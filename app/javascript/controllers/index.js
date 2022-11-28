@@ -4,10 +4,11 @@
 
 import { application } from "./application"
 
-
 import BookingSubscriptionController from "./booking_subscription_controller"
 application.register("booking-subscription", BookingSubscriptionController)
 
+import InsertBookingController from "./insert_booking_controller"
+application.register("insert-booking", InsertBookingController)
 
 import MapController from "./map_controller"
 application.register("map", MapController)

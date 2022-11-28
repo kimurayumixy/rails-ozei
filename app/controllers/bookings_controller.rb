@@ -12,6 +12,7 @@ class BookingsController < ApplicationController
     @booking.number_of_people = (params[:booking][:number_of_people]).to_i
     @booking.status = "pending"
     authorize @booking
+
     if @booking.save
       RestaurantChannel.broadcast_to(
         @restaurant.user,
@@ -22,7 +23,16 @@ class BookingsController < ApplicationController
         }
 
       )
-      redirect_to bookings_path
+
+      respond_to do |format|
+        if @review.save
+          format.html head :ok 
+          format.json # Follow the classic Rails flow and look for a create.json view
+        else
+          format.html { render "bookings/card_product", status: :unprocessable_entity }
+          format.json # Follow the classic Rails flow and look for a create.json view
+        end
+      end
     else
       render "restaurants/show", status: :unprocessable_entity
     end
