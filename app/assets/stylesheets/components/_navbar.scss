@@ -180,10 +180,10 @@
       justify-content: center;
 
       .tags-checkbox {
-        position: absolute;
-        transform: scale(0);
+        // position: absolute;
+        // transform: scale(0);
 
-        &:checked + label {
+        label {
           background-color: red;
         }
       }
