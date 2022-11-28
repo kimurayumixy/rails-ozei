@@ -9,9 +9,11 @@
   </div>
 </div>
 <br>
-<div class="modals">
-  <%= render 'map_modal' %>
-  <%= render 'booking_modal'%>
+<div data-controller='insert-booking'>
+  <div class="modals">
+    <%= render 'map_modal' %>
+    <%= render 'booking_modal'%>
+  </div>
+  <br>
+  <%= render 'list' %>
 </div>
-<br>
-<%= render 'list' %>

@@ -14,26 +14,22 @@ class BookingsController < ApplicationController
     authorize @booking
 
     if @booking.save
-      RestaurantChannel.broadcast_to(
-        @restaurant.user,
-        {
-          partial: render_to_string(partial: "owner/bookings/card_product", locals: { booking: @booking }),
-          action: "create",
-          id: @booking.id
-        }
-
-      )
       respond_to do |format|
-        if @booking.save
-          format.html { head :ok }
-          format.json # Follow the classic Rails flow and look for a create.json view
-        else
-          format.html { render "restaurants_path", status: :unprocessable_entity }
-          format.json # Follow the classic Rails flow and look for a create.json view
-        end
+        format.html { head :ok }
+        format.json # Follow the classic Rails flow and look for a create.json view
+      # Follow the classic Rails flow and look for a create.json view
       end
+      # RestaurantChannel.broadcast_to(
+      #   @restaurant.user,
+      #   {
+      #     partial: render_to_string(partial: "owner/bookings/card_product", locals: { booking: @booking }),
+      #     action: "create",
+      #     id: @booking.id
+      #   }
+
+      # )
     else
-      render "restaurants/show", status: :unprocessable_entity
+      render "restaurants/index", status: :unprocessable_entity
     end
   end
 

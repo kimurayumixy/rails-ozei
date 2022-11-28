@@ -10,6 +10,7 @@ export default class extends Controller {
   appendBooking(event){
     event.preventDefault()
     console.log('This works')
+    console.log(this.listTarget)
 
     fetch(this.formTarget.action, {
       method: "POST",
