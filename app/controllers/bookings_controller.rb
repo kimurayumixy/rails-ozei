@@ -53,7 +53,11 @@ class BookingsController < ApplicationController
         id: @booking.id
       }
     )
-      redirect_to restaurant_path(@restaurant)
+      if @booking.status == "user_accepted"
+        redirect_to restaurant_path(@restaurant)
+      elsif @booking.status == "user_rejected"
+        redirect_to bookings_path
+      end
     else
       render :index
     end

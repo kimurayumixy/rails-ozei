@@ -1,7 +1,7 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
     <%= link_to restaurants_path, class: "navbar-brand" do %>
-      <%= image_tag "https://res.cloudinary.com/dmnm5ct2h/image/upload/v1669092922/Ozei/ozei_logo_armhnm.svg" %>
+      <%= image_tag current_user&.photo&.attached? ? cl_image_path(current_user.photo.key) : 'https://cdn2.aprico-media.com/production/imgs/images/000/029/940/original.png?1553946576' %>
     <% end %>
     <div class="dropdown justify-content-center">
       <%# <button type="button" class="btn dropdown-toggle text-white" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
@@ -23,7 +23,7 @@
             <% end %>
           </li>
           <li class="nav-item dropdown">
-            <%= image_tag "https://source.unsplash.com/random?person", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <%= image_tag current_user.photo.attached? ? cl_image_path(current_user.photo.key) : 'https://cdn2.aprico-media.com/production/imgs/images/000/029/940/original.png?1553946576', class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "#{current_user.name}", bookings_path, class: "dropdown-item" %>
               <%= link_to "My restaurants", owner_bookings_path, class: "dropdown-item" if current_user.has_restaurants? %>
