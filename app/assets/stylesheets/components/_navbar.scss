@@ -174,6 +174,7 @@
   .form-mobile {
     display: flex;
     flex-direction: column !important;
+    align-items: center;
 
     .query-form #mood-div {
       flex-wrap:wrap;
