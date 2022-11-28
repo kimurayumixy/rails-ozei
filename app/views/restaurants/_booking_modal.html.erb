@@ -1,0 +1,9 @@
+<% if @bookings.present? %>
+  <div id='bookings-modal'>
+      <% @bookings.each do |booking| %>
+        <div class="bookings">
+          <%= render "bookings/card_product", booking: booking %>
+        </div>
+      <% end %>
+  </div>
+<% end %>

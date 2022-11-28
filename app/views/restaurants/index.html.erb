@@ -9,13 +9,9 @@
   </div>
 </div>
 <br>
-<%= render 'map_modal' %>
+<div class="modals">
+  <%= render 'map_modal' %>
+  <%= render 'booking_modal'%>
+</div>
 <br>
 <%= render 'list' %>
-<div id='bookings-modal'>
-    <% @bookings.each do |booking| %>
-    <div class="bookings">
-      <%= render "bookings/card_product", booking: booking %>
-    </div>
-    <% end %>
-</div>
