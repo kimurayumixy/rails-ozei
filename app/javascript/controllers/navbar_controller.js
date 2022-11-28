@@ -9,12 +9,7 @@ export default class extends Controller {
 
   /* Open */
 openNav() {
-  console.log("Clicking span");
-
-  console.log(this.navTarget);
   this.navTarget.style.height = "100%";
-  console.log(this.navTarget.style.height)
-  // this.navTarget.style.backgroundColor = "black";
 }
 
 /* Close */
