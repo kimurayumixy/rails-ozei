@@ -23,13 +23,12 @@ class BookingsController < ApplicationController
         }
 
       )
-
       respond_to do |format|
         if @booking.save
-          format.html head :ok
+          format.html { head :ok }
           format.json # Follow the classic Rails flow and look for a create.json view
         else
-          format.html { render "bookings/card_product", status: :unprocessable_entity }
+          format.html { render "restaurants_path", status: :unprocessable_entity }
           format.json # Follow the classic Rails flow and look for a create.json view
         end
       end
