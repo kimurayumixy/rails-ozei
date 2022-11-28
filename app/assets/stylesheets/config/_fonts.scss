@@ -1,9 +1,10 @@
 // Import Google fonts
 @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Roboto:ital,wght@0,100;0,400;0,700;1,100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 // Define fonts for body and headers
-$body-font: "sans-serif";
-$headers-font: "Archivo Black", "Helvetica", "sans-serif";
+$body-font: 'Poppins', "sans-serif";
+$headers-font: 'Poppins', "sans-serif";
 
 // To use a font file (.woff) uncomment following lines
 // @font-face {
