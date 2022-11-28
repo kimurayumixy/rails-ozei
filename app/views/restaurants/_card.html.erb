@@ -14,7 +14,7 @@
       <% end %>
       <% if @booking.present? %>
         <div class="select-card m-3">
-          <%= simple_form_for ([restaurant, @booking]), data: {action: 'submit->insert-booking#appendBooking'} do |f| %>
+          <%= simple_form_for ([restaurant, @booking]), data: {insert_booking_target: 'form', action: 'submit->insert-booking#appendBooking'} do |f| %>
             <%= f.input :number_of_people, as: :hidden, input_html: {value: params[:group_size]} %>
             <%= button_tag type: 'submit', class: "button-card" do %>
               Reserve

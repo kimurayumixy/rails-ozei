@@ -10,18 +10,20 @@ export default class extends Controller {
   appendBooking(event){
     event.preventDefault()
     console.log('This works')
-    fetch(this.cardsTarget.action, {
+
+    fetch(this.formTarget.action, {
       method: "POST",
       headers: { "Accept": "application/json" },
-      body: new FormData(this.cardsTarget)
+      body: new FormData(this.formTarget)
     })
       .then(response => response.json())
       .then((data) => {
+        console.log(data)
         if (data.inserted_item) {
           this.listTarget.insertAdjacentHTML("beforeend", data.inserted_item)
         }
-        this.formTarget.outerHTML = data.form
-        console.log(data)
+        // this.formTarget.outerHTML = data.form
       })
+
   }
 }

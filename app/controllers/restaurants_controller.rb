@@ -7,7 +7,7 @@ class RestaurantsController < ApplicationController
       if params[:query].present?
         policy_scope(Restaurant).search(params[:query])
       else
-        policy_scope(Restaurant)
+        policy_scope(Restaurant).limit(10)
       end
     @markers = @restaurants.geocoded.map do |restaurant| {
       lat: restaurant.latitude,
