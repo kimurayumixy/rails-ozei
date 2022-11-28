@@ -2,7 +2,7 @@
   <% tags.each do |tag| %>
     <div class="button-group-pills text-center" data-toggle="buttons">
       <input id="<%=tag%>" class="tags-checkbox" type="checkbox" value="<%= tag %>" name="tag_list[]" data-tags-target="tags" <%= "checked" if params[:tags]&.include?(tag) %>>
-      <label for="<%=tag%>" class="btn btn-default" data-action="click->tags#toggle">
+      <label for="<%=tag%>" class="tag-pill" data-action="click->tags#toggle">
         <%= tag %>
       </label>
     </div>
