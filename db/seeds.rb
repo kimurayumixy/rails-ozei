@@ -72,7 +72,6 @@ end
 # Creating all random stuff
 destroy_all_things
 create_users
-create_restaurants
 create_hotpepper_restaurants("izakaya")
 create_hotpepper_restaurants("italian")
 create_hotpepper_restaurants("french")
@@ -163,7 +162,7 @@ separator_line
 puts "Creating Mattias's Pub 🇸🇪"
 mattias_restaurant = Restaurant.create!(
   user: mattias,
-  name: "Swedish Pub 24",
+  name: "Viking Sal",
   description: "Come drink, eat and have a Swedish experience! Maybe even make some new friends?",
   category: "Pub",
   address: "1-8 Jingumae, Shibuya Ku, Tokyo to",
@@ -172,12 +171,11 @@ mattias_restaurant = Restaurant.create!(
 )
 mattias_index = 0
 mattias_images = [
-  "https://tabelog.com/imgview/original?id=r44612125955057",
-  "https://tabelog.com/imgview/original?id=r78907187882174",
-  "https://tabelog.com/imgview/original?id=r79711187883032",
-  "https://tabelog.com/imgview/original?id=r47981190098591"
+  "https://i0.wp.com/www.slowtravelstockholm.com/wp-content/uploads/2015/12/aifur-feature.jpg?fit=888%2C587&ssl=1",
+  "https://www.routesnorth.com/wp-content/uploads/2018/03/aifur-stockholm.jpg.webp",
+  "https://i.pinimg.com/736x/46/09/e4/4609e4d06863746e2c16a275f4364b1d--bar-grill-themed-weddings.jpg",
 ]
-4.times do
+3.times do
   mattias_file = URI.open("#{mattias_images[mattias_index]}")
   mattias_restaurant.photos.attach(io: mattias_file, filename: "nes.png", content_type: "image/png")
   mattias_index += 1
