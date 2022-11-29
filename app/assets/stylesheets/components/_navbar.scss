@@ -74,7 +74,8 @@
       margin-top: 3rem;
 
       &:active {
-        background-color:black;
+        background-color:$green;
+        border-color:$green;
       }
     }
   }
