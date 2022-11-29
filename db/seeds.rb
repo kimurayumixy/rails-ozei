@@ -155,7 +155,7 @@ yumi_images = [
   index_img += 1
   puts "added image #{yumi_images[index_img - 1]}"
 end
-add_restaurant_moods(yumi_restaurant)
+yumi_restaurant.tag_list.add("Party")
 yumi_restaurant.save
 separator_line
 
@@ -163,7 +163,7 @@ puts "Creating Mattias's Pub 🇸🇪"
 mattias_restaurant = Restaurant.create!(
   user: mattias,
   name: "Viking Sal",
-  description: "Come drink, eat and have a Swedish experience! Maybe even make some new friends?",
+  description: "Come drink, eat and have a real viking experience! Maybe even make some new viking friends?",
   category: "Pub",
   address: "1-8 Jingumae, Shibuya Ku, Tokyo to",
   maximum_number: 80,
@@ -191,7 +191,7 @@ erika_restaurant = Restaurant.create!(
   name: "Izakaya Issa",
   description: "Good Food & Alcohol on a budget.",
   category: "Izakaya",
-  address: "5-35 Daita, Setagaya ku, Tokyo to",
+  address: "1-28 Yoyogi, Shibuya ku, Tokyo to",
   maximum_number: 50,
   price_range: "¥1000"
 )
@@ -208,7 +208,7 @@ erika_images = [
   erika_index_img += 1
   puts "added image #{erika_images[erika_index_img - 1]}"
 end
-add_restaurant_moods(erika_restaurant)
+erika_restaurant.tag_list.add("Party")
 erika_restaurant.save
 separator_line
 puts "Seeds finished 👷🏼‍♂️"
