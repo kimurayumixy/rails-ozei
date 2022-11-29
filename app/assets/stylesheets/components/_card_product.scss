@@ -1,3 +1,30 @@
+.user-rejected-card {
+  .card-product {
+    height:100px;
+    width: 35%;
+    filter: grayscale(1);
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.2) 0, rgba(0, 0, 0, 0.2) 100%);
+    color:gray;
+
+      .btn {
+        color:gray;
+      }
+
+      img {
+        display:none;
+      }
+    }
+  }
+
+.user-accepted-card {
+  .card-product {
+    height:100px;
+    width: 35%;
+  }
+  img {
+    display:none;
+  }
+}
 
 .card-product {
   overflow: hidden;
@@ -6,6 +33,11 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
+
+
+  // Owner-cards-product
+
+
 }
 
 .pending {

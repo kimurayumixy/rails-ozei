@@ -2,13 +2,13 @@
   <%= image_tag booking.user.photo.attached? ? cl_image_path(booking.user.photo.key) : 'https://cdn2.aprico-media.com/production/imgs/images/000/029/940/original.png?1553946576' %>
   <div class="content">
     <div class="card-product-infos">
-      <h2>Name: <%= booking.user.name %></h2>
+      <h2><%= booking.user.name %></h2>
       <p>Number: <%= booking.number_of_people %></p>
       <p>Restaurant: <%= booking.restaurant.name %></p>
       <%# time out %>
       <% time = ((900- (Time.now - booking.created_at))/60).to_int %>
       <% if time > 0 %>
-        <p>expire in <%= time %>mins</p>
+        <p>Expires in <%= time %>mins</p>
       <% else %>
         <p>Booking expired</p>
       <% end %>

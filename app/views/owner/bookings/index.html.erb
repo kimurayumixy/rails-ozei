@@ -1,25 +1,36 @@
 <%= render "shared/navbar" %>
-<div class="container mt-3 mb-3"
+<div class="container mt-3 mb-3 d-flex flex-column"
     data-controller="restaurant-subscription"
     data-restaurant-subscription-owner-id-value="<%= current_user.id %>"
     data-action="click->restaurant-subscription#unmute"
   >
   <%= audio_tag "notification.mp3", class: "audio-play", muted: true, data: {restaurant_subscription_target: "notification"} %>
-  <div class="title">
-    <%# <h2 class="text-center">Bookings</h2> %>
-  </div>
-  <%# bookings %>
-  <div class="bookings" data-restaurant-subscription-target="bookings">
+  <%# Booking pending %>
+  <div class="bookings booking-pending-card" data-restaurant-subscription-target="bookings">
     <% @bookings.each do |booking| %>
-      <%= render "card_product", booking: booking unless booking.status = "restaurant_rejected" %>
+      <%= render "card_product", booking: booking if booking.status = "pending" %>
     <% end %>
   </div>
-  <div class="bookings bookings-rejected" data-restaurant-subscription-target="bookings">
+  <%# Restaurant Accepted %>
+  <div class="bookings restaurant-accepted-card" data-restaurant-subscription-target="bookings">
+    <% @bookings.each do |booking| %>
+      <%= render "card_product", booking: booking if booking.status = "restaurant_accepted" %>
+    <% end %>
+  </div>
+  <%# User Accepted %>
+  <div class="bookings user-accepted-card" data-restaurant-subscription-target="bookings">
+    <% @bookings.each do |booking| %>
+      <%= render "card_product", booking: booking if booking.status = "user_accepted" %>
+    <% end %>
+  </div>
+  <%# Restaurant Rejected %>
+  <%# User Rejected %>
+  <div class="bookings user-rejected-card" data-restaurant-subscription-target="bookings">
     <% @bookings.each do |booking| %>
       <%= render "card_product", booking: booking if booking.status = "restaurant_rejected" %>
     <% end %>
   </div>
-  <%# bookings %>
+  <%# My restaurants %>
   <div class="title mt-3">
     <h2 class="text-center">My Restaurants</h2>
   </div>
@@ -29,3 +40,4 @@
     <% end %>
   </div>
 </div>
+<%# pending, restaurant_accepted, user_accepted, restaurant_rejected, user_rejected %>
