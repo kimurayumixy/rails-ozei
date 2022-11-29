@@ -6,12 +6,17 @@
   >
   <%= audio_tag "notification.mp3", class: "audio-play", muted: true, data: {restaurant_subscription_target: "notification"} %>
   <div class="title">
-    <h2 class="text-center">Bookings</h2>
+    <%# <h2 class="text-center">Bookings</h2> %>
   </div>
   <%# bookings %>
   <div class="bookings" data-restaurant-subscription-target="bookings">
     <% @bookings.each do |booking| %>
-      <%= render "card_product", booking: booking %>
+      <%= render "card_product", booking: booking unless booking.status = "restaurant_rejected" %>
+    <% end %>
+  </div>
+  <div class="bookings bookings-rejected" data-restaurant-subscription-target="bookings">
+    <% @bookings.each do |booking| %>
+      <%= render "card_product", booking: booking if booking.status = "restaurant_rejected" %>
     <% end %>
   </div>
   <%# bookings %>
