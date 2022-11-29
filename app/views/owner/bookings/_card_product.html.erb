@@ -17,14 +17,18 @@
     <%# buttons to accept/reject to customer's request(in case pending) %>
     <% if booking.status == "pending" %>
       <div class="d-flex m-2">
-        <%= simple_form_for booking, url: owner_booking_path(booking) do |f| %>
-          <%= f.input :status, as: :hidden, input_html: { value: 'restaurant_accepted'} %>
-          <%= f.submit 'Accept', class: 'btn btn-info' %>
-        <% end %>
-        <%= simple_form_for booking, url: owner_booking_path(booking) do |f| %>
-          <%= f.input :status, as: :hidden, input_html: { value: 'restaurant_rejected'} %>
-          <%= f.submit 'Reject', class: 'btn btn-light' %>
-        <% end %>
+        <div class="owner-confirm">
+          <%= simple_form_for booking, url: owner_booking_path(booking) do |f| %>
+            <%= f.input :status, as: :hidden, input_html: { value: 'restaurant_accepted'} %>
+            <%= f.submit 'Accept', class: 'btn btn-info' %>
+          <% end %>
+        </div>
+        <div class="owner-reject">
+          <%= simple_form_for booking, url: owner_booking_path(booking) do |f| %>
+            <%= f.input :status, as: :hidden, input_html: { value: 'restaurant_rejected'} %>
+            <%= f.submit 'Reject', class: 'btn btn-light' %>
+          <% end %>
+        </div>
       </div>
       <%# buttons to accept/reject to customer's request (in case pending %>
     <% else %>

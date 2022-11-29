@@ -16,18 +16,20 @@
               data-booking-subscription-booking-id-value="<%= booking.id %>"
               data-booking-subscription-target="bookings">
           <% if booking.status == "restaurant_accepted" %>
-            <%# button to confirm  %>
             <div class="d-flex m-2 justify-content-center">
+              <div class="user-accept">
+                <%= simple_form_for booking do |f| %>
+                  <%= f.input :status, as: :hidden, input_html: { value: 'user_accepted'} %>
+                  <%= f.submit 'Confirm', class: 'btn btn-info' %>
+                <% end %>
+              </div>
               <%= simple_form_for booking do |f| %>
-                <%= f.input :status, as: :hidden, input_html: { value: 'user_accepted'} %>
-                <%= f.submit 'Confirm', class: 'btn btn-info' %>
-              <% end %>
-              <%= simple_form_for booking do |f| %>
-                <%= f.input :status, as: :hidden, input_html: { value: 'user_rejected'} %>
-                <%= f.submit 'Reject', class: 'btn btn-light' %>
-              <% end %>
+                <div class="user-reject">
+                  <%= f.input :status, as: :hidden, input_html: { value: 'user_rejected'} %>
+                  <%= f.submit 'Reject', class: 'btn btn-light' %>
+                <% end %>
+              </div>
             </div>
-            <%# # %>
           <% else %>
             <div class="d-flex justify-content-center">
               <div class="user-accepted">

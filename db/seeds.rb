@@ -211,11 +211,11 @@ yumi.save
 erika.save
 separator_line
 
-puts "Creating Yumi's fat curry 🍛"
+puts "Creating Yumi's Thirsty Izakaya"
 yumi_restaurant = Restaurant.create!(
   user: yumi,
-  name: "Yumi's fat curry",
-  description: "Curry, curry, curry and more curry!!! 🍛",
+  name: "Yumi's Thirsty Izakaya",
+  description: "Good Food & Alcohol on a budjet",
   category: "All you can eat",
   address: "6-12 Jingumae, Shibuya Ku, Tokyo",
   maximum_number: 10,
@@ -223,10 +223,10 @@ yumi_restaurant = Restaurant.create!(
 )
 index_img = 0
 yumi_images = [
-    "https://pbs.twimg.com/media/FLuh35iaMAIgaI4.jpg",
-    "https://i8b2m3d9.stackpathcdn.com/wp-content/uploads/2021/12/Katsu_Curry_7011bsq.jpg",
-    "https://rimage.gnst.jp/livejapan.com/public/article/detail/a/00/00/a0000480/img/basic/a0000480_main.jpg?20201023102522",
-    "https://grapee.jp/en/wp-content/uploads/73879_03.jpg"
+    "https://tblg.k-img.com/restaurant/images/Rvw/24093/640x640_rect_24093767.jpg",
+    "https://fukulabo.net/images/A00006367.jpg?1496708313",
+    "https://www.ssnp.co.jp/uploads/2022/10/221006shinjidai1-scaled.jpg",
+    "https://eizaburo.net/img/s01.jpg"
   ]
 4.times do
   file = URI.open("#{yumi_images[index_img]}")
