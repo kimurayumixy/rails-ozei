@@ -4,6 +4,6 @@
   </div>
   <h5><%= restaurant.name %></h2>
   <p><strong><%= link_to restaurant.address, "https://www.google.com/maps?saddr=My+Location&daddr=#{restaurant.latitude},#{restaurant.longitude}", target: :_blank %></strong></p>
-  <p>Type: <%= restaurant.category %></p>
+  <p class="tag-pill"><%= restaurant.category %></p>
   <p class="tag-pill"><%=restaurant.tag_list unless restaurant.tag_list.nil? %></p>
 </div>

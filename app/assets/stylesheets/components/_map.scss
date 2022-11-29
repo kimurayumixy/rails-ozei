@@ -16,6 +16,10 @@
     text-align: center;
     border-radius: 8px;
 
+    h5 {
+      margin-top: 0.5rem;
+    }
+
     .tag-pill
     {
       border: solid 2px;
@@ -32,14 +36,25 @@
       color: $white;
     }
 
+    .mapboxgl-popup-close-button
+    {
+      background-color: white;
+      z-index: 85;
+      font-size: 24px;
+      border-radius: 50%;
+      padding-bottom: 5px;
+    }
+
+
     .pop-up-image {
       object-fit: contain;
 
     }
 
     img {
+      height: 100px;
+      object-fit: cover;
       border-radius: 8px;
-      padding-bottom: 1rem;
     }
 
   }
