@@ -16,17 +16,13 @@
         <div class="select-card m-3">
           <%= simple_form_for [restaurant, @booking] do |f| %>
             <%= f.input :number_of_people, as: :hidden, input_html: {value: params[:group_size]} %>
-            <div
-                data-button-target="button"
-                data-action="click->button#changeButton"
-              >
-              <%= button_tag type: 'submit', class: "button-card" do %>
-                Reserve
-              <% end %>
-            </div>
-          <% end %>
-        </div>
-      <% end %>
-    </div>
+            <%= button_tag type: 'submit', class: "button-card", data: {button_target: "button", action: "click->button#changeButton"} do %>
+              Reserve
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
   </div>
+</div>
 </div>
