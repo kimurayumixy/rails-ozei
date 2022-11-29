@@ -73,7 +73,8 @@
       border-radius: 0px 8px 8px 0px;
 
       &:active {
-        background-color:black;
+        background-color:$green;
+        border-color:$green;
       }
     }
   }
@@ -113,6 +114,10 @@
   background-color: rgba(0,0,0, 0.9); /* Black w/opacity */
   overflow-x: hidden; /* Disable horizontal scroll */
   transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+
+  #username {
+    color: $green;
+  }
 }
 
 /* Position the content inside the overlay */
@@ -131,7 +136,7 @@
 
     a {
       font-size: 16px;
-      color:#818181;
+      color:#818181 !important;
     }
 
   }

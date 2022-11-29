@@ -84,32 +84,6 @@ def create_users
   separator_line
 end
 
-def create_restaurants
-  puts "Building restaurants 🚧"
-  categories = ["All you can eat", "All you can drink", "Japanese, Kaiseki, Washoku", "Sushi", "Soba", "Tempura", "Yakiniku", "Steak, Teppanyaki", "Yakitori", "French", "Italian, Trattoria", "Western Cousine", "Chinese", "Bar", "Pub", "Izakaya"]
-  seed_addresses = ADDRESSES.shuffle
-  index = 0
-  40.times do
-    restaurant = Restaurant.create!(
-      user: User.all.sample,
-      name: Faker::Restaurant.name,
-      description: Faker::Restaurant.description,
-      category: categories.sample,
-      address: seed_addresses[index],
-      maximum_number: rand(1..30),
-      price_range: "¥ #{[1000,2000,3000,4000,5000,6000,7000,8000,9000,10000].sample}"
-    )
-    index += 1
-    puts "Finding two #{restaurant.category} images for #{restaurant.name}"
-    add_restaurant_moods(restaurant)
-    # 2.times do
-    #   file = URI.open("http://source.unsplash.com/featured/?#{restaurant.category}")
-    #   restaurant.photos.attach(io: file, filename: "nes.png", content_type: "image/png")
-    # end
-    restaurant.save
-  end
-  separator_line
-end
 
 def add_restaurant_moods(restaurant)
   my_restaurant = restaurant
