@@ -2,6 +2,8 @@
   justify-content: space-between;
   background: rgb(0,0,0);
   background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(212,122,232,1) 50%, rgba(0,0,0,1) 100%);
+  box-shadow: 0 0 4px black;
+
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -21,5 +23,248 @@
       opacity: 0.8;
       transform: scale(1.1);
     }
+  }
+}
+
+.navbar .navbar-toggler {
+  border: none;
+
+  i {
+    color:white !important;
+  }
+
+}
+
+.form-mobile {
+  display: none;
+
+}
+.form-desktop {
+  display: flex;
+
+  .searchbar .query-form {
+    display:flex;
+
+    #group_size {
+      border-style: solid;
+      border-color: white;
+      border-right: none;
+      border-left: none;
+      background-color: white;
+      color: gray;
+    }
+
+    #query {
+      border-style: solid;
+      border-color: white;
+      border-right: none;
+      background-color: white;
+      padding-left: 30px;
+      border-radius: 8px 0px 0px 8px;
+    }
+
+    .btn {
+      margin-left: -2px;
+      border-style: solid;
+      border-left: none;
+      border-color:white;
+      background-color:transparent;
+      color:white;
+      border-radius: 0px 8px 8px 0px;
+      margin-top: 3rem;
+
+      &:active {
+        background-color:black;
+      }
+    }
+  }
+
+  .searchbar {
+
+    .icon-div {
+      background-color: white;
+
+      .icon {
+        position: relative;
+        top:10px;
+        padding-right:8px;
+        color: grey
+      }
+      }
+
+    .query-form #mood-div{
+    display:none !important;
+  }
+}
+}
+
+
+// <------ MOBILE NAVBAR DROPDOWN START ------->
+
+/* The Overlay (Mobile Navbar) (background) */
+.overlay {
+  /* Height & width depends on how you want to reveal the overlay (see JS below) */
+  height: 0%;
+  width: 100%;
+  position: fixed; /* Stay in place */
+  z-index: 99; /* Sit on top */
+  left: 0;
+  top: 0;
+  background-color: rgb(0,0,0); /* Black fallback color */
+  background-color: rgba(0,0,0, 0.9); /* Black w/opacity */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+}
+
+/* Position the content inside the overlay */
+.overlay-content {
+  position: relative;
+  top: 10%; /* 25% from the top */
+  width: 100%; /* 100% width */
+  text-align: center; /* Centered text/links */
+  margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
+  display: flex;
+  flex-direction: column;
+  gap:8px;
+  align-items: center;
+
+  #logout {
+
+    a {
+      font-size: 16px;
+      color:#818181;
+    }
+
+  }
+  small {
+    font-size:36px;
+    color:white;
+  }
+
+  li {
+    list-style: none;
+  }
+
+  .btn {
+    // border-style: solid;
+    border: 2px solid;
+    border-color:white;
+    background-color:transparent;
+    color:white;
+    border-radius: 8px;
+    width: 65%;
+    font-size: 24px;
+    margin-top: 5rem;
+    padding:8px;
+
+    &:hover {
+      border-color: rgb(177, 100, 195);
+      color: rgb(177, 100, 195);
+    }
+
+    &:active {
+      background-color: rgb(177, 100, 195);
+      color:white;
+    }
+  }
+
+}
+
+/* The navigation links inside the overlay */
+.overlay a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 24px;
+  color: #818181;
+  display: block; /* Display block instead of inline */
+  transition: 0.3s; /* Transition effects on hover (color) */
+}
+/* When you mouse over the navigation links, change their color */
+.overlay a:hover, .overlay a:focus {
+  color: #f1f1f1;
+}
+
+/* Position the close button (top right corner) */
+.overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+}
+
+/* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
+@media screen and (max-height: 450px) {
+  .overlay a {font-size: 20px}
+  .overlay .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+  }
+}
+
+@media (max-width: 600px) {
+  .form-mobile {
+    display: flex;
+    flex-direction: column !important;
+    align-items: center;
+    width: 85%;
+    margin-top: 2rem;
+
+
+    .searchbar {
+      margin-top: 3rem;
+    }
+
+    .icon-div {
+      position: relative;
+      bottom: 6rem;
+      left: 40%;
+      height: 30px;
+      border-style: none;
+
+      i {
+        display: flex;
+        align-items: center;
+        background-color: white;
+        border-right: none;
+        border-radius: 8px 0 0 8px;
+        padding-left: 8px;
+      }
+
+
+#group_size {
+  border-left: none !important;
+  border-radius: 0px 8px 8px 0px !important;
+  border-style: none !important;
+}
+
+    }
+
+
+    #query {
+      border-radius: 8px;
+
+    }
+      #mood-div {
+      flex-wrap:wrap;
+      justify-content: center;
+      margin-bottom: 3rem;
+
+      .tags-checkbox {
+        // position: absolute;
+        // transform: scale(0);
+
+        label {
+          background-color: red;
+        }
+      }
+    }
+  }
+
+  #navbarSupportedContent {
+    display:none;
+  }
+  .form-desktop {
+    display: none;
   }
 }
