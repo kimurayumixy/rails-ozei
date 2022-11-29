@@ -1,5 +1,5 @@
 <div>
-  <div class="card-restaurant">
+  <div class="card-restaurant" data-controller="button">
     <%= link_to restaurant_path(restaurant, group_size: @group_size) do %>
       <%= render 'restaurants/carousel', restaurant: restaurant%>
       <div class="card-content">
@@ -16,9 +16,14 @@
         <div class="select-card m-3">
           <%= simple_form_for [restaurant, @booking] do |f| %>
             <%= f.input :number_of_people, as: :hidden, input_html: {value: params[:group_size]} %>
-            <%= button_tag type: 'submit', class: "button-card" do %>
-              Reserve
-            <% end %>
+            <div
+                data-button-target="button"
+                data-action="click->button#changeButton"
+              >
+              <%= button_tag type: 'submit', class: "button-card" do %>
+                Reserve
+              <% end %>
+            </div>
           <% end %>
         </div>
       <% end %>
