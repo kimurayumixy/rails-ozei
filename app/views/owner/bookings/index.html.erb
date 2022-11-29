@@ -32,13 +32,14 @@
     </div>
   </div>
   <%# My restaurants %>
-  <div class="title mt-3">
+  <%# <div class="title mt-3">
     <h2 class="text-center">My Restaurants</h2>
   </div>
   <div class="cards-my-restaurant">
-    <% @current_user.restaurants.order("created_at desc").each do |restaurant| %>
-      <%= render "restaurants/card", restaurant: restaurant %>
-    <% end %>
+    <%# @current_user.restaurants.order("created_at desc").each do |restaurant| %>
+    <%# render "restaurants/card", restaurant: restaurant %>
+    <%# end %>
   </div>
+  %>
 </div>
 <%# pending, restaurant_accepted, user_accepted, restaurant_rejected, user_rejected %>
