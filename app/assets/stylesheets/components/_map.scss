@@ -16,6 +16,22 @@
     text-align: center;
     border-radius: 8px;
 
+    .tag-pill
+    {
+      border: solid 2px;
+      display: inline-block;
+      font-size: 1rem;
+      border-radius: 50rem;
+      padding: 0.2rem 0.8rem;
+      background-color: #ECEAFF;
+      margin-right: 0.6rem;
+      margin-bottom: 0.4rem;
+
+      border-color: $green;
+      background-color: $green;
+      color: $white;
+    }
+
     .pop-up-image {
       object-fit: contain;
 
