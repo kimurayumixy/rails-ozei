@@ -2,104 +2,104 @@
 .landing {
   height: 100vh;
   width: 100vw;
-}
 
-.wrap {
-  margin: auto;
-  height: 50%;
-  flex-direction: column;
-  justify-content: space-between;
-}
+  .wrap {
+    margin: auto;
+    height: 50%;
+    flex-direction: column;
+    justify-content: space-between;
+  }
 
-.form {
-  max-width: 300px;
-}
+  .form {
+    max-width: 300px;
+  }
 
-.logo {
-  max-height: 400px;
-  padding: 160px 8px 24px 8px;
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-}
+  .logo {
+    max-height: 400px;
+    padding: 160px 8px 24px 8px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
 
-.lp-menu {
-  margin-top: 24px;
-  text-align: center;
-}
-
-.container{
-  max-width: 1400px;
-  margin: auto;
-  padding: 0 36px;
-}
-
-#content {
-  position: relative;
-  animation-name: content;
-  animation-duration: 2s;
-  animation-fill-mode: forwards;
-}
-
-@keyframes content{
-  0% {left: -1000px;}
-  100% {left: 0px;}
-}
-
-.searchbar {
-  width: 100%;
-  position: absolute;
-  // top: 50%;
-  // left: 50%;
-  // transform: translateX(-50%) translateY(-50%);
-  p {
-    // font-size: 4.3em;
-    // letter-spacing: -4px;
-    font-weight: 700;
-    color: #D47AE8;
+  .lp-menu {
+    margin-top: 24px;
     text-align: center;
   }
-  .cssanimation, .cssanimation span {
+
+  .container{
+    max-width: 1400px;
+    margin: auto;
+    padding: 0 36px;
+  }
+
+  #content {
+    position: relative;
+    animation-name: content;
     animation-duration: 2s;
-    animation-fill-mode: both;
+    animation-fill-mode: forwards;
   }
 
-  .cssanimation span { display: inline-block }
-
-  .fadeInBottom { animation-name: fadeInBottom }
-  @keyframes fadeInBottom {
-    from {
-        opacity: 0;
-        transform: translateY(100%);
-    }
-    to { opacity: 1 }
+  @keyframes content{
+    0% {left: -1000px;}
+    100% {left: 0px;}
   }
-}
-.lp-menu{
-  input {
-    min-width: 300px;
-    color: white;
-    background-color: transparent;
-    padding: 8px;
+
+  .searchbar-lp {
+    width: 100%;
+    position: absolute;
+    // top: 50%;
+    // left: 50%;
+    // transform: translateX(-50%) translateY(-50%);
     p {
-      font-weight: 100;
+      // font-size: 4.3em;
+      // letter-spacing: -4px;
+      font-weight: 700;
+      color: #D47AE8;
+      text-align: center;
     }
-  }
-
-  select {
-    width: 80px;
-    color: #D47AE8;
-    text-align: center;
-    font-size: 24px;
-  }
-
-  .send {
-    background-color: #D47AE8;
-    color: white;
+    .cssanimation, .cssanimation span {
+      animation-duration: 2s;
+      animation-fill-mode: both;
     }
 
-  ::placeholder {
-    text-align: center;
-  }
+    .cssanimation span { display: inline-block }
 
+    .fadeInBottom { animation-name: fadeInBottom }
+    @keyframes fadeInBottom {
+      from {
+          opacity: 0;
+          transform: translateY(100%);
+      }
+      to { opacity: 1 }
+    }
+  }
+  .lp-menu{
+    input {
+      min-width: 300px;
+      color: white;
+      background-color: transparent;
+      padding: 8px;
+      p {
+        font-weight: 100;
+      }
+    }
+
+    select {
+      width: 80px;
+      color: #D47AE8;
+      text-align: center;
+      font-size: 24px;
+    }
+
+    .send {
+      background-color: #D47AE8;
+      color: white;
+      }
+
+    ::placeholder {
+      text-align: center;
+    }
+
+  }
 }
