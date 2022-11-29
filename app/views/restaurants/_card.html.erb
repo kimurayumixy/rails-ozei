@@ -13,12 +13,17 @@
         </div>
       <% end %>
       <% if @booking.present? %>
-        <div class="select-card m-3">
+        <div class="select-card m-3" data-controller="button">
           <%= simple_form_for [restaurant, @booking] do |f| %>
             <%= f.input :number_of_people, as: :hidden, input_html: {value: params[:group_size]} %>
-            <%= button_tag type: 'submit', class: "button-card" do %>
-              Reserve
-            <% end %>
+            <div
+                data-button-target="button"
+                data-action="click->button#changeButton"
+              >
+              <%= button_tag type: 'submit', class: "button-card" do %>
+                Reserve
+              <% end %>
+            </div>
           <% end %>
         </div>
       <% end %>
