@@ -128,7 +128,7 @@ end
 # Creating all random stuff
 destroy_all_things
 create_users
-create_restaurants
+# create_restaurants
 create_hotpepper_restaurants("izakaya")
 create_hotpepper_restaurants("italian")
 create_hotpepper_restaurants("french")
