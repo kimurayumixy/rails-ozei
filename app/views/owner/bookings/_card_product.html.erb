@@ -1,22 +1,28 @@
 <div class="card-product mt-3 rounded" id="booking-<%= booking.id %>">
-  <%= image_tag booking.user.photo.attached? ? cl_image_path(booking.user.photo.key) : 'https://cdn2.aprico-media.com/production/imgs/images/000/029/940/original.png?1553946576' %>
+  <div class="d-flex flex-column">
+    <h4>Request From</h4>
+    <%= image_tag booking.user.photo.attached? ? cl_image_path(booking.user.photo.key) : 'https://cdn2.aprico-media.com/production/imgs/images/000/029/940/original.png?1553946576' %>
+    <%# time out %>
+    <% time = ((900- (Time.now - booking.created_at))/60).to_int %>
+    <% if time > 0 %>
+      <p>Expires in <%= time %>mins</p>
+    <% else %>
+      <p>Booking expired</p>
+    <% end %>
+    <%# time out %>
+  </div>
   <div class="content">
     <div class="card-product-infos">
       <h2><%= booking.user.name %></h2>
-      <p>Number: <%= booking.number_of_people %></p>
-      <p>Restaurant: <%= booking.restaurant.name %></p>
-      <%# time out %>
-      <% time = ((900- (Time.now - booking.created_at))/60).to_int %>
-      <% if time > 0 %>
-        <p>Expires in <%= time %>mins</p>
-      <% else %>
-        <p>Booking expired</p>
-      <% end %>
-      <%# time out %>
+      <p><%= booking.user.phone_number %></p>
+      <p><%= booking.user.email %></p>
+    </div>
+    <div id="group-size">
+      <h5><%= pluralize(booking.number_of_people, 'person') %></h5>
     </div>
     <%# buttons to accept/reject to customer's request(in case pending) %>
     <% if booking.status == "pending" %>
-      <div class="d-flex m-2">
+      <div id="booking-status" class="d-flex m-2 justify-content-center">
         <div class="owner-confirm">
           <%= simple_form_for booking, url: owner_booking_path(booking) do |f| %>
             <%= f.input :status, as: :hidden, input_html: { value: 'restaurant_accepted'} %>
