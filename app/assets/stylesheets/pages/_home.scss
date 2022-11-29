@@ -76,7 +76,6 @@
   }
 }
 .lp-menu{
-
   input {
     min-width: 300px;
     color: white;
@@ -86,20 +85,21 @@
       font-weight: 100;
     }
   }
-}
-::placeholder {
-  text-align: center;
-}
 
-.send {
-background-color: #D47AE8;
-color: white;
-}
+  select {
+    width: 80px;
+    color: #D47AE8;
+    text-align: center;
+    font-size: 24px;
+  }
 
+  .send {
+    background-color: #D47AE8;
+    color: white;
+    }
 
-select {
-  width: 80px;
-  color: #D47AE8;
-  text-align: center;
-  font-size: 24px;
+  ::placeholder {
+    text-align: center;
+  }
+
 }
