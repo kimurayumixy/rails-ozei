@@ -1,7 +1,6 @@
 .user-rejected-card {
   .card-product {
     height:100px;
-    width: 35%;
     filter: grayscale(1);
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.2) 0, rgba(0, 0, 0, 0.2) 100%);
     color:gray;
@@ -19,11 +18,27 @@
 .user-accepted-card {
   .card-product {
     height:100px;
-    width: 35%;
   }
   img {
     display:none;
   }
+}
+
+.restaurant-accepted-card {
+  .card-product{
+    height:100px;
+    filter: grayscale(1);
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.2) 0, rgba(0, 0, 0, 0.2) 100%);
+  }
+
+  .btn {
+    color:gray;
+  }
+
+  img {
+    display:none;
+  }
+
 }
 
 .card-product {
