@@ -4,10 +4,13 @@
       <%= render 'restaurants/carousel', restaurant: restaurant%>
       <div class="card-content">
         <div class="card-restaurant-infos">
+          <div class="tags-card">
+            <p><%= restaurant.tag_list %></p>
+          </div>
           <div class="m-3">
+            <br>
             <h2><%= restaurant.name %></h2>
             <p><%= restaurant.category %></p>
-            <p>Tags: <%= restaurant.tag_list %></p>
             <h2 class="card-restaurant-pricing"><%= restaurant.price_range %></h2>
           </div>
         </div>

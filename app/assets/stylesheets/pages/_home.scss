@@ -16,7 +16,7 @@
 
   .logo {
     max-height: 400px;
-    padding: 160px 8px 24px 8px;
+    padding: 160px 0px 24px 0px;
     margin-left: auto;
     margin-right: auto;
     display: block;
@@ -34,6 +34,7 @@
   }
 
   #content {
+    margin: 0 16px;
     position: relative;
     animation-name: content;
     animation-duration: 2s;
@@ -55,8 +56,11 @@
       // font-size: 4.3em;
       // letter-spacing: -4px;
       font-weight: 700;
-      color: #D47AE8;
+      color: white;
       text-align: center;
+    }
+    #logged {
+      color: #d47ae8;
     }
     .cssanimation, .cssanimation span {
       animation-duration: 2s;
