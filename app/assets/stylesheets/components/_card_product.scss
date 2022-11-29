@@ -1,9 +1,13 @@
 .user-rejected-card {
+
+
   .card-product {
     height:100px;
     filter: grayscale(1);
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.2) 0, rgba(0, 0, 0, 0.2) 100%);
     color:gray;
+
+
 
       .btn {
         color:gray;
@@ -13,6 +17,9 @@
         display:none;
       }
     }
+
+
+
   }
 
 .user-accepted-card {

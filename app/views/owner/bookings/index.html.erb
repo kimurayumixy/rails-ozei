@@ -17,7 +17,7 @@
       <%= render "card_product", booking: booking if booking.status = "restaurant_accepted" %>
     <% end %>
   </div>
-  <div class="accepted-rejected d-flex justify-content-between"">
+  <div class="accepted-rejected d-flex justify-content-between">
     <%# User Accepted %>
     <div class="bookings user-accepted-card" data-restaurant-subscription-target="bookings">
       <% @bookings.each do |booking| %>
