@@ -8,5 +8,6 @@ export default class extends Controller {
   changeButton(event) {
       console.log("hello from button clicked");
       this.buttonTarget.innerText = "request sent"
+      this.element.classList.add("inactive")
   }
 }

@@ -4,14 +4,12 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 8px;
   margin-top: 8px;
-  transition: 9999s;
-  transition-delay: 9999s;
+  // transition-delay: 9999s;
 
 
-  &:active {
+  &.inactive {
     filter: grayscale(100%);
-    transition: 0s;
-    transition-delay: 0s;
+    // transition-delay: 0s;
   }
 
   &:hover {
@@ -48,6 +46,7 @@
 .card-content {
   display: flex;
   position: relative;
+  transition-delay: 9999s;
 
   .select-card {
     right: 0;

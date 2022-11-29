@@ -1,5 +1,5 @@
 <div>
-  <div class="card-restaurant">
+  <div class="card-restaurant" data-controller="button">
     <%= link_to restaurant_path(restaurant, group_size: @group_size) do %>
       <%= render 'restaurants/carousel', restaurant: restaurant%>
       <div class="card-content">
@@ -13,7 +13,7 @@
         </div>
       <% end %>
       <% if @booking.present? %>
-        <div class="select-card m-3" data-controller="button">
+        <div class="select-card m-3">
           <%= simple_form_for [restaurant, @booking] do |f| %>
             <%= f.input :number_of_people, as: :hidden, input_html: {value: params[:group_size]} %>
             <div
