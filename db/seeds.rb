@@ -2,61 +2,6 @@ require 'net/http'
 require 'uri'
 require 'json'
 
-ADDRESSES = [
-  "1-291-8 Sarugakucho, Chiyoda ku, Tokyo to", #works
-  "2-9 Sarugakucho, Chiyoda ku, Tokyo to", #works
-  "14-6 Daita, Setagaya ku, Tokyo to", #works
-  "4-12-6 Omotesando, Shibuya ku, Tokyo to", #works
-  "3-15-24 Jingumae, Shibuya ku, Tokyo to", #works
-  "7-2 Shinsencho, Shibuya ku, Tokyo to", #works
-  "1-20-1 Shibuya, Shibuya ku, Tokyo to", #works
-  "9 Sakuragaokacho, Shibuya ku, Tokyo to", #works
-  "7-20 Nishishinjuku, Shinjuku ku, Tokyo to", #works
-  "7-17 Nishishinjuku, Shinjuku ku, Tokyo to", #works
-  "1-6 Hyakunincho, Shinjuku ku, Tokyo to", #works
-  "1-3-7 Kabukicho, Shinjuku ku, Tokyo to", #works
-  "3-35-16 Shinjuku, Shinjuku ku, Tokyo to", #works
-  "1-54 Yoyogi, Shibuya ku, Tokyo to", #works
-  "1-21 Shibuya, Shibuya ku, Tokyo to", #works
-  "5-34 Jingumae, Shibuya ku, Tokyo to", #works
-  "5-15 Roppongi, Minato ku, Tokyo to", #works
-  "3-9-5 Roppongi, Minato ku, Tokyo to", #works
-  "6-5 Roppongi, Minato ku, Tokyo to", #works
-  "7-17 Roppongi, Minato ku, Tokyo to", #works
-  "5-15-5 Roppongi, Minato ku, Tokyo to", #works
-  "4-2 Shibakoen, Minato ku, Tokyo to", #works
-  "9-8 Sakuragaokacho, Shibuya ku, Tokyo to", #works
-  "2-13 Shibuya, Shibuya ku, Tokyo to", #works
-  "4-2-12 Shibuya, Shibuya ku, Tokyo to", #works
-  "32-12 Udagawacho, Shibuya ku, Tokyo to", #works
-  # "2 Kamimeguro, Meguro ku, Tokyo to",
-  # "4-3 Nakameguro, Meguro ku, Tokyo to",
-  # "4-1 Nakameguro, Meguro ku, Tokyo to",
-  "5-5 Ginza, Chuo ku, Tokyo to", #works
-  "5-8 Ginza, Chuo ku, Tokyo to", #works
-  "2-6 Ginza, Chuo ku, Tokyo to", #works
-  "6-14 Ginza, Chuo ku, Tokyo to", #works
-  "8-7 Ginza, Chuo ku, Tokyo to", #works
-  "6-13 Ueno, Taito ku, Tokyo to", #works
-  "4-9-2 Ueno, Taito ku, Tokyo to", #works
-  "2-8-2 Ueno, Taito ku, Tokyo to", #works
-  "3-19-4 Ueno, Taito ku, Tokyo to", #works
-  "1-12 Higashiueno, Taito ku, Tokyo to", #works
-  "1-29-4 Senju, Adachi ku, Tokyo to", #works
-  "2-7 Senju, Adachi ku, Tokyo to", #works
-  "3-58 Senju, Adachi ku, Tokyo to", #works
-  "2-24 Kitazawa, Setagaya ku, Tokyo to", #works
-  "2-29 Kitazawa, Setagaya ku, Tokyo to", #works
-  "3-20 Kitazawa, Setagaya ku, Tokyo to", #works
-  "2-17-3 Kitazawa, Setagaya ku, Tokyo to", #works
-  "5-35 Daita, Setagaya ku, Tokyo to", #works
-  "1-28 Yoyogi, Shibuya ku, Tokyo to", #works
-  "5-13 Sendagaya, Shibuya ku, Tokyo to", #works
-  "1-8 Jingumae, Shibuya Ku, Tokyo to", #works
-  "6-12 Jingumae, Shibuya Ku, Tokyo to", #works
-  "1-3 Shoto, Shibuya ku, Tokyo to", #works
-  "10-15 Maruyamacho, Shibuya ku, Tokyo to", #works
-]
 def separator_line
   puts "-------------------"
   puts "-------------------"
@@ -83,7 +28,6 @@ def create_users
   end
   separator_line
 end
-
 
 def add_restaurant_moods(restaurant)
   my_restaurant = restaurant
@@ -128,7 +72,7 @@ end
 # Creating all random stuff
 destroy_all_things
 create_users
-# create_restaurants
+
 create_hotpepper_restaurants("izakaya")
 create_hotpepper_restaurants("italian")
 create_hotpepper_restaurants("french")
@@ -137,7 +81,7 @@ create_hotpepper_restaurants("chinese")
 create_hotpepper_restaurants("asia")
 create_hotpepper_restaurants("karaoke")
 
-# Creating All Demo-specific-things
+# Creating all Ozei Accounts
 puts "Generating Ozei 💎"
 puts "....Soren created! 🤠"
 soren = User.create!(
@@ -185,11 +129,15 @@ yumi.save
 erika.save
 separator_line
 
-puts "Creating Yumi's Thirsty Izakaya"
+# Creating all demo-restaurants
+puts "Starting Creation of Demo-restaurants"
+separator_line
+puts "Creating Yumi's Thirsty Izakaya 🇯🇵"
+
 yumi_restaurant = Restaurant.create!(
   user: yumi,
   name: "Yumi's Thirsty Izakaya",
-  description: "Good Food & Alcohol on a budjet",
+  description: "Good Food & Alcohol on a budget",
   category: "All you can eat",
   address: "6-12 Jingumae, Shibuya Ku, Tokyo",
   maximum_number: 10,
@@ -208,34 +156,60 @@ yumi_images = [
   index_img += 1
   puts "added image #{yumi_images[index_img - 1]}"
 end
-add_restaurant_moods(yumi_restaurant)
+yumi_restaurant.tag_list.add("Party")
 yumi_restaurant.save
-
-puts "Creating Demo Restaurant 🚧"
-demo_restaurant = Restaurant.create!(
-  user: soren,
-  name: "Bettako",
-  description: "Come drink, eat and have a real local experience in Meguro! Maybe even make some new friends?",
-  category: "Izakaya",
-  address: "1-5-21 Shimomeguro, Meguro City, Tokyo to",
-  longitude: 139.712492,
-  latitude: 35.635164,
-  maximum_number: 80,
-  price_range: "¥2000"
-)
-demo_index = 0
-demo_images = [
-  "https://tabelog.com/imgview/original?id=r44612125955057",
-  "https://tabelog.com/imgview/original?id=r78907187882174",
-  "https://tabelog.com/imgview/original?id=r79711187883032",
-  "https://tabelog.com/imgview/original?id=r47981190098591"
-]
-4.times do
-  demo_file = URI.open("#{demo_images[demo_index]}")
-  demo_restaurant.photos.attach(io: demo_file, filename: "nes.png", content_type: "image/png")
-  demo_index += 1
-  puts "added image #{demo_images[demo_index - 1]}"
-end
-add_restaurant_moods(demo_restaurant)
-demo_restaurant.save
 separator_line
+
+puts "Creating Mattias's Pub 🇸🇪"
+mattias_restaurant = Restaurant.create!(
+  user: mattias,
+  name: "Viking Sal",
+  description: "Come drink, eat and have a real viking experience! Maybe even make some new viking friends?",
+  category: "Pub",
+  address: "1-8 Jingumae, Shibuya Ku, Tokyo to",
+  maximum_number: 80,
+  price_range: "¥5000"
+)
+mattias_index = 0
+mattias_images = [
+  "https://i0.wp.com/www.slowtravelstockholm.com/wp-content/uploads/2015/12/aifur-feature.jpg?fit=888%2C587&ssl=1",
+  "https://www.routesnorth.com/wp-content/uploads/2018/03/aifur-stockholm.jpg.webp",
+  "https://i.pinimg.com/736x/46/09/e4/4609e4d06863746e2c16a275f4364b1d--bar-grill-themed-weddings.jpg",
+]
+3.times do
+  mattias_file = URI.open("#{mattias_images[mattias_index]}")
+  mattias_restaurant.photos.attach(io: mattias_file, filename: "nes.png", content_type: "image/png")
+  mattias_index += 1
+  puts "added image #{mattias_images[mattias_index - 1]}"
+end
+mattias_restaurant.tag_list.add("Party")
+mattias_restaurant.save
+separator_line
+
+puts "Creating Erika's Izakaya 🇧🇷"
+erika_restaurant = Restaurant.create!(
+  user: erika,
+  name: "Izakaya Issa",
+  description: "Good Food & Alcohol on a budget.",
+  category: "Izakaya",
+  address: "1-28 Yoyogi, Shibuya ku, Tokyo to",
+  maximum_number: 50,
+  price_range: "¥1000"
+)
+erika_index_img = 0
+erika_images = [
+    "https://rimage.gnst.jp/livejapan.com/public/article/detail/a/00/04/a0004442/img/en/a0004442_parts_5f3de161d28e0.jpg?20210114171346&q=80",
+    "https://rimage.gnst.jp/livejapan.com/public/article/detail/a/00/04/a0004442/img/basic/a0004442_main.jpg?20210114171346&q=80",
+    "https://rimage.gnst.jp/livejapan.com/public/article/detail/a/00/04/a0004442/img/en/a0004442_parts_5f3de1727eb71.jpg?20210114171346&q=80",
+    "https://rimage.gnst.jp/livejapan.com/public/article/detail/a/00/04/a0004442/img/en/a0004442_parts_5f3de2311774a.jpg?20210114171346&q=80"
+  ]
+4.times do
+  file = URI.open("#{erika_images[erika_index_img]}")
+  erika_restaurant.photos.attach(io: file, filename: "nes.png", content_type: "image/png")
+  erika_index_img += 1
+  puts "added image #{erika_images[erika_index_img - 1]}"
+end
+erika_restaurant.tag_list.add("Party")
+erika_restaurant.save
+separator_line
+puts "Seeds finished 👷🏼‍♂️"
