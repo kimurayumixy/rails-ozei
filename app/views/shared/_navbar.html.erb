@@ -42,7 +42,7 @@
       <a href="javascript:void(0)" class="closebtn" data-controller="navbar" data-action="click->navbar#closeNav">&times;</a>
       <div class="overlay-content">
         <% if user_signed_in? %>
-          <small><%= "Welcome, #{current_user.name}!"%></small>
+          <small>Welcome, <strong id="username"><%= "#{current_user.name}!"%></strong></small>
           <li class="nav-item">
             <%= link_to bookings_path, class: "nav-link text-white" do %>
               <%= "My Bookings" %>
