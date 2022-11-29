@@ -3,7 +3,7 @@
     <%= render 'carousel', restaurant: restaurant %>
   </div>
   <h5><%= restaurant.name %></h2>
-  <p><strong><%= restaurant.address %></strong></p>
+  <p><strong> <%= link_to restaurant.address, "https://www.google.com/maps?saddr=My+Location&daddr=#{restaurant.longitude},#{restaurant.latitude}"", target: :_blank %></strong></p>
   <p>Type: <%= restaurant.category %></p>
   <p>Vibe: <%=restaurant.tag_list unless restaurant.tag_list.nil? %></p>
 </div>

@@ -2,21 +2,31 @@
   width: 200px;
   height: 200px;
   // border-radius: 8px;
-}
 
-.mapboxgl-popup-content {
-  // This is the popout
-  text-align: center;
-  border-radius: 8px;
 
-}
 
-.pop-up-image {
-  object-fit: contain;
-  border-radius: 8px;
 
-}
 
-p {
-  font-family: var(--bs-body-font-family);
+  p {
+    font-family: var(--bs-body-font-family);
+  }
+
+  .mapboxgl-popup-content {
+    // This is the popout
+    text-align: center;
+    border-radius: 8px;
+
+    .pop-up-image {
+      object-fit: contain;
+
+    }
+
+    img {
+      border-radius: 8px;
+      padding-bottom: 1rem;
+    }
+
+  }
+
+
 }
