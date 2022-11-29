@@ -1,47 +1,29 @@
-$pill-border-radius:  20px !default;
-$pill-margin-x:       10px !default;
-$pill-margin-y:       15px !default;
-
-$pill-bg:             #eceafe !default;
-$pill-border:         rgb(177, 100, 195)  !default;
-$pill-font:           rgb(177, 100, 195)  !default;
-
-$pill-hover-bg:       rgb(212, 122, 232) !default;
-$pill-hover-border:   rgb(177, 100, 195) !default;
-$pill-hover-font:     #FFF !default;
-
-$pill-active-bg:      rgb(212, 122, 232) !default;
-$pill-active-border:  rgb(177, 100, 195) !default;
-$pill-active-font:    #FFF !default;
-
-
 .button-group-pills {
+
   .tag-pill {
     border: solid 2px;
     display: inline-block;
-    font-size: 0.7rem;
+    font-size: 1rem;
     border-radius: 50rem;
     padding: 0.2rem 0.8rem;
     background-color: #ECEAFF;
     margin-right: 0.6rem;
     margin-bottom: 0.4rem;
 
-    border-color: $pill-font;
-    background-color: $pill-bg;
+    border-color: $green;
     background-color: transparent;
-    color: $pill-font;
+    color: $green;
 
 
-    // &.active {
-    //   border-color:     $pill-active-border;
-    //   background-color: $pill-active-bg;
-    //   color:            $pill-active-font;
-    //   box-shadow: none;
-    // }
+    &:has(input:checked) {
+      border-color: $green;
+      background-color: $green;
+      color: $light-gray;
+    }
 
-    &:hover {
-      color:            $pill-hover-font;
-      border-color:     $pill-hover-font;
+
+    .tags-checkbox {
+      display:none;
     }
 
   }
