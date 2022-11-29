@@ -29,8 +29,29 @@
   img {
     max-height: 300px;
     object-fit: cover;
-
   }
+
+  .tags {
+
+    p {
+      float: left;
+      background-color: #D47AE8;
+      color: white;
+      padding: 0 8px;
+      font-size: smaller;
+      border-radius: 0 0 4px 4px;
+      box-shadow: 1px 1px 4px rgb(201, 201, 201);
+    }
+  }
+
+  hr.separation {
+    border: 1px solid #D47AE8;
+    border-radius: 5px;
+    margin: 0;
+    opacity: 100;
+    box-shadow: 1px 1px 1px rgb(201, 201, 201);
+    }
+
 }
 
 .restaurant-display {
@@ -53,8 +74,25 @@
 
   h1 {
     margin-top: 16px;
+    font-size: 36px;
+    color: #D47AE8;
   }
 }
+
+.description {
+  p {font-size: 12px;
+  color: gray;
+  padding-left: 16px;
+  padding-right: 8px;
+  text-align: left;
+  line-height: 1.5;
+  }
+
+  border-left: 4px solid #D47AE8;
+  margin-left: 8px;
+  margin-top: 24px;
+}
+
 
 .restaurant-content {
   display: flex;

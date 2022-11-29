@@ -12,7 +12,7 @@
         <%# log open %>
         <% if user_signed_in? %>
           <%= link_to bookings_path, class: "btn text-white" do %>
-            <p class="cssanimation sequence fadeInBottom"><%= "Welcome, #{current_user.name}!"%></p>
+            <p class="cssanimation sequence fadeInBottom">Welcome, <strong id="logged"><%="#{current_user.name}!"%></strong></p>
           <% end %>
         <% else %>
           <p class="cssanimation sequence fadeInBottom"> <%= link_to "login", new_user_session_path, class: "nav-link text-white opacity-50" %></p>
@@ -20,7 +20,7 @@
         <%# log close  %>
         <%= form_with url: restaurants_path, method: :get do |form| %>
           <small>
-            <p class="cssanimation sequence fadeInBottom text-white">Number of people</p>
+            <p class="cssanimation sequence fadeInBottom text-white">How many people today?</p>
           </small>
           <p class="cssanimation sequence fadeInBottom people"><%= form.select :group_size, options_for_select(1..50), value: params[:group_size] %></p>
           <br>

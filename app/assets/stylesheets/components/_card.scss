@@ -33,6 +33,7 @@
     font-weight: bold;
     margin: 0;
     color: #434242;
+
   }
 
   p {
@@ -40,7 +41,25 @@
     opacity: .7;
     margin: 0;
     color: gray;
+    margin-bottom: 8px;
   }
+}
+
+
+.tags-card {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  p {
+    float: left;
+    color: #D47AE8;
+    padding: 0 8px;
+    font-size: smaller;
+    // border: 1px solid #D47AE8;
+    border-radius: 0 0 4px 4px;
+    box-shadow: 1px 1px 4px rgb(201, 201, 201);
+  }
+
 }
 
 .card-content {

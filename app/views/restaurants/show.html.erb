@@ -4,6 +4,11 @@
 <% end %>
 <div class="restaurant">
   <%= render 'carousel', restaurant: @restaurant %>
+  <div class="tags">
+    <p> <%= @restaurant.tag_list %></p>
+    <hr class="separation">
+    <br>
+  </div>
   <div class="restaurant-display">
     <h1><%= @restaurant.name %></h1>
     <p class="address"><%= @restaurant.address %></p>
@@ -18,6 +23,10 @@
         <div class="d-flex">
           <%= @restaurant.price_range %>
         </div>
+      </div>
+      <hr>
+      <div class="description">
+        <p> <%= @restaurant.description %></p>
       </div>
     </div>
     <% unless @user_confirmed == true %>
