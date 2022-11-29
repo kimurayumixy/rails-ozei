@@ -5,10 +5,18 @@
 }
 
 .mapboxgl-popup-content {
+  // This is the popout
   text-align: center;
-  // font-family: "Open Sans", sans-serif;
+  border-radius: 8px;
+
 }
 
 .pop-up-image {
   object-fit: contain;
+  border-radius: 8px;
+
+}
+
+p {
+  font-family: var(--bs-body-font-family);
 }
