@@ -1,15 +1,21 @@
 <div class="card-product mt-3 rounded" id="booking-<%= booking.id %>">
-  <div class="d-flex flex-column">
-    <h4>Request From</h4>
-    <%= image_tag booking.user.photo.attached? ? cl_image_path(booking.user.photo.key) : 'https://cdn2.aprico-media.com/production/imgs/images/000/029/940/original.png?1553946576' %>
-    <%# time out %>
-    <% time = ((900- (Time.now - booking.created_at))/60).to_int %>
-    <% if time > 0 %>
-      <p>Expires in <%= time %>mins</p>
+  <div class="d-flex flex-column left-side-card">
+    <%# Restaurant Accepted Render %>
+    <% if booking.status == "restaurant_accepted" %>
+      <h5>Request accepted. Waiting confirmation from: <%= booking.user.name %></h5>
     <% else %>
-      <p>Booking expired</p>
+      <%# Restaurant Pending Render %>
+      <h4>Request From</h4>
+      <%= image_tag booking.user.photo.attached? ? cl_image_path(booking.user.photo.key) : 'https://cdn2.aprico-media.com/production/imgs/images/000/029/940/original.png?1553946576' %>
+      <%# time out %>
+      <% time = ((900- (Time.now - booking.created_at))/60).to_int %>
+      <% if time > 0 %>
+        <p>Expires in <%= time %>mins</p>
+      <% else %>
+        <p>Booking expired</p>
+      <% end %>
+      <%# time out %>
     <% end %>
-    <%# time out %>
   </div>
   <div class="content">
     <div class="card-product-infos">
