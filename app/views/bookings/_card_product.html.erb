@@ -1,55 +1,53 @@
 <div class="resquests">
-  <% if booking.status == "pending" %>
-    <div class="pending">
-      <small> <%= "pending" %></small>
-    </div>
-  <% end %>
-</div>
-<% unless booking.status == "user_rejected" || booking.status == "restaurant_rejected" %>
-  <div class="card-product mt-3">
+  <%# <% unless booking.status == "user_rejected" || booking.status == "restaurant_rejected" %>
+  <div class="card-product mt-3 rounded">
     <img src="<%= booking.restaurant.photos.attached? ? cl_image_path(booking.restaurant.photos.first.key) : 'https://images.unsplash.com/photo-1592861956120-e524fc739696?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80' %>"  alt="...">
     <div class="content">
       <div class="card-product-infos">
         <h2><%= booking.restaurant.name %></h2>
         <p>For <%= booking.number_of_people %> people</p>
+        <% if booking.status == "pending" %>
+          <div class="pending">
+            <small> <%= "pending" %></small>
+          </div>
+        <% end %>
         <div class="status-buttons"
               data-controller="booking-subscription"
               data-booking-subscription-booking-id-value="<%= booking.id %>"
               data-booking-subscription-target="bookings">
-          <div>
-            <% if booking.status == "restaurant_accepted" %>
-              <%# button to confirm  %>
-              <div class="d-flex m-2">
-                <%= simple_form_for booking do |f| %>
-                  <%= f.input :status, as: :hidden, input_html: { value: 'user_accepted'} %>
-                  <%= f.submit 'Confirm', class: 'btn btn-info' %>
-                <% end %>
-                <%# # %>
-              </div>
-            <% else %>
-              <div class="d-flex justify-content-center">
-                <div class="user-accepted">
-                  <% if booking.status == "user_accepted" %>
-                    <% render "user_accepted" %>
-                  </div>
-                  <%# <div class="pending"> %>
-                  <%# <% elsif booking.status == "pending" should be out side of the if restaurant accepted statement?%>
-                  <%# <% render "pending" "pending" should be out side of the if restaurant accepted statement? %>
-                  <%# </div> %>
-                  <div class="restaurant-rejected">
-                  <% elsif booking.status == "restaurant_rejected" %>
-                    <% render "restaurant_rejected" %>
-                  </div>
-                  <div class="user-rejected">
-                  <% elsif booking.status == "user_rejected" %>
-                    <% render "user_rejected" %>
-                  <% end %>
+          <% if booking.status == "restaurant_accepted" %>
+            <%# button to confirm  %>
+            <div class="d-flex m-2 justify-content-center">
+              <%= simple_form_for booking do |f| %>
+                <%= f.input :status, as: :hidden, input_html: { value: 'user_accepted'} %>
+                <%= f.submit 'Confirm', class: 'btn btn-info' %>
+              <% end %>
+              <%= simple_form_for booking do |f| %>
+                <%= f.input :status, as: :hidden, input_html: { value: 'user_rejected'} %>
+                <%= f.submit 'Reject', class: 'btn btn-light' %>
+              <% end %>
+            </div>
+            <%# # %>
+          <% else %>
+            <div class="d-flex justify-content-center">
+              <div class="user-accepted">
+                <% if booking.status == "user_accepted" %>
+                  <% render "user_accepted" %>
                 </div>
+                <div class="restaurant-rejected">
+                <% elsif booking.status == "restaurant_rejected" %>
+                  <% render "restaurant_rejected" %>
+                </div>
+                <div class="user-rejected">
+                <% elsif booking.status == "user_rejected" %>
+                  <% render "user_rejected" %>
+                <% end %>
               </div>
-            <% end %>
-          </div>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>
-  <% end %>
+  </div>
+  <%# <% end %>
 </div>

@@ -1,7 +1,36 @@
 <div class="landing" style="background-color:black">
-  <%= link_to restaurants_path do %>
-    <div id="content" class="container">
-      <img src="https://res.cloudinary.com/dmnm5ct2h/image/upload/v1669092922/Ozei/ozei_logo_armhnm.svg" alt="" class="logo">
+  <div class="wrap">
+    <div>
+      <%= link_to restaurants_path do %>
+        <div id="content">
+          <img src="https://res.cloudinary.com/dmnm5ct2h/image/upload/v1669092922/Ozei/ozei_logo_armhnm.svg" alt="" class="logo">
+        </div>
+      <% end %>
     </div>
-  <% end %>
-</div>
+    <div class="lp-menu">
+      <div class="searchbar">
+        <%# log open %>
+        <% if user_signed_in? %>
+          <%= link_to bookings_path, class: "btn text-white" do %>
+            <p class="cssanimation sequence fadeInBottom"><%= "Welcome, #{current_user.name}!"%></p>
+          <% end %>
+        <% else %>
+          <p class="cssanimation sequence fadeInBottom"> <%= link_to "login", new_user_session_path, class: "nav-link text-white opacity-50" %></p>
+        <% end %>
+        <%# log close  %>
+        <%= form_with url: restaurants_path, method: :get do |form| %>
+          <small>
+            <p class="cssanimation sequence fadeInBottom text-white">Number of people</p>
+          </small>
+          <p class="cssanimation sequence fadeInBottom people"><%= form.select :group_size, options_for_select(1..50), value: params[:group_size] %></p>
+          <br>
+          <small>
+            <br>
+          </small>
+          <p class="cssanimation sequence fadeInBottom"><%= text_field_tag :query, params[:query], placeholder: "Location • Name • Category" %></p>
+          <p class="cssanimation sequence fadeInBottom input-button"><%= submit_tag "Search" %></p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <%# javascript  %>

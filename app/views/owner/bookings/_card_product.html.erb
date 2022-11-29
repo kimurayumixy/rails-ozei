@@ -1,11 +1,20 @@
-<div class="card-product mt-3" id="booking-<%= booking.id %>">
-  <%= image_tag "https://source.unsplash.com/random?person" %>
+<div class="card-product mt-3 rounded" id="booking-<%= booking.id %>">
+  <%= image_tag booking.user.photo.attached? ? cl_image_path(booking.user.photo.key) : 'https://cdn2.aprico-media.com/production/imgs/images/000/029/940/original.png?1553946576' %>
   <div class="content">
     <div class="card-product-infos">
       <h2>Name: <%= booking.user.name %></h2>
       <p>Number: <%= booking.number_of_people %></p>
       <p>Restaurant: <%= booking.restaurant.name %></p>
+      <%# time out %>
+      <% time = ((900- (Time.now - booking.created_at))/60).to_int %>
+      <% if time > 0 %>
+        <p>expire in <%= time %>mins</p>
+      <% else %>
+        <p>Booking expired</p>
+      <% end %>
+      <%# time out %>
     </div>
+    <%# buttons to accept/reject to customer's request(in case pending) %>
     <% if booking.status == "pending" %>
       <div class="d-flex m-2">
         <%= simple_form_for booking, url: owner_booking_path(booking) do |f| %>
@@ -17,7 +26,9 @@
           <%= f.submit 'Reject', class: 'btn btn-light' %>
         <% end %>
       </div>
+      <%# buttons to accept/reject to customer's request (in case pending %>
     <% else %>
+      <%# after choosing accept/reject to customer's request %>
       <div class="accept">
         <div class="d-flex justify-content-center">
           <% if booking.status == "restaurant_accepted" %>
@@ -25,7 +36,7 @@
               <%= "Waiting for confirmation" %>
             </a>
           <% elsif booking.status == "restaurant_rejected" %>
-            <a href="#" class="btn btn-body-color">
+            <a href="#" class="btn btn-danger">
               <%= "Rejected" %>
             </a>
           <% elsif booking.status == "user_accepted" %>
@@ -35,6 +46,7 @@
           <% end %>
         </div>
       </div>
+      <%# after choosing accept/reject to customer's request %>
     <% end %>
   </div>
 </div>
