@@ -4,6 +4,9 @@
     <% if booking.status == "restaurant_accepted" %>
       <h5>Request accepted</h5>
       <h2>Waiting confirmation from: <strong><%= booking.user.name %></strong></h2>
+    <% elsif booking.status == "user_accepted"%>
+      <h5>Accepted</h5>
+      <h2><%= booking.user.name %></h2>
     <% else %>
       <%# Restaurant Pending Render %>
       <h4>Request From</h4>
@@ -24,10 +27,9 @@
       <p><%= booking.user.phone_number %></p>
       <p><%= booking.user.email %></p>
     </div>
-    <div id="group-size">
-      <h5><%= pluralize(booking.number_of_people, 'person') %></h5>
-      <%= pluralize('person') if booking.number_of_people > 1 %>
-      <h5></h5>
+    <div class="d-flex" id="group-size">
+      <h5><%= booking.number_of_people%></h5>
+      <p>people</p>
     </div>
     <%# buttons to accept/reject to customer's request(in case pending) %>
     <% if booking.status == "pending" %>
@@ -48,7 +50,7 @@
       <%# buttons to accept/reject to customer's request (in case pending %>
     <% else %>
       <%# after choosing accept/reject to customer's request %>
-      <div class="accept">
+      <div class="accept m-2">
         <div class="d-flex justify-content-center">
           <% if booking.status == "restaurant_accepted" %>
             <a href="#" class="btn btn-success">

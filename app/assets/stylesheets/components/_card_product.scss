@@ -13,6 +13,8 @@
       img {
         display:none;
       }
+
+
     }
 
   }
@@ -24,6 +26,24 @@
   }
   img {
     display:none;
+  }
+
+  .card-product-infos {
+    display:none;
+
+
+  }
+
+
+  .content {
+    flex-grow: none;
+
+    .accept a {
+      background-color: transparent !important;
+      border: none !important;
+      color: black;
+      font-size: 12px;
+    }
   }
 }
 
@@ -39,6 +59,10 @@
         font-weight:900;
       }
     }
+
+    .accept {
+      width:16rem;
+  }
 
     .card-product-infos {
       display:none;
@@ -81,24 +105,26 @@
       width: 150px;
     }
 
-
-
   }
 
   .content {
 
     #group-size{
       margin-left: auto;
-      padding-right: 16px;
+      margin-right: 16px;
+      gap: 8px;
 
       p {
         opacity: 1;
+        line-height: 2.4;
+        margin-top: 0px;
       }
     }
 
     #booking-status{
       gap: 8px;
       padding-bottom: 16px;
+      width: 16rem;
     }
   }
 
@@ -132,6 +158,10 @@
   font-weight: bold;
   margin: 0;
   padding-right: 8px;
+}
+
+.card-product .group-size h5 {
+  margin:0;
 }
 
 .card-product p {
