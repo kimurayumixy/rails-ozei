@@ -190,7 +190,7 @@ puts "Creating Erika's Izakaya 🇧🇷"
 erika_restaurant = Restaurant.create!(
   user: erika,
   name: "Izakaya Issa",
-  description: "Good Food & Alcohol on a budget.",
+  description: "Good Food & Alcohol on a budget. Izakaya are one of Japan's quintessential experiences. If it's your first trip to Japan or you’ve been here for a lifetime, it's hard not to enjoy a beer and yarn with friends over some heavily salted fried food at this Japanese institution.",
   category: "Izakaya",
   address: "1-28 Yoyogi, Shibuya ku, Tokyo to",
   maximum_number: 50,
