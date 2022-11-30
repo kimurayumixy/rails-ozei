@@ -1,7 +1,7 @@
 
 #map{
-  width: 100vw;
-  height: 80vh;
+  // width: 100vw;
+  // height: 80vh;
   overflow-y: hidden;
 }
 
@@ -61,4 +61,14 @@
   top: 20px;
   right: 45px;
   font-size: 60px;
+}
+
+#map-toggler {
+  border: none;
+  z-index: 2;
+
+  i {
+    color:white !important;
+  }
+
 }
