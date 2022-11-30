@@ -299,4 +299,33 @@ end
 erika_restaurant.tag_list.add("Party")
 erika_restaurant.save
 separator_line
+
+puts "Creating Soren's Izakaya"
+soren_restaurant = Restaurant.create!(
+  user: soren,
+  name: "Ozei diner",
+  description: "Good Food & Alcohol on a budget. Izakaya are one of Japan's quintessential experiences. If it's your first trip to Japan or you've been here for a lifetime, it's hard not to enjoy a beer and yarn with friends over some heavily salted fried food at this Japanese institution.",
+  category: "Izakaya",
+  address: "2-9-10 Dougenzaka, Shibuya Ku, Tokyo",
+  maximum_number: 50,
+  price_range: "¥1000",
+  longitude: 139.69937167617854,
+  latitude: 35.65877054698397
+)
+soren_index_img = 0
+soren_images = [
+    "https://lh3.googleusercontent.com/p/AF1QipMku7dqMLVy1U9TXDDOudz7unwsSqpC6fKH2s6z=w1080-h608-p-no-v0",
+    "https://imgfp.hotp.jp/IMGH/97/05/P039829705/P039829705_480.jpg",
+    "https://rimage.gnst.jp/livejapan.com/public/article/detail/a/00/04/a0004442/img/en/a0004442_parts_5f3de1727eb71.jpg?20210114171346&q=80",
+    "https://rimage.gnst.jp/livejapan.com/public/article/detail/a/00/04/a0004442/img/en/a0004442_parts_5f3de2311774a.jpg?20210114171346&q=80"
+  ]
+4.times do
+  file = URI.open("#{soren_images[soren_index_img]}")
+  soren_restaurant.photos.attach(io: file, filename: "nes.png", content_type: "image/png")
+  soren_index_img += 1
+  puts "added image #{soren_images[soren_index_img - 1]}"
+end
+soren_restaurant.tag_list.add("Party")
+soren_restaurant.save
+separator_line
 puts "Seeds finished 👷🏼‍♂️"
