@@ -67,9 +67,14 @@
     color: gray;
   }
 
-  .address {
+  .address a {
     color: gray;
     font-size: 0.8em;
+    text-decoration: none;
+  }
+  .address i {
+    color: gray;
+    margin-right: 5px;
   }
 
   h1 {
