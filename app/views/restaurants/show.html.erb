@@ -1,3 +1,8 @@
+<!-- OG -->
+<% content_for :meta_title, "#{@restaurant.name} is on #{DEFAULT_META["meta_product_name"]}" %>
+<% content_for :meta_description, @restaurant.description %>
+<% content_for :meta_image, cl_image_path(@restaurant.photo.path) %>
+<!-- OG -->
 <%= render "shared/navbar" %>
 <div class="restaurant position-relative">
   <% if @user_confirmed == true %>
