@@ -5,6 +5,11 @@
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.2) 0, rgba(0, 0, 0, 0.2) 100%);
     color:gray;
 
+    .left-side-card {
+      p {
+        padding-top: 0 !important;
+      }
+    }
 
       .btn {
         color:gray;
@@ -30,13 +35,11 @@
 
   .card-product-infos {
     display:none;
-
-
   }
-
 
   .content {
     flex-grow: none;
+    flex-direction: row-reverse;
 
     .accept a {
       background-color: transparent !important;

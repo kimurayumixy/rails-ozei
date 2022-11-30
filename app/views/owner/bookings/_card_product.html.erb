@@ -7,6 +7,10 @@
     <% elsif booking.status == "user_accepted"%>
       <h5>Accepted</h5>
       <h2><%= booking.user.name %></h2>
+      <%# timer %>
+      <% time = ((900+ (Time.now - booking.created_at))/60).to_int %>
+      <p><%= time %> minutes ago</p>
+      <%# timer end %>
     <% else %>
       <%# Restaurant Pending Render %>
       <h4>Request From</h4>
