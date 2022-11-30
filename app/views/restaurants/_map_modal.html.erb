@@ -11,7 +11,7 @@
   <button id='map-toggler' type="button" data-action="click->modal#openMap" aria-controls="mapmodalSupportedContent" aria-expanded="false" aria-label="Toggle map">
     <span class=""><i class="fa-solid fa-map-pin"></i></span>
   </button>
-  <div class="map-overlay" data-modal-target='map'>
+  <div class="map-overlay" id="mapcontainer" data-modal-target='map'>
     <a href="javascript:void(0)" id='closemap' class="closebtn" data-controller="modal" data-action="click->modal#closeMap">&times;</a>
     <div class='map-overlay-content'>
         <div id="map" style="width: 90%; height: 90vh;"

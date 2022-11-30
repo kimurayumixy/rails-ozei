@@ -24,6 +24,6 @@ export default class extends Controller {
   /* Close */
   closeMap(e) {
     console.log(e)
-    document.getElementById("closemap").style.height = "0%";
+    document.getElementById("mapcontainer").style.height = "0%";
   }
 }
