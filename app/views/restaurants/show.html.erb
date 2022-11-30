@@ -1,8 +1,10 @@
 <%= render "shared/navbar" %>
 <div class="restaurant position-relative">
   <% if @user_confirmed == true %>
-    <span class="badge bg-primary position-absolute top-0 start-0 mt-1" style="
-    z-index: 99999";>RESERVATION CONFIRMED</span>
+    <span class="badge bg-primary
+      position-absolute top-0 start-0 mt-1 ms-1"
+      style="z-index: 99999";>RESERVATION CONFIRMED
+    </span>
   <% end %>
   <%= render 'carousel', restaurant: @restaurant %>
   <div class="tags">
