@@ -5,7 +5,7 @@
       <h5>Request accepted</h5>
       <h2>Waiting confirmation from: <strong><%= booking.user.name %></strong></h2>
     <% elsif booking.status == "user_accepted"%>
-      <h5>Accepted</h5>
+      <%# <h5>Accepted</h5> %>
       <h2><%= booking.user.name %></h2>
       <%# timer %>
       <% time = ((900+ (Time.now - booking.created_at))/60).to_int %>

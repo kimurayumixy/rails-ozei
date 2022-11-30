@@ -12,19 +12,24 @@
     <% end %>
   </div>
   <%# Restaurant Accepted %>
+  <hr class="line">
   <div class="bookings restaurant-accepted-card" data-restaurant-subscription-target="bookings">
     <% @bookings.each do |booking| %>
       <%= render "card_product", booking: booking if booking.status = "restaurant_accepted" %>
     <% end %>
   </div>
+  <hr class="line">
   <div class="accepted-rejected d-flex justify-content-between">
     <%# User Accepted %>
     <div class="bookings user-accepted-card" data-restaurant-subscription-target="bookings">
-      <h1>Accepted</h1>
+      <h1>Confirmed</h1>
       <% @bookings.each do |booking| %>
         <%= render "card_product", booking: booking if booking.status = "user_accepted" %>
       <% end %>
     </div>
-    <h1>Statistics</h1>
+    <hr class="line-vr">
+    <div class="statistics-div">
+      <h1>Statistics</h1>
+    </div>
   </div>
   <%# pending, restaurant_accepted, user_accepted, restaurant_rejected, user_rejected %>

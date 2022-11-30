@@ -25,6 +25,8 @@
   }
 
 .user-accepted-card {
+
+
   .card-product {
     height:100px;
 
@@ -50,6 +52,9 @@
   }
 }
 
+.user-accepted-card, .statistics-div {
+  width: 100%;
+}
 .restaurant-accepted-card {
   .card-product{
     height:100px;
@@ -83,6 +88,10 @@
 
 }
 
+.accepted-rejected {
+  margin-top: 16px;
+}
+
 .card-product {
   overflow: hidden;
   height: 200px;
@@ -90,6 +99,8 @@
   box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.25);
   display: flex;
   align-items: center;
+  margin-bottom:16px;
+  margin-top: 15rem;
 
   .flex-column {
     padding-left: 16px;
@@ -193,4 +204,18 @@
 
 .user-reject input {
   color: #525151;
+}
+
+hr.line {
+    opacity: 10%;
+    border: 3px solid #000000;
+    border-radius: 5px;
+
+}
+
+hr.line-vr {
+  margin: 0px 15rem;
+  opacity: 10%;
+  border-left: 6px solid #000000;
+  border-radius: 5px;
 }
