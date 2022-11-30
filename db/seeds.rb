@@ -69,6 +69,87 @@ def create_hotpepper_restaurants(category)
   puts "Finished creating #{category}-restaurants"
 end
 
+# Demo Restaurants added
+demoa_restaurant = Restaurant.create!(
+  user: User.all.sample,
+  name: "KAKUNIMARU",
+  description: "Good Food & Alcohol on a budget",
+  category: "All you can eat",
+  address: "1-19-6 Dougenzaka, Shibuya Ku, Tokyo",
+  maximum_number: 10,
+  price_range: "¥ #{[1000,2000,3000,4000,5000,6000,7000,8000,9000,10000].sample}"
+)
+index_img = 0
+demoa_images = [
+    "http://d2ij38769uvyqz.cloudfront.net/inshokuten-com/foodist/upload_picture/main_c3c308eeac071360e6142cb64ba61e92412b1657.JPG",
+    "http://d2ij38769uvyqz.cloudfront.net/inshokuten-com/foodist/upload_picture/main_c676f68613c282dc75db672ba4e413fa78488b95.jpeg",
+    "http://d2ij38769uvyqz.cloudfront.net/inshokuten-com/foodist/upload_picture/main_c676f68613c282dc75db672ba4e413fa78488b95.jpeg",
+    "http://d2ij38769uvyqz.cloudfront.net/inshokuten-com/foodist/upload_picture/main_c676f68613c282dc75db672ba4e413fa78488b95.jpeg"
+  ]
+4.times do
+  file = URI.open("#{demoa_images[index_img]}")
+  demoa_restaurant.photos.attach(io: file, filename: "nes.png", content_type: "image/png")
+  index_img += 1
+  puts "added image #{demoa_images[index_img - 1]}"
+end
+demoa_restaurant.tag_list.add("Party")
+demoa_restaurant.save
+
+
+demob_restaurant = Restaurant.create!(
+  user: User.all.sample,
+  name: "地酒一献 焼鳥 米の花",
+  description: "Good Food & Alcohol on a budget",
+  category: "All you can eat",
+  address: "1-16-13 Dougenzaka, Shibuya Ku, Tokyo",
+  maximum_number: 10,
+  price_range: "¥ #{[1000,2000,3000,4000,5000,6000,7000,8000,9000,10000].sample}"
+)
+index_img = 0
+demob_images = [
+    "https://tblg.k-img.com/restaurant/images/Rvw/91303/640x640_rect_91303862.jpg",
+    "https://pbs.twimg.com/media/FgD9ufcaEAIK7Kg.jpg",
+    "http://d2ij38769uvyqz.cloudfront.net/inshokuten-com/foodist/upload_picture/main_c676f68613c282dc75db672ba4e413fa78488b95.jpeg",
+    "http://d2ij38769uvyqz.cloudfront.net/inshokuten-com/foodist/upload_picture/main_c676f68613c282dc75db672ba4e413fa78488b95.jpeg"
+  ]
+4.times do
+  file = URI.open("#{demob_images[index_img]}")
+  demob_restaurant.photos.attach(io: file, filename: "nes.png", content_type: "image/png")
+  index_img += 1
+  puts "added image #{demob_images[index_img - 1]}"
+end
+demob_restaurant.tag_list.add("Party")
+demob_restaurant.save
+
+
+democ_restaurant = Restaurant.create!(
+  user: User.all.sample,
+  name: "渋谷 がりっと酒場",
+  description: "Good Food & Alcohol on a budget",
+  category: "All you can eat",
+  address: "1-11-1 Dougenzaka, Shibuya Ku, Tokyo",
+  maximum_number: 10,
+  price_range: "¥ #{[1000,2000,3000,4000,5000,6000,7000,8000,9000,10000].sample}"
+)
+index_img = 0
+democ_images = [
+    "https://imgfp.hotp.jp/IMGH/04/99/P024760499/P024760499_480.jpg",
+    "https://shiblog.town/wp-content/uploads/2022/11/1_IMG_0175.jpg",
+    "http://d2ij38769uvyqz.cloudfront.net/inshokuten-com/foodist/upload_picture/main_c676f68613c282dc75db672ba4e413fa78488b95.jpeg",
+    "http://d2ij38769uvyqz.cloudfront.net/inshokuten-com/foodist/upload_picture/main_c676f68613c282dc75db672ba4e413fa78488b95.jpeg"
+  ]
+4.times do
+  file = URI.open("#{democ_images[index_img]}")
+  democ_restaurant.photos.attach(io: file, filename: "nes.png", content_type: "image/png")
+  index_img += 1
+  puts "added image #{democ_images[index_img - 1]}"
+end
+democ_restaurant.tag_list.add("Party")
+democ_restaurant.save
+
+# Demo Restaurants added
+
+
 # Creating all random stuff
 destroy_all_things
 create_users
@@ -137,7 +218,7 @@ puts "Creating Yumi's Thirsty Izakaya 🇯🇵"
 yumi_restaurant = Restaurant.create!(
   user: yumi,
   name: "Yumi's Thirsty Izakaya",
-  description: "Good Food & Alcohol on a budget",
+  description: "Good Food & Alcohol on a budget. Izakaya are one of Japan's quintessential experiences. If it's your first trip to Japan or you’ve been here for a lifetime, it's hard not to enjoy a beer and yarn with friends over some heavily salted fried food at this Japanese institution.",
   category: "All you can eat",
   address: "6-12 Jingumae, Shibuya Ku, Tokyo",
   maximum_number: 10,
