@@ -1,0 +1,8 @@
+#animations-example-4 tbody td {
+  transform-origin: bottom;
+  animation: revealing-bars 4s linear infinite;
+}
+@keyframes revealing-bars {
+  0%  { transform: scaleY( 0 ); }
+  15% { transform: scaleY( 1 ); }
+}
