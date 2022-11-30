@@ -7,6 +7,7 @@
   <%= audio_tag "notification.mp3", class: "audio-play", muted: true, data: {restaurant_subscription_target: "notification"} %>
   <%# Booking pending %>
   <div class="bookings booking-pending-card" data-restaurant-subscription-target="bookings">
+    <h1>New Requests</h1>
     <% @bookings.each do |booking| %>
       <%= render "card_product", booking: booking if booking.status = "pending" %>
     <% end %>
@@ -14,6 +15,7 @@
   <%# Restaurant Accepted %>
   <hr class="line">
   <div class="bookings restaurant-accepted-card" data-restaurant-subscription-target="bookings">
+    <h1>Accepted Requests</h1>
     <% @bookings.each do |booking| %>
       <%= render "card_product", booking: booking if booking.status = "restaurant_accepted" %>
     <% end %>
