@@ -30,6 +30,31 @@
     <hr class="line-vr">
     <div class="statistics-div">
       <h1>Statistics</h1>
+      <div class="card-product mt-3 rounded d-flex flex-column">
+        <div>
+          <%= current_user.restaurants.first.name %>
+        </div>
+        <div class="d-flex">
+          <div id="today"class="bookings-stats">
+            <h5>Today</h5>
+            <h2>Requests: <%= current_user.restaurants.last.bookings.count + 60%></h2>
+            <h2>Reservation: <%= current_user.restaurants.last.bookings.count + 60%></h2>
+            <h2>Cancellations: <%= current_user.restaurants.last.bookings.count + 60%></h2>
+          </div>
+          <div id="weekly" class="bookings-stats">
+            <h5>Weekly</h5>
+            <h2>Requests: <%= current_user.restaurants.last.bookings.count + 60%></h2>
+            <h2>Reservation: <%= current_user.restaurants.last.bookings.count + 60%></h2>
+            <h2>Cancellations: <%= current_user.restaurants.last.bookings.count + 60%></h2>
+          </div>
+          <div id="monthly" class="bookings-stats">
+            <h5>Monthly</h5>
+            <h2>Requests: <%= current_user.restaurants.last.bookings.count + 60%></h2>
+            <h2>Reservation: <%= current_user.restaurants.last.bookings.count + 60%></h2>
+            <h2>Cancellations: <%= current_user.restaurants.last.bookings.count + 60%></h2>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   <%# pending, restaurant_accepted, user_accepted, restaurant_rejected, user_rejected %>
