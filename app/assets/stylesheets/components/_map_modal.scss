@@ -11,20 +11,20 @@
 
 #map-modal-button {
   position: fixed;
-  bottom: 16px;
+  bottom: 30px;
   margin: auto;
+  padding: 10px;
   z-index: 1;
-  background-color: #000000;
+  background-color: #D47AE8;;
   color: #ffffff;
   border-radius: 20px;
   width: 100px;
-  height: 50px;
+  // height: 50px;
   text-align: center;
-  box-shadow: 0 0 4px #000000;
+  box-shadow: 0 0 4px #e1e1e1;
+  font-size: 14px;
 }
 
 .map-text {
   font-weight: 750;
 }
-
-
