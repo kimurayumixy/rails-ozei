@@ -21,7 +21,7 @@ class BookingsController < ApplicationController
           id: @booking.id
         }
       )
-      redirect_to restaurants_path
+      # redirect_to restaurants_path
     else
       render "restaurants/show", status: :unprocessable_entity
     end
