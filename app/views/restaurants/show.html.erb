@@ -1,8 +1,11 @@
 <%= render "shared/navbar" %>
-<% if @user_confirmed == true %>
-  <h1 class="reservation-confirmed">Reservation Confirmed</h1>
-<% end %>
-<div class="restaurant">
+<div class="restaurant position-relative">
+  <% if @user_confirmed == true %>
+    <span class="badge bg-primary
+      position-absolute top-0 start-0 mt-1 ms-1"
+      style="z-index: 99999";>RESERVATION CONFIRMED
+    </span>
+  <% end %>
   <%= render 'carousel', restaurant: @restaurant %>
   <div class="tags">
     <p> <%= @restaurant.tag_list %></p>
@@ -11,7 +14,7 @@
   </div>
   <div class="restaurant-display">
     <h1><%= @restaurant.name %></h1>
-    <p class="address"><%= @restaurant.address %></p>
+    <p class="address"><i class="fa-sharp fa-solid fa-map-location-dot"></i><%= link_to @restaurant.address, "https://www.google.com/maps?saddr=My+Location&daddr=#{@restaurant.latitude},#{@restaurant.longitude}", target: :_blank %></p>
     <hr>
     <div>
       <div class="restaurant-content">
