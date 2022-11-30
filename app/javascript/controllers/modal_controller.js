@@ -6,7 +6,6 @@ export default class extends Controller {
 
   }
 
-
   toggleMap() {
     // console.log(this.textTarget)
     if (this.textTarget.innerText == 'Show Map') {
