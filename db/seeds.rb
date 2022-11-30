@@ -228,7 +228,7 @@ yumi_restaurant = Restaurant.create!(
   category: "All you can eat",
   address: "6-12 Jingumae, Shibuya Ku, Tokyo",
   maximum_number: 10,
-  price_range: "¥3000"
+  price_range: "¥1000"
 )
 index_img = 0
 yumi_images = [
@@ -277,7 +277,7 @@ puts "Creating Erika's Izakaya 🇧🇷"
 erika_restaurant = Restaurant.create!(
   user: erika,
   name: "Izakaya Issa",
-  description: "Good Food & Alcohol on a budget. Izakaya are one of Japan's quintessential experiences. If it's your first trip to Japan or you've been here for a lifetime, it's hard not to enjoy a beer and yarn with friends over some heavily salted fried food at this Japanese institution.",
+  description: "Good Food & Alcohol on a budget.",
   category: "Izakaya",
   address: "1-28 Yoyogi, Shibuya ku, Tokyo to",
   maximum_number: 50,
@@ -303,8 +303,8 @@ separator_line
 puts "Creating Soren's Izakaya"
 soren_restaurant = Restaurant.create!(
   user: soren,
-  name: "Ozei diner",
-  description: "You can enjoy outside BBQ in the middle of Shibuya. Our BBQ course is not only about grilled vegetables and meat! We also serve salted cabbage and edamame as snacks, cheese fondue, garlic toast, and even dessert! You are sure to be very satisfied! This price is unbeatable in Tokyo...!",
+  name: "Ozei Diner",
+  description: "You can enjoy authentic BBQ in the middle of Shibuya. Our BBQ course is not only about grilled vegetables and meat! We also serve salted cabbage and edamame as snacks, cheese fondue, garlic toast, and even dessert! You are sure to be very satisfied! This price is unbeatable in Tokyo...!",
   category: "Izakaya",
   address: "2-9-10 Dougenzaka, Shibuya Ku, Tokyo",
   maximum_number: 50,
@@ -315,7 +315,7 @@ soren_restaurant = Restaurant.create!(
 soren_index_img = 0
 soren_images = [
     "https://lh3.googleusercontent.com/p/AF1QipMku7dqMLVy1U9TXDDOudz7unwsSqpC6fKH2s6z=w1080-h608-p-no-v0",
-    "https://imgfp.hotp.jp/IMGH/97/05/P039829705/P039829705_480.jpg",
+    "https://ximg.retty.me/resize/s600x600/q80/das/-/retty/img_ebisu/restaurant/100001344783/archive/1223315-5db80bed6aeb0-l.JPG",
     "https://rimage.gnst.jp/livejapan.com/public/article/detail/a/00/04/a0004442/img/en/a0004442_parts_5f3de1727eb71.jpg?20210114171346&q=80",
     "https://rimage.gnst.jp/livejapan.com/public/article/detail/a/00/04/a0004442/img/en/a0004442_parts_5f3de2311774a.jpg?20210114171346&q=80"
   ]
