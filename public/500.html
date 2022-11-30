@@ -3,10 +3,11 @@
 <head>
   <title>We're sorry, but something went wrong (500)</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <img src="" alt="">
   <style>
   .rails-default-error-page {
-    background-color: #EFEFEF;
-    color: #2E2F30;
+    background-color: black;
+    color: #d0d0d0;
     text-align: center;
     font-family: arial, sans-serif;
     margin: 0;
@@ -23,17 +24,17 @@
     border-right-color: #999;
     border-left-color: #999;
     border-bottom-color: #BBB;
-    border-top: #B00100 solid 4px;
+    border-top: #D47AE8 solid 4px;
     border-top-left-radius: 9px;
     border-top-right-radius: 9px;
-    background-color: white;
+    background-color: rgb(255, 255, 255);
     padding: 7px 12% 0;
     box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
   }
 
   .rails-default-error-page h1 {
     font-size: 100%;
-    color: #730E15;
+    color: #D47AE8;
     line-height: 1.5em;
   }
 
@@ -51,6 +52,12 @@
     color: #666;
     box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
   }
+
+  #error500 {
+    width: 40px;
+    float: left;
+  }
+
   </style>
 </head>
 
@@ -58,9 +65,11 @@
   <!-- This file lives in public/500.html -->
   <div class="dialog">
     <div>
+      <img src="/images/error_500.svg" alt="">
       <h1>We're sorry, but something went wrong.</h1>
     </div>
     <p>If you are the application owner check the logs for more information.</p>
+    <a href="/restaurants"><img src="/images/backto.svg" alt="Back to home" id="error500"></a>
   </div>
 </body>
 </html>

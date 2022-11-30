@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
   .rails-default-error-page {
-    background-color: #EFEFEF;
+    background-color: black;
     color: #2E2F30;
     text-align: center;
     font-family: arial, sans-serif;
@@ -23,7 +23,7 @@
     border-right-color: #999;
     border-left-color: #999;
     border-bottom-color: #BBB;
-    border-top: #B00100 solid 4px;
+    border-top: #D47AE8 solid 4px;
     border-top-left-radius: 9px;
     border-top-right-radius: 9px;
     background-color: white;
@@ -33,7 +33,7 @@
 
   .rails-default-error-page h1 {
     font-size: 100%;
-    color: #730E15;
+    color: #D47AE8;
     line-height: 1.5em;
   }
 
@@ -51,6 +51,11 @@
     color: #666;
     box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
   }
+
+  #error404 {
+    width: 40px;
+    float: left;
+  }
   </style>
 </head>
 
@@ -58,10 +63,12 @@
   <!-- This file lives in public/404.html -->
   <div class="dialog">
     <div>
+      <img src="/images/error_404.svg" alt="">
       <h1>The page you were looking for doesn't exist.</h1>
       <p>You may have mistyped the address or the page may have moved.</p>
     </div>
     <p>If you are the application owner check the logs for more information.</p>
+    <a href="/restaurants"><img src="/images/backto.svg" alt="Back to home" id="error404"></a>
   </div>
 </body>
 </html>
