@@ -84,8 +84,8 @@ demoa_restaurant = Restaurant.create!(
   address: "1-19-6 Dougenzaka, Shibuya Ku, Tokyo",
   maximum_number: 10,
   price_range: "¥ #{[1000,2000,3000,4000,5000,6000,7000,8000,9000,10000].sample}",
-  longitude: 35.65684097731903,
-  latitude: 139.69622580381554
+  longitude: 139.69622580381554,
+  latitude: 35.65684097731903
 )
 index_img = 0
 demoa_images = [
@@ -112,8 +112,8 @@ demob_restaurant = Restaurant.create!(
   address: "1-16-13 Dougenzaka, Shibuya Ku, Tokyo",
   maximum_number: 10,
   price_range: "¥ #{[1000,2000,3000,4000,5000,6000,7000,8000,9000,10000].sample}",
-  longitude: 35.6324691,
-  latitude: 139.6967815
+  longitude: 139.6967815,
+  latitude: 35.6324691
 )
 index_img = 0
 demob_images = [
@@ -140,8 +140,8 @@ democ_restaurant = Restaurant.create!(
   address: "1-11-1 Dougenzaka, Shibuya Ku, Tokyo",
   maximum_number: 10,
   price_range: "¥ #{[1000,2000,3000,4000,5000,6000,7000,8000,9000,10000].sample}",
-  longitude: 35.6577505,
-  latitude: 139.6986759
+  longitude: 139.6986759,
+  latitude: 35.6577505
 )
 index_img = 0
 democ_images = [
@@ -224,7 +224,7 @@ puts "Creating Yumi's Thirsty Izakaya 🇯🇵"
 yumi_restaurant = Restaurant.create!(
   user: yumi,
   name: "Yumi's Thirsty Izakaya",
-  description: "Good Food & Alcohol on a budget. Izakaya are one of Japan's quintessential experiences. If it's your first trip to Japan or you’ve been here for a lifetime, it's hard not to enjoy a beer and yarn with friends over some heavily salted fried food at this Japanese institution.",
+  description: "Good Food & Alcohol on a budget. Izakaya are one of Japan's quintessential experiences. If it's your first trip to Japan or you've been here for a lifetime, it's hard not to enjoy a beer and yarn with friends over some heavily salted fried food at this Japanese institution.",
   category: "All you can eat",
   address: "6-12 Jingumae, Shibuya Ku, Tokyo",
   maximum_number: 10,
@@ -277,7 +277,7 @@ puts "Creating Erika's Izakaya 🇧🇷"
 erika_restaurant = Restaurant.create!(
   user: erika,
   name: "Izakaya Issa",
-  description: "Good Food & Alcohol on a budget. Izakaya are one of Japan's quintessential experiences. If it's your first trip to Japan or you’ve been here for a lifetime, it's hard not to enjoy a beer and yarn with friends over some heavily salted fried food at this Japanese institution.",
+  description: "Good Food & Alcohol on a budget. Izakaya are one of Japan's quintessential experiences. If it's your first trip to Japan or you've been here for a lifetime, it's hard not to enjoy a beer and yarn with friends over some heavily salted fried food at this Japanese institution.",
   category: "Izakaya",
   address: "1-28 Yoyogi, Shibuya ku, Tokyo to",
   maximum_number: 50,
