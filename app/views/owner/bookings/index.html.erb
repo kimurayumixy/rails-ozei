@@ -7,6 +7,7 @@
   <%= audio_tag "notification.mp3", class: "audio-play", muted: true, data: {restaurant_subscription_target: "notification"} %>
   <%# Booking pending %>
   <div class="bookings booking-pending-card" data-restaurant-subscription-target="bookings">
+    <h1>New Requests</h1>
     <% @bookings.each do |booking| %>
       <%= render "card_product", booking: booking if booking.status = "pending" %>
     <% end %>
@@ -14,6 +15,7 @@
   <%# Restaurant Accepted %>
   <hr class="line">
   <div class="bookings restaurant-accepted-card" data-restaurant-subscription-target="bookings">
+    <h1>Accepted Requests</h1>
     <% @bookings.each do |booking| %>
       <%= render "card_product", booking: booking if booking.status = "restaurant_accepted" %>
     <% end %>
@@ -32,28 +34,9 @@
       <h1>Statistics</h1>
       <div class="card-product mt-3 rounded d-flex flex-column">
         <div>
-          <%= current_user.restaurants.first.name %>
+          Monthly Reservations
         </div>
-        <div class="d-flex">
-          <div id="today"class="bookings-stats">
-            <h5>Today</h5>
-            <h2>Requests: <%= current_user.restaurants.last.bookings.count + 60%></h2>
-            <h2>Reservation: <%= current_user.restaurants.last.bookings.count + 60%></h2>
-            <h2>Cancellations: <%= current_user.restaurants.last.bookings.count + 60%></h2>
-          </div>
-          <div id="weekly" class="bookings-stats">
-            <h5>Weekly</h5>
-            <h2>Requests: <%= current_user.restaurants.last.bookings.count + 60%></h2>
-            <h2>Reservation: <%= current_user.restaurants.last.bookings.count + 60%></h2>
-            <h2>Cancellations: <%= current_user.restaurants.last.bookings.count + 60%></h2>
-          </div>
-          <div id="monthly" class="bookings-stats">
-            <h5>Monthly</h5>
-            <h2>Requests: <%= current_user.restaurants.last.bookings.count + 60%></h2>
-            <h2>Reservation: <%= current_user.restaurants.last.bookings.count + 60%></h2>
-            <h2>Cancellations: <%= current_user.restaurants.last.bookings.count + 60%></h2>
-          </div>
-        </div>
+        <%= render 'charts' %>
       </div>
     </div>
   </div>

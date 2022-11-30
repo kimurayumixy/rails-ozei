@@ -138,15 +138,18 @@
   margin-top: 16px;
 
   .statistics-div {
+
+
     .flex-column {
       padding-left: 16px;
+      padding-right: 16px;
     }
   }
 }
 
 hr.line {
   opacity: 10%;
-  border: 3px solid #000000;
+  border: 1px solid #000000;
   border-radius: 5px;
 
 }
@@ -154,7 +157,7 @@ hr.line {
 hr.line-vr {
 margin: 0px 6rem;
 opacity: 10%;
-border-left: 6px solid #000000;
+border-left: 2px solid #000000;
 border-radius: 5px;
 }
 
@@ -189,7 +192,7 @@ margin:0;
   overflow: hidden;
   height: 200px;
   background: white;
-  box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.25);
+  box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.25);
   display: flex;
   align-items: center;
   margin-bottom:16px;
