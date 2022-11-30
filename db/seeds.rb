@@ -255,7 +255,7 @@ mattias_restaurant = Restaurant.create!(
   category: "Pub",
   address: "1-8 Jingumae, Shibuya Ku, Tokyo to",
   maximum_number: 80,
-  price_range: "¥5000"
+  price_range: "¥8000"
 )
 mattias_index = 0
 mattias_images = [
@@ -277,11 +277,11 @@ puts "Creating Erika's Izakaya 🇧🇷"
 erika_restaurant = Restaurant.create!(
   user: erika,
   name: "Izakaya Issa",
-  description: "Good Food & Alcohol on a budget. Izakaya are one of Japan's quintessential experiences. If it's your first trip to Japan or you've been here for a lifetime, it's hard not to enjoy a beer and yarn with friends over some heavily salted fried food at this Japanese institution.",
+  description: "Good Food & Alcohol on a budget.",
   category: "Izakaya",
   address: "1-28 Yoyogi, Shibuya ku, Tokyo to",
   maximum_number: 50,
-  price_range: "¥1000"
+  price_range: "¥5000"
 )
 erika_index_img = 0
 erika_images = [
@@ -298,5 +298,34 @@ erika_images = [
 end
 erika_restaurant.tag_list.add("Party")
 erika_restaurant.save
+separator_line
+
+puts "Creating Soren's Izakaya"
+soren_restaurant = Restaurant.create!(
+  user: soren,
+  name: "Ozei Diner",
+  description: "You can enjoy authentic BBQ in the middle of Shibuya. Our BBQ course is not only about grilled vegetables and meat! We also serve salted cabbage and edamame as snacks, cheese fondue, garlic toast, and even dessert! You are sure to be very satisfied! This price is unbeatable in Tokyo...!",
+  category: "Izakaya",
+  address: "2-9-10 Dougenzaka, Shibuya Ku, Tokyo",
+  maximum_number: 50,
+  price_range: "¥2000",
+  longitude: 139.69937167617854,
+  latitude: 35.65877054698397
+)
+soren_index_img = 0
+soren_images = [
+    "https://lh3.googleusercontent.com/p/AF1QipMku7dqMLVy1U9TXDDOudz7unwsSqpC6fKH2s6z=w1080-h608-p-no-v0",
+    "https://ximg.retty.me/resize/s600x600/q80/das/-/retty/img_ebisu/restaurant/100001344783/archive/1223315-5db80bed6aeb0-l.JPG",
+    "https://rimage.gnst.jp/livejapan.com/public/article/detail/a/00/04/a0004442/img/en/a0004442_parts_5f3de1727eb71.jpg?20210114171346&q=80",
+    "https://rimage.gnst.jp/livejapan.com/public/article/detail/a/00/04/a0004442/img/en/a0004442_parts_5f3de2311774a.jpg?20210114171346&q=80"
+  ]
+4.times do
+  file = URI.open("#{soren_images[soren_index_img]}")
+  soren_restaurant.photos.attach(io: file, filename: "nes.png", content_type: "image/png")
+  soren_index_img += 1
+  puts "added image #{soren_images[soren_index_img - 1]}"
+end
+soren_restaurant.tag_list.add("Party")
+soren_restaurant.save
 separator_line
 puts "Seeds finished 👷🏼‍♂️"
