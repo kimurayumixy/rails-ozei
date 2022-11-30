@@ -116,9 +116,10 @@
     }
 
     img {
-      height: 120px;
-      border-radius: 8px 8px 8px 8px;
       width: 150px;
+      height: 100%;
+      object-fit: cover;
+      margin-right: 16px;
     }
 
   }
@@ -160,13 +161,6 @@
 .accept a {
   margin-right: 20px;
   color: white;
-}
-
-.card-product img {
-  min-width: 100px;
-  height: 100%;
-  object-fit: cover;
-  margin-right: 16px;
 }
 
 .card-product h2 {
