@@ -228,7 +228,7 @@ yumi_restaurant = Restaurant.create!(
   category: "All you can eat",
   address: "6-12 Jingumae, Shibuya Ku, Tokyo",
   maximum_number: 10,
-  price_range: "¥1000"
+  price_range: "¥3000"
 )
 index_img = 0
 yumi_images = [
@@ -255,7 +255,7 @@ mattias_restaurant = Restaurant.create!(
   category: "Pub",
   address: "1-8 Jingumae, Shibuya Ku, Tokyo to",
   maximum_number: 80,
-  price_range: "¥5000"
+  price_range: "¥8000"
 )
 mattias_index = 0
 mattias_images = [
@@ -281,7 +281,7 @@ erika_restaurant = Restaurant.create!(
   category: "Izakaya",
   address: "1-28 Yoyogi, Shibuya ku, Tokyo to",
   maximum_number: 50,
-  price_range: "¥1000"
+  price_range: "¥5000"
 )
 erika_index_img = 0
 erika_images = [
@@ -304,11 +304,11 @@ puts "Creating Soren's Izakaya"
 soren_restaurant = Restaurant.create!(
   user: soren,
   name: "Ozei diner",
-  description: "Good Food & Alcohol on a budget. Izakaya are one of Japan's quintessential experiences. If it's your first trip to Japan or you've been here for a lifetime, it's hard not to enjoy a beer and yarn with friends over some heavily salted fried food at this Japanese institution.",
+  description: "You can enjoy outside BBQ in the middle of Shibuya. Our BBQ course is not only about grilled vegetables and meat! We also serve salted cabbage and edamame as snacks, cheese fondue, garlic toast, and even dessert! You are sure to be very satisfied! This price is unbeatable in Tokyo...!",
   category: "Izakaya",
   address: "2-9-10 Dougenzaka, Shibuya Ku, Tokyo",
   maximum_number: 50,
-  price_range: "¥1000",
+  price_range: "¥2000",
   longitude: 139.69937167617854,
   latitude: 35.65877054698397
 )
