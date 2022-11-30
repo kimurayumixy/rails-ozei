@@ -20,6 +20,7 @@ class RestaurantsController < ApplicationController
     @restaurants = @restaurants.tagged_with(params[:tag_list]) if params[:tag_list]&.any?
     @booking = Booking.new
     @group_size = params[:group_size]
+    @input = params[:query]
   end
 
   def show
