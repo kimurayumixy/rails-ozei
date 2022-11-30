@@ -1,26 +1,60 @@
 <%= render "shared/navbar" %>
-<div class="container mt-3 mb-3"
+<div class="container mt-3 mb-3 d-flex flex-column"
     data-controller="restaurant-subscription"
     data-restaurant-subscription-owner-id-value="<%= current_user.id %>"
     data-action="click->restaurant-subscription#unmute"
   >
   <%= audio_tag "notification.mp3", class: "audio-play", muted: true, data: {restaurant_subscription_target: "notification"} %>
-  <div class="title">
-    <h2 class="text-center">Bookings</h2>
-  </div>
-  <%# bookings %>
-  <div class="bookings" data-restaurant-subscription-target="bookings">
+  <%# Booking pending %>
+  <div class="bookings booking-pending-card" data-restaurant-subscription-target="bookings">
     <% @bookings.each do |booking| %>
-      <%= render "card_product", booking: booking %>
+      <%= render "card_product", booking: booking if booking.status = "pending" %>
     <% end %>
   </div>
-  <%# bookings %>
-  <div class="title mt-3">
-    <h2 class="text-center">My Restaurants</h2>
-  </div>
-  <div class="cards-my-restaurant">
-    <% @current_user.restaurants.order("created_at desc").each do |restaurant| %>
-      <%= render "restaurants/card", restaurant: restaurant %>
+  <%# Restaurant Accepted %>
+  <hr class="line">
+  <div class="bookings restaurant-accepted-card" data-restaurant-subscription-target="bookings">
+    <% @bookings.each do |booking| %>
+      <%= render "card_product", booking: booking if booking.status = "restaurant_accepted" %>
     <% end %>
   </div>
-</div>
+  <hr class="line">
+  <div class="accepted-rejected d-flex justify-content-between">
+    <%# User Accepted %>
+    <div class="bookings user-accepted-card" data-restaurant-subscription-target="bookings">
+      <h1>Confirmed</h1>
+      <% @bookings.each do |booking| %>
+        <%= render "card_product", booking: booking if booking.status = "user_accepted" %>
+      <% end %>
+    </div>
+    <hr class="line-vr">
+    <div class="statistics-div">
+      <h1>Statistics</h1>
+      <div class="card-product mt-3 rounded d-flex flex-column">
+        <div>
+          <%= current_user.restaurants.first.name %>
+        </div>
+        <div class="d-flex">
+          <div id="today"class="bookings-stats">
+            <h5>Today</h5>
+            <h2>Requests: <%= current_user.restaurants.last.bookings.count + 60%></h2>
+            <h2>Reservation: <%= current_user.restaurants.last.bookings.count + 60%></h2>
+            <h2>Cancellations: <%= current_user.restaurants.last.bookings.count + 60%></h2>
+          </div>
+          <div id="weekly" class="bookings-stats">
+            <h5>Weekly</h5>
+            <h2>Requests: <%= current_user.restaurants.last.bookings.count + 60%></h2>
+            <h2>Reservation: <%= current_user.restaurants.last.bookings.count + 60%></h2>
+            <h2>Cancellations: <%= current_user.restaurants.last.bookings.count + 60%></h2>
+          </div>
+          <div id="monthly" class="bookings-stats">
+            <h5>Monthly</h5>
+            <h2>Requests: <%= current_user.restaurants.last.bookings.count + 60%></h2>
+            <h2>Reservation: <%= current_user.restaurants.last.bookings.count + 60%></h2>
+            <h2>Cancellations: <%= current_user.restaurants.last.bookings.count + 60%></h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%# pending, restaurant_accepted, user_accepted, restaurant_rejected, user_rejected %>

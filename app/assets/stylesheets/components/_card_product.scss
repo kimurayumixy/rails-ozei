@@ -1,18 +1,205 @@
+// ADDED FOR OWNER BOOKING START
+
+.booking-pending-card {
+  margin-top: 2rem;
+}
+
+.booking-pending-card {
+  .card-product {
+    img {
+      height: 120px;
+      border-radius: 8px 8px 8px 8px;
+      width: 150px;
+    }
+
+    .flex-column {
+      padding-left: 16px;
+
+      p {
+        font-style: italic;
+
+      }
+    }
+  }
+  }
+.user-rejected-card {
+  .card-product {
+    height:100px;
+    filter: grayscale(1);
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.2) 0, rgba(0, 0, 0, 0.2) 100%);
+    color:gray;
+
+    .flex-column {
+      padding-left: 16px;
+    }
+
+    .left-side-card {
+      p {
+        padding-top: 0 !important;
+      }
+    }
+
+      .btn {
+        color:gray;
+      }
+
+      img {
+        display:none;
+      }
+
+
+    }
+
+  }
+
+.user-accepted-card {
+
+
+  .card-product {
+    height:100px;
+
+    .flex-column {
+      padding-left: 16px;
+    }
+
+
+  }
+  img {
+    display:none;
+  }
+
+  .card-product-infos {
+    display:none;
+  }
+
+  .content {
+    flex-grow: none;
+    flex-direction: row-reverse;
+
+    .accept a {
+      background-color: transparent !important;
+      border: none !important;
+      color: black;
+      font-size: 12px;
+    }
+  }
+}
+
+.user-accepted-card, .statistics-div {
+  width: 100%;
+}
+
+.user-accepted-card {
+  .card-product .left-side-card{
+    p {
+      font-style: italic;
+      }
+  }
+
+}
+.restaurant-accepted-card {
+  .card-product{
+    height:100px;
+    filter: grayscale(1);
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.2) 0, rgba(0, 0, 0, 0.2) 100%);
+
+    .flex-column {
+      padding-left: 16px;
+    }
+
+    .left-side-card {
+      padding-bottom: none !important;
+      h5 {
+        font-weight:900;
+      }
+    }
+
+    .accept {
+      width:16rem;
+  }
+
+    .card-product-infos {
+      display:none;
+    }
+  }
+
+
+  .btn {
+    color:white;
+  }
+
+  img {
+    display:none;
+  }
+
+}
+
+.accepted-rejected {
+  margin-top: 16px;
+
+  .statistics-div {
+    .flex-column {
+      padding-left: 16px;
+    }
+  }
+}
+
+hr.line {
+  opacity: 10%;
+  border: 3px solid #000000;
+  border-radius: 5px;
+
+}
+
+hr.line-vr {
+margin: 0px 6rem;
+opacity: 10%;
+border-left: 6px solid #000000;
+border-radius: 5px;
+}
+
+#group-size{
+margin-left: auto;
+margin-right: 16px;
+gap: 8px;
+
+p {
+  opacity: 1;
+  line-height: 2.4;
+  margin-top: 0px;
+}
+}
+
+#booking-status{
+gap: 8px;
+padding-bottom: 16px;
+width: 16rem;
+}
+
+.card-product .group-size h5 {
+margin:0;
+}
+
+
+// ADDED FOR OWNER BOOKING END
+
+// USER BOOKING CARDS START
 
 .card-product {
   overflow: hidden;
   height: 200px;
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.25);
   display: flex;
   align-items: center;
+  margin-bottom:16px;
 
-  img {
-    width: 150px;
-    height: 100%;
-    object-fit: cover;
-    margin-right: 16px;
-  }
+    img {
+      width: 150px;
+      height: 100%;
+      object-fit: cover;
+      margin-right: 16px;
+    }
 }
 
 .pending {
@@ -38,6 +225,7 @@
   padding-right: 8px;
   text-decoration: none;
 }
+
 
 .card-product p {
   font-size: 12px;

@@ -10,5 +10,10 @@
 </div>
 <br>
 <%= render 'map_modal' %>
-<br>
-<%= render 'list' %>
+<div>
+  <%= link_to bookings_path do %>
+    <%= render 'request_icon' %>
+  <% end %>
+  <br>
+  <%= render 'list' %>
+</div>

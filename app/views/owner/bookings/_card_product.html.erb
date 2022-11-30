@@ -1,22 +1,43 @@
 <div class="card-product mt-3 rounded" id="booking-<%= booking.id %>">
-  <%= image_tag booking.user.photo.attached? ? cl_image_path(booking.user.photo.key) : 'https://cdn2.aprico-media.com/production/imgs/images/000/029/940/original.png?1553946576' %>
-  <div class="content">
-    <div class="card-product-infos">
-      <h2>Name: <%= booking.user.name %></h2>
-      <p>Number: <%= booking.number_of_people %></p>
-      <p>Restaurant: <%= booking.restaurant.name %></p>
+  <div class="d-flex flex-column left-side-card">
+    <%# Restaurant Accepted Render %>
+    <% if booking.status == "restaurant_accepted" %>
+      <h5>Request accepted</h5>
+      <h2>Waiting confirmation from: <strong><%= booking.user.name %></strong></h2>
+    <% elsif booking.status == "user_accepted"%>
+      <%# <h5>Accepted</h5> %>
+      <h2><%= booking.user.name %></h2>
+      <%# timer %>
+      <% time = ((900+ (Time.now - booking.created_at))/60).to_int %>
+      <p><%= time %> minutes ago</p>
+      <%# timer end %>
+    <% else %>
+      <%# Restaurant Pending Render %>
+      <h4>Request From</h4>
+      <%= image_tag booking.user.photo.attached? ? cl_image_path(booking.user.photo.key) : 'https://cdn2.aprico-media.com/production/imgs/images/000/029/940/original.png?1553946576' %>
       <%# time out %>
       <% time = ((900- (Time.now - booking.created_at))/60).to_int %>
       <% if time > 0 %>
-        <p>expire in <%= time %>mins</p>
+        <p>Expires in <%= time %>mins</p>
       <% else %>
         <p>Booking expired</p>
       <% end %>
       <%# time out %>
+    <% end %>
+  </div>
+  <div class="content">
+    <div class="card-product-infos">
+      <h2><%= booking.user.name %></h2>
+      <p><%= booking.user.phone_number %></p>
+      <p><%= booking.user.email %></p>
+    </div>
+    <div class="d-flex" id="group-size">
+      <h5><%= booking.number_of_people%></h5>
+      <p>people</p>
     </div>
     <%# buttons to accept/reject to customer's request(in case pending) %>
     <% if booking.status == "pending" %>
-      <div class="d-flex m-2">
+      <div id="booking-status" class="d-flex m-2 justify-content-center">
         <div class="owner-confirm">
           <%= simple_form_for booking, url: owner_booking_path(booking) do |f| %>
             <%= f.input :status, as: :hidden, input_html: { value: 'restaurant_accepted'} %>
@@ -33,7 +54,7 @@
       <%# buttons to accept/reject to customer's request (in case pending %>
     <% else %>
       <%# after choosing accept/reject to customer's request %>
-      <div class="accept">
+      <div class="accept m-2">
         <div class="d-flex justify-content-center">
           <% if booking.status == "restaurant_accepted" %>
             <a href="#" class="btn btn-success">
