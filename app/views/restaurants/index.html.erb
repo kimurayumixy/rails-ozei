@@ -4,7 +4,7 @@
     <% if @group_size == nil %>
       <small> <%= "All restaurants" %></small>
     <% else %>
-      <small><%=  "Search #{@group_size} people" %></small>
+      <p class="result-message"><%= "Result for #{@group_size} people in #{@input.capitalize}" %></p>
     <% end %>
   </div>
 </div>
