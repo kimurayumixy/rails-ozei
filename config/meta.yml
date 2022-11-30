@@ -1,0 +1,5 @@
+meta_product_name: "Ozei"
+meta_title: "Ozei - Find tables for big groups "
+meta_description: "Last minute reservation for large groups in Tokyo"
+meta_image: "cover.jpg" # should exist in `app/assets/images/`
+twitter_account: "@ozei_twitter_account"   # required for Twitter Cards
