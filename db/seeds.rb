@@ -69,6 +69,12 @@ def create_hotpepper_restaurants(category)
   puts "Finished creating #{category}-restaurants"
 end
 
+
+
+# Creating all random stuff
+destroy_all_things
+create_users
+
 # Demo Restaurants added
 demoa_restaurant = Restaurant.create!(
   user: User.all.sample,
@@ -77,7 +83,9 @@ demoa_restaurant = Restaurant.create!(
   category: "All you can eat",
   address: "1-19-6 Dougenzaka, Shibuya Ku, Tokyo",
   maximum_number: 10,
-  price_range: "¥ #{[1000,2000,3000,4000,5000,6000,7000,8000,9000,10000].sample}"
+  price_range: "¥ #{[1000,2000,3000,4000,5000,6000,7000,8000,9000,10000].sample}",
+  longitude: 35.65684097731903,
+  latitude: 139.69622580381554
 )
 index_img = 0
 demoa_images = [
@@ -103,7 +111,9 @@ demob_restaurant = Restaurant.create!(
   category: "All you can eat",
   address: "1-16-13 Dougenzaka, Shibuya Ku, Tokyo",
   maximum_number: 10,
-  price_range: "¥ #{[1000,2000,3000,4000,5000,6000,7000,8000,9000,10000].sample}"
+  price_range: "¥ #{[1000,2000,3000,4000,5000,6000,7000,8000,9000,10000].sample}",
+  longitude: 35.6324691,
+  latitude: 139.6967815
 )
 index_img = 0
 demob_images = [
@@ -129,7 +139,9 @@ democ_restaurant = Restaurant.create!(
   category: "All you can eat",
   address: "1-11-1 Dougenzaka, Shibuya Ku, Tokyo",
   maximum_number: 10,
-  price_range: "¥ #{[1000,2000,3000,4000,5000,6000,7000,8000,9000,10000].sample}"
+  price_range: "¥ #{[1000,2000,3000,4000,5000,6000,7000,8000,9000,10000].sample}",
+  longitude: 35.6577505,
+  latitude: 139.6986759
 )
 index_img = 0
 democ_images = [
@@ -148,12 +160,6 @@ democ_restaurant.tag_list.add("Party")
 democ_restaurant.save
 
 # Demo Restaurants added
-
-
-# Creating all random stuff
-destroy_all_things
-create_users
-
 create_hotpepper_restaurants("izakaya")
 create_hotpepper_restaurants("italian")
 create_hotpepper_restaurants("french")
