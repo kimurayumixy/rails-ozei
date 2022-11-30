@@ -2,13 +2,62 @@
   width: 200px;
   height: 200px;
   // border-radius: 8px;
-}
 
-.mapboxgl-popup-content {
-  text-align: center;
-  // font-family: "Open Sans", sans-serif;
-}
 
-.pop-up-image {
-  object-fit: contain;
+
+
+
+  p {
+    font-family: var(--bs-body-font-family);
+  }
+
+  .mapboxgl-popup-content {
+    // This is the popout
+    text-align: center;
+    border-radius: 8px;
+
+    h5 {
+      margin-top: 0.5rem;
+    }
+
+    .tag-pill
+    {
+      border: solid 2px;
+      display: inline-block;
+      font-size: 1rem;
+      border-radius: 50rem;
+      padding: 0.2rem 0.8rem;
+      background-color: #ECEAFF;
+      margin-right: 0.6rem;
+      margin-bottom: 0.4rem;
+
+      border-color: $green;
+      background-color: $green;
+      color: $white;
+    }
+
+    .mapboxgl-popup-close-button
+    {
+      background-color: white;
+      z-index: 85;
+      font-size: 24px;
+      border-radius: 50%;
+      padding-bottom: 5px;
+    }
+
+
+    .pop-up-image {
+      object-fit: contain;
+
+    }
+
+    img {
+      height: 100px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+  }
+
+
 }
