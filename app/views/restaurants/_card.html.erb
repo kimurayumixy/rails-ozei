@@ -16,7 +16,9 @@
             <p><%= restaurant.category %></p>
             <p class="card-restaurant-pricing">AVG. <%= restaurant.price_range %>/Person</p>
             <span>
-              <p id='distance'><%= @distance = restaurant.distance_to([params[:lat], params[:long]]).round(2) %> km away</p>
+            <% if @location %>
+              <p id='distance'><%= @distance = restaurant.distance_to(@location).round(2) %> km away</p>
+            <% end %>
             </span>
           </div>
         </div>
@@ -25,7 +27,7 @@
         <div class="select-card m-3">
           <%= simple_form_for [restaurant, @booking], data: {request_all_target: "form"} do |f| %>
             <%= f.input :number_of_people, as: :hidden, input_html: {value: params[:group_size]} %>
-            <%= hidden_field_tag :distance, @distance, data: { mapbox_ditance_target: 'input' } %>
+            <%= f.input :distance, as: :hidden, input_html: {value: @distance} %>
             <%= button_tag type: 'submit', class: "button-card", data: {button_target: "button", action: "click->button#changeButton"} do %>
               Request
             <% end %>

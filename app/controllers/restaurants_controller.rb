@@ -5,9 +5,14 @@ class RestaurantsController < ApplicationController
   def index
     @restaurants =
       if params[:query].present?
-        policy_scope(Restaurant).search(params[:query]).near([params[:lat].to_f, params[:long].to_f], 500, order: 'distance')
-      else
+        # CHANGE NEAR VALUE TO 5KM
+        policy_scope(Restaurant).search(params[:query]).geocoded
+      elsif params[:lat].present? && params[:long].present?
+        # CHANGE NEAR VALUE TO 5KM
+        @location = [params[:lat], params[:long]]
         policy_scope(Restaurant).near([params[:lat].to_f, params[:long].to_f], 500, order: 'distance')
+      else
+        policy_scope(Restaurant)
       end
     @markers = @restaurants.geocoded.map do |restaurant| {
       lat: restaurant.latitude,
