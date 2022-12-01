@@ -22,6 +22,9 @@ application.register("modal", ModalController)
 import NavbarController from "./navbar_controller"
 application.register("navbar", NavbarController)
 
+import RequestAllController from "./request_all_controller"
+application.register("request-all", RequestAllController)
+
 import RestaurantSubscriptionController from "./restaurant_subscription_controller"
 application.register("restaurant-subscription", RestaurantSubscriptionController)
 
@@ -30,3 +33,7 @@ application.register("tags", TagsController)
 
 import UserLocationController from "./user_location_controller"
 application.register("user-location", UserLocationController)
+
+import TogglerController from "./toggler_controller"
+application.register("toggler", TogglerController)
+

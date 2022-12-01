@@ -81,11 +81,11 @@ demoa_restaurant = Restaurant.create!(
   name: "KAKUNIMARU",
   description: "Good Food & Alcohol on a budget",
   category: "All you can eat",
-  address: "1-19-6 Dougenzaka, Shibuya Ku, Tokyo",
+  address: "2-18-1 Kounan Minato-ku, Tokyo",
   maximum_number: 10,
   price_range: "¥ #{[1000,2000,3000,4000,5000,6000,7000,8000,9000,10000].sample}",
-  longitude: 139.69622580381554,
-  latitude: 35.65684097731903
+  longitude: 139.7407041,
+  latitude: 35.6290234
 )
 index_img = 0
 demoa_images = [
@@ -109,11 +109,11 @@ demob_restaurant = Restaurant.create!(
   name: "地酒一献 焼鳥 米の花",
   description: "Good Food & Alcohol on a budget",
   category: "All you can eat",
-  address: "1-16-13 Dougenzaka, Shibuya Ku, Tokyo",
+  address: "2-15-2 Kounan Minato-ku, Tokyo",
   maximum_number: 10,
   price_range: "¥ #{[1000,2000,3000,4000,5000,6000,7000,8000,9000,10000].sample}",
-  longitude: 139.6967815,
-  latitude: 35.6324691
+  longitude: 139.7421613,
+  latitude: 35.6277939
 )
 index_img = 0
 demob_images = [
@@ -137,11 +137,11 @@ democ_restaurant = Restaurant.create!(
   name: "渋谷 がりっと酒場",
   description: "Good Food & Alcohol on a budget",
   category: "All you can eat",
-  address: "1-11-1 Dougenzaka, Shibuya Ku, Tokyo",
+  address: "2-14-10 Kounan Minato-ku, Tokyo",
   maximum_number: 10,
   price_range: "¥ #{[1000,2000,3000,4000,5000,6000,7000,8000,9000,10000].sample}",
-  longitude: 139.6986759,
-  latitude: 35.6577505
+  longitude: 139.74205,
+  latitude: 35.628642
 )
 index_img = 0
 democ_images = [
@@ -227,12 +227,14 @@ puts "Creating Yumi's Thirsty Izakaya 🇯🇵"
 
 yumi_restaurant = Restaurant.create!(
   user: yumi,
-  name: "Yumi's Thirsty Izakaya",
+  name: "Thirsty Izakaya",
   description: "Good Food & Alcohol on a budget. Izakaya are one of Japan's quintessential experiences. If it's your first trip to Japan or you've been here for a lifetime, it's hard not to enjoy a beer and yarn with friends over some heavily salted fried food at this Japanese institution.",
   category: "All you can eat",
-  address: "6-12 Jingumae, Shibuya Ku, Tokyo",
+  address: "2-16-2 Kounan Minato-ku, Tokyo",
   maximum_number: 10,
-  price_range: "¥1000"
+  price_range: "¥1000",
+  longitude: 139.7405342,
+  latitude: 35.627763
 )
 index_img = 0
 yumi_images = [
@@ -257,9 +259,11 @@ mattias_restaurant = Restaurant.create!(
   name: "Viking Sal",
   description: "Come drink, eat and have a real viking experience! Maybe even make some new viking friends?",
   category: "Pub",
-  address: "1-8 Jingumae, Shibuya Ku, Tokyo to",
+  address: "2-15-2 Kounan Minato-ku, Tokyo",
   maximum_number: 80,
-  price_range: "¥8000"
+  price_range: "¥8000",
+  longitude: 139.7419271,
+  latitude: 35.6268112
 )
 mattias_index = 0
 mattias_images = [
@@ -283,9 +287,11 @@ erika_restaurant = Restaurant.create!(
   name: "Izakaya Issa",
   description: "Good Food & Alcohol on a budget.",
   category: "Izakaya",
-  address: "1-28 Yoyogi, Shibuya ku, Tokyo to",
+  address: "2-7-19 Kounan Minato-ku, Tokyo",
   maximum_number: 50,
-  price_range: "¥5000"
+  price_range: "¥5000",
+  longitude: 139.7425331,
+  latitude: 35.627763
 )
 erika_index_img = 0
 erika_images = [
@@ -307,14 +313,14 @@ separator_line
 puts "Creating Soren's Izakaya"
 soren_restaurant = Restaurant.create!(
   user: soren,
-  name: "Ozei Diner",
+  name: "Soren's Diner",
   description: "You can enjoy authentic BBQ in the middle of Shibuya. Our BBQ course is not only about grilled vegetables and meat! We also serve salted cabbage and edamame as snacks, cheese fondue, garlic toast, and even dessert! You are sure to be very satisfied! This price is unbeatable in Tokyo...!",
   category: "Izakaya",
-  address: "2-9-10 Dougenzaka, Shibuya Ku, Tokyo",
+  address: "2-14-10 Kounan Minato-ku, Tokyo",
   maximum_number: 50,
   price_range: "¥2000",
-  longitude: 139.69937167617854,
-  latitude: 35.65877054698397
+  longitude: 139.7421108,
+  latitude: 35.6286195
 )
 soren_index_img = 0
 soren_images = [

@@ -2,8 +2,7 @@
   <div class="d-flex flex-column left-side-card">
     <%# Restaurant Accepted Render %>
     <% if booking.status == "restaurant_accepted" %>
-      <h5>Request accepted</h5>
-      <h2>Waiting confirmation from: <strong><%= booking.user.name %></strong></h2>
+      <h2>Customer: <strong><%= booking.user.name %></strong></h2>
     <% elsif booking.status == "user_accepted"%>
       <h2><%= booking.user.name %></h2>
       <%# timer %>
@@ -29,9 +28,15 @@
       <p><%= booking.user.phone_number %></p>
       <p><%= booking.user.email %></p>
     </div>
+    <%# group size %>
     <div class="d-flex" id="group-size">
-      <h5><%= booking.number_of_people%></h5>
-      <p>people</p>
+      <% if booking.number_of_people > 1 %>
+        <h5><%= booking.number_of_people%></h5>
+        <p>people</p>
+      <% else %>
+        <h5><%= booking.number_of_people%></h5>
+        <p>person</p>
+      <% end %>
     </div>
     <%# buttons to accept/reject to customer's request(in case pending) %>
     <% if booking.status == "pending" %>
