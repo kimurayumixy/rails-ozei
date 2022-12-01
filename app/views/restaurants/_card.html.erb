@@ -1,5 +1,7 @@
 <div>
-  <div class="card-restaurant" data-controller="button">
+  <div class="card-restaurant" data-controller="button mapbox-distance"
+    data-mapbox-distance-lat-value="<%= restaurant.latitude %>"
+    data-mapbox-distance-long-value="<%= restaurant.longitude %>">
     <%= link_to restaurant_path(restaurant, group_size: @group_size) do %>
       <%= render 'restaurants/carousel', restaurant: restaurant%>
       <div class="card-content">
@@ -13,15 +15,19 @@
             <h2><%= restaurant.name %></h2>
             <p><%= restaurant.category %></p>
             <p class="card-restaurant-pricing">AVG. <%= restaurant.price_range %>/Person</p>
+            <span>
+              <p id='distance' data-mapbox-distance-target='distance'></p>
+              <p id="time" data-mapbox-distance-target='time'></p>
+            </span>
           </div>
         </div>
       <% end %>
       <% if @booking.present? %>
         <div class="select-card m-3">
-          <%= simple_form_for [restaurant, @booking] do |f| %>
+          <%= simple_form_for [restaurant, @booking], data: {request_all_target: "form"} do |f| %>
             <%= f.input :number_of_people, as: :hidden, input_html: {value: params[:group_size]} %>
             <%= button_tag type: 'submit', class: "button-card", data: {button_target: "button", action: "click->button#changeButton"} do %>
-              Reserve
+              Request
             <% end %>
           </div>
         <% end %>

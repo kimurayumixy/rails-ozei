@@ -6,3 +6,29 @@
   0%  { transform: scaleY( 0 ); }
   15% { transform: scaleY( 1 ); }
 }
+
+#my-chart {
+    --color-1: #FFE6F7;
+    --color-2: #D47AE8;
+    --color-3: #FFE6F7;
+    --color-4: #D47AE8;
+    --color-5: #FFE6F7;
+    --color-6: #D47AE8;
+    --color-7: #FFE6F7;
+    --color-8: #D47AE8;
+    --color-9: #FFE6F7;
+    --color-10: #D47AE8;
+    --color-11: #FFE6F7;
+    --color-12: #D47AE8;
+ td {
+  border-radius: 5px 5px 0 0;
+  border: 1px solid #999;
+ }
+}
+#my-chart tr:last-child {
+  --color: #D47AE8;
+}
+
+#my-chart tr:nth-child(n+11):not(:last-child) {
+  --color:  #FFE6F7;
+}

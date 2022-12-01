@@ -13,15 +13,27 @@ application.register("button", ButtonController)
 import MapController from "./map_controller"
 application.register("map", MapController)
 
+import MapboxDistanceController from "./mapbox_distance_controller"
+application.register("mapbox-distance", MapboxDistanceController)
+
 import ModalController from "./modal_controller"
 application.register("modal", ModalController)
 
 import NavbarController from "./navbar_controller"
 application.register("navbar", NavbarController)
 
+import RequestAllController from "./request_all_controller"
+application.register("request-all", RequestAllController)
+
 import RestaurantSubscriptionController from "./restaurant_subscription_controller"
 application.register("restaurant-subscription", RestaurantSubscriptionController)
 
 import TagsController from "./tags_controller"
 application.register("tags", TagsController)
+
+import UserLocationController from "./user_location_controller"
+application.register("user-location", UserLocationController)
+
+import TogglerController from "./toggler_controller"
+application.register("toggler", TogglerController)
 
