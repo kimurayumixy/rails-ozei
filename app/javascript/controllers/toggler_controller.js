@@ -10,10 +10,10 @@ export default class extends Controller {
   toggle() {
     if (this.inputTarget.checked) {
       const element = document.getElementById("main-content");
-      element.classList.add("gray-scale-all")
+      element.classList.remove("gray-scale-all")
     } else {
       const element = document.getElementById("main-content");
-      element.classList.remove("gray-scale-all")
+      element.classList.add("gray-scale-all")
     }
   }
 }
