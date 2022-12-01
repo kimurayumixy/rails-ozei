@@ -1,7 +1,9 @@
-<div class='map>
-  <div class='pop-up-image'>
-    <%= render 'carousel', restaurant: restaurant %>
-  </div>
+<div class='map'>
+  <%= link_to restaurant_path(restaurant, @booking) do %>
+    <div class='pop-up-image'>
+      <%= render 'carousel', restaurant: restaurant %>
+    </div>
+  <% end %>
   <h5><%= restaurant.name %></h2>
   <p><strong><%= link_to restaurant.address, "https://www.google.com/maps?saddr=My+Location&daddr=#{restaurant.latitude},#{restaurant.longitude}", target: :_blank %></strong></p>
   <p class="tag-pill"><%= restaurant.category %></p>
