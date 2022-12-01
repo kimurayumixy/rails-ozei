@@ -12,15 +12,18 @@ export default class extends Controller {
   }
 
   submitAll(event) {
+    const promises = []
     this.formTargets.forEach((form) => {
-      fetch(form.action, {
+      promises.push(fetch(form.action, {
         method: "post",
         body: new FormData(form)
-      }).then((response) => {
-        console.log(response);
-      })
+      }))
     })
 
-    window.location.href= "/bookings"
+    Promise.all(promises).then((response) =>{
+      window.location.href = '/bookings'
+      console.log('redirect');
+    })
+    // window.location.href= "/bookings"
   }
 }

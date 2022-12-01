@@ -3,7 +3,7 @@
   id="booking-<%= booking.id %>"
 >
   <%# <% unless booking.status == "user_rejected" || booking.status == "restaurant_rejected" %>
-  <div class="card-product mt-3 rounded">
+  <div class="card-product mt-3 rounded" id="user-booking-card">
     <img src="<%= booking.restaurant.photos.attached? ? cl_image_path(booking.restaurant.photos.first.key) : 'https://images.unsplash.com/photo-1592861956120-e524fc739696?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80' %>"  alt="...">
     <div class="content">
       <div class="card-product-infos">
