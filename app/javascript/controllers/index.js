@@ -37,5 +37,3 @@ application.register("toggler", TogglerController)
 import UserLocationController from "./user_location_controller"
 application.register("user-location", UserLocationController)
 
-import UserLocationIndexController from "./user_location_index_controller"
-application.register("user-location-index", UserLocationIndexController)
