@@ -3,7 +3,7 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="mapbox-distance"
 export default class extends Controller {
   static values = { lat: Number, long: Number}
-  static targets = ["time", 'distance']
+  static targets = ['distance']
 
     connect() {
 
@@ -20,8 +20,7 @@ export default class extends Controller {
     fetch(url)
     .then(response => response.json())
     .then((data) => {
-      this.distanceTarget.innerHTML = `${Math.round(data.routes[0].distance / 1000)} km away`
-      this.timeTarget.innerHTML = `${Math.round(data.routes[0].duration / 60 )} min. away`
+      this.distanceTarget.innerHTML = `${Math.round(data.routes[0].distance / 1000)} km / ${Math.round(data.routes[0].duration / 60 )} min. away`
     })
   }
 }
