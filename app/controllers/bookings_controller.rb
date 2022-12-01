@@ -35,14 +35,18 @@ class BookingsController < ApplicationController
     if @booking.update(booking_params)
       bookings = current_user.bookings.where(status: %w[pending restaurant_accepted])
       bookings.update_all(status: "user_rejected")
+      # raise
       RestaurantChannel.broadcast_to(
         @restaurant.user,
-      {
-        partial: render_to_string(partial: "owner/bookings/card_product", locals: { booking: @booking }),
-        action: "update",
-        id: @booking.id
-      }
-    )
+        {
+          partials: [
+            render_to_string(partial: "owner/bookings/tab_content", locals: { bookings: @restaurant.bookings.pending}),
+            render_to_string(partial: "owner/bookings/tab_content", locals: { bookings: @restaurant.bookings.restaurant_accepted}),
+            render_to_string(partial: "owner/bookings/tab_content", locals: { bookings: @restaurant.bookings.user_accepted}),
+          ],
+          action: "update",
+        }
+      )
       if @booking.status == "user_accepted"
         redirect_to restaurant_path(@restaurant)
       elsif @booking.status == "user_rejected"
