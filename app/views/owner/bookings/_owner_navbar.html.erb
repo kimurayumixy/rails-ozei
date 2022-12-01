@@ -3,14 +3,14 @@
     <%= link_to restaurants_path, class: "navbar-brand" do %>
       <%= image_tag "https://res.cloudinary.com/dmnm5ct2h/image/upload/v1669092922/Ozei/ozei_logo_armhnm.svg" %>
     <% end %>
-    <div class="form-desktop">
+    <div id="restaurant-name">
       <h1>
         <%= current_user.restaurants.first.name %>
-        <label class="switch">
-          <input type="checkbox">
-          <span class="slider round"></span>
-        </label>
       </h1>
+      <label class="switch">
+        <input type="checkbox">
+        <span class="slider round"></span>
+      </label>
     </div>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
