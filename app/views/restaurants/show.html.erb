@@ -1,16 +1,5 @@
-<!-- OG -->
-<%# content_for :meta_title, "#{@restaurant.name} is on #{DEFAULT_META["meta_product_name"]}" %>
-<%# content_for :meta_description, @restaurant.description %>
-<%# content_for :meta_image, cl_image_path(@restaurant.photos.path) %>
-<!-- OG -->
 <%= render "shared/navbar" %>
 <div class="restaurant position-relative">
-  <% if @user_confirmed == true %>
-    <span class="badge bg-primary
-      position-absolute top-0 start-0 mt-1 ms-1"
-      style="z-index: 99999";>RESERVATION CONFIRMED
-    </span>
-  <% end %>
   <%= render 'carousel', restaurant: @restaurant %>
   <div class="tags">
     <p> <%= @restaurant.tag_list %></p>
@@ -18,6 +7,9 @@
     <br>
   </div>
   <div class="restaurant-display">
+    <% if @user_confirmed == true %>
+      <p id="confirmation-message-show"><%= "Reservation confirmed!" %> </p>
+    <% end %>
     <h1><%= @restaurant.name %></h1>
     <p class="address"><i class="fa-sharp fa-solid fa-map-location-dot"></i><%= link_to @restaurant.address, "https://www.google.com/maps?saddr=My+Location&daddr=#{@restaurant.latitude},#{@restaurant.longitude}", target: :_blank %></p>
     <hr>
@@ -50,4 +42,5 @@
       </div>
     <% end %>
   </div>
+  <p></p>
   <%= render "show_map" %>
