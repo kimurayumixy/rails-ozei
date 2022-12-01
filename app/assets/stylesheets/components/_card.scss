@@ -56,10 +56,10 @@
     padding: 0 8px;
     font-size: smaller;
     // border: 1px solid #D47AE8;
-    border-radius: 0 0 4px 4px;
+    border-radius: 0 0 8px 8px;
     box-shadow: 1px 1px 4px rgb(201, 201, 201);
+    padding: 4px 16px;
   }
-
 }
 
 .card-content {
@@ -101,6 +101,8 @@
 
 .info-search-text {
   color: #D47AE8;
+  float: right;
+  margin-right: 8px;
 }
 
 // Smallest device
