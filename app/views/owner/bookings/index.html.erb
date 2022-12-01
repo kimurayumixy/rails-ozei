@@ -9,7 +9,7 @@
   <div class="bookings booking-pending-card" data-restaurant-subscription-target="bookings">
     <h1 class="reservation-titles">New Requests</h1>
     <% @bookings.each do |booking| %>
-      <%= render "card_product", booking: booking if booking.status = "pending" %>
+      <%= render "card_product", booking: booking if booking.status == "pending" %>
     <% end %>
   </div>
   <%# Restaurant Accepted %>
@@ -17,7 +17,7 @@
   <div class="bookings restaurant-accepted-card" data-restaurant-subscription-target="bookings">
     <h1 class="reservation-titles">Accepted Requests</h1>
     <% @bookings.each do |booking| %>
-      <%= render "card_product", booking: booking if booking.status = "restaurant_accepted" %>
+      <%= render "card_product", booking: booking if booking.status == "restaurant_accepted" %>
     <% end %>
   </div>
   <hr class="line">
@@ -26,7 +26,7 @@
     <div class="bookings user-accepted-card" data-restaurant-subscription-target="bookings">
       <h1 class="reservation-titles">Confirmed</h1>
       <% @bookings.each do |booking| %>
-        <%= render "card_product", booking: booking if booking.status = "user_accepted" %>
+        <%= render "card_product", booking: booking if booking.status == "user_accepted" %>
       <% end %>
     </div>
     <hr class="line-vr">
