@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 import { createConsumer } from "@rails/actioncable"
 
 export default class extends Controller {
-  static values = { bookingId: Number }
+  static values = { bookingId: Number, bookingStatus: String }
   static targets = ["bookings", "card"]
   connect() {
     // console.log(this.bookingsTarget);
@@ -10,15 +10,17 @@ export default class extends Controller {
       { channel: "BookingChannel", id: this.bookingIdValue },
       { received: data => {
         // console.log(this.bookingsTarget);
-        console.log(data.status);
-        this.bookingsTarget.innerHTML = data
-        console.log(this.bookingStatus);
-        if (this.bookingStatus === "restaurant_rejected") {
+        console.log(data);
+        // console.log(data.json);
+        this.bookingsTarget.innerHTML = data.button
+        console.log(this.bookingStatusValue);
+        if (data.status === "restaurant_rejected") {
           document.getElementById("booking-" + this.bookingIdValue).classList.add("opacity-50")
-        } else {
-          document.getElementById("booking-" + this.bookingIdValue).classList.remove("opacity-50")
+          document.getElementById("booking-" + this.bookingIdValue).classList.add("order-last")
         }
-
+        else if (data.status === "restaurant_accepted") {
+          document.getElementById("booking-" + this.bookingIdValue).classList.add("order-first")
+        }
         // this.cardTarget.classList.add("opacity-50")
         }
       }

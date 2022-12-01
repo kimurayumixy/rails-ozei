@@ -11,10 +11,13 @@ class Owner::BookingsController < ApplicationController
     if @booking.update(booking_params)
       BookingChannel.broadcast_to(
         @booking,
-        render_to_string(
-          partial: "bookings/#{@booking.status}",
-          locals: { booking: @booking }
-          )
+        {
+          status: @booking.status,
+          button: render_to_string(
+            partial: "bookings/#{@booking.status}",
+            locals: { booking: @booking }
+            )
+        }
       )
       redirect_to owner_bookings_path
     else
