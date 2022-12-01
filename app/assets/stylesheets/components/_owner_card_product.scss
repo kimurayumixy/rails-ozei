@@ -20,12 +20,7 @@
 
 .booking-pending-card {
   margin-top: 2rem;
-
-}
-
-.booking-pending-card {
   .card-product {
-
 
     img {
       height: 130px;
@@ -44,6 +39,7 @@
     }
   }
   }
+
 .user-rejected-card {
   .card-product {
     height:100px;
@@ -78,9 +74,20 @@
 
   .content {
     padding-left: 10rem;
+    flex-grow: none;
+
+    .accept a {
+      border: none !important;
+      color: white;
+      font-size: 12px;
+    }
   }
   .card-product {
     height:100px;
+
+    a {
+
+    }
 
     .flex-column {
       padding-left: 16px;
@@ -96,17 +103,6 @@
     display:none;
   }
 
-  .content {
-    flex-grow: none;
-    flex-direction: row-reverse;
-
-    .accept a {
-      background-color: transparent !important;
-      border: none !important;
-      color: black;
-      font-size: 12px;
-    }
-  }
 }
 
 .user-accepted-card, .statistics-div {
@@ -115,6 +111,7 @@
 }
 
 .user-accepted-card {
+
   .card-product .left-side-card{
     p {
       font-style: italic;
