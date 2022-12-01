@@ -1,16 +1,24 @@
-<div id='modal-main' data-controller='modal'>
+<%# <div id='modal-main' data-controller='modal'>
   <div class ='button-container d-flex align-items-center justify-content-center'>
     <div id="map-modal-button" class='map-modal flex-column' data-action="click->modal#toggleMap">
       <span class='map-text' data-modal-target='text'>Show Map</span>
     </div>
   </div>
-  <div class="modal-body">
-    <div id='map-modal-container' class='modal-hide' data-modal-target='modalContainer'>
-      <div id="map" style="width: 100%; height: 80vh;"
-        data-controller="map"
-        data-map-markers-value="<%= @markers.to_json %>"
-        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-      </div>
+   %>
+
+   <%# NEW MAP MODAL CODE %>
+<div id='mapmodal' data-controller='modal'>
+  <button id='map-toggler' type="button" data-action="click->modal#openMap" aria-controls="mapmodalSupportedContent" aria-expanded="false" aria-label="Toggle map">
+    <span class=""><i class="fa-solid fa-map-pin"></i></span>
+  </button>
+  <div class="map-overlay" id="mapcontainer" data-modal-target='map'>
+    <a href="javascript:void(0)" id='closemap' class="closebtn" data-controller="modal" data-action="click->modal#closeMap">&times;</a>
+    <div class='map-overlay-content'>
+        <div id="map" style="width: 90%; height: 90vh;"
+          data-controller="map"
+          data-map-markers-value="<%= @markers.to_json %>"
+          data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+        </div>
     </div>
   </div>
 </div>
