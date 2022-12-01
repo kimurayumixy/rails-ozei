@@ -174,7 +174,8 @@ puts "....Soren created! 🤠"
 soren = User.create!(
   email: "soren@ozei.fun",
   password: "123123",
-  name: "Soren"
+  name: "Soren",
+  phone_number: "080-1234-5678"
 )
 soren_img = "https://res.cloudinary.com/dmnm5ct2h/image/upload/v1669602938/Ozei/user_egrawp.jpg"
 file = URI.open(soren_img)
@@ -184,7 +185,8 @@ puts "....Mattias created! 🤓"
 mattias = User.create!(
   email: "mattias@ozei.fun",
   password: "123123",
-  name: "Mattias"
+  name: "Mattias",
+  phone_number: "080-5555-5555"
 )
 mattias_img = "https://res.cloudinary.com/dmnm5ct2h/image/upload/v1669606745/Ozei/user2_uqspmm.jpg"
 file = URI.open(mattias_img)
@@ -194,7 +196,8 @@ puts "....Yumi created! 👩🏻"
 yumi = User.create!(
   email: "Yumi@ozei.fun",
   password: "123123",
-  name: "Yumi"
+  name: "Yumi",
+  phone_number: "080-1111-1111"
 )
 yumi_img = "https://res.cloudinary.com/dmnm5ct2h/image/upload/v1669602940/Ozei/owner_bk6w9q.jpg"
 file = URI.open(yumi_img)
@@ -204,7 +207,8 @@ puts "....Erika created! 💃🏻"
 erika = User.create!(
   email: "Erika@ozei.fun",
   password: "123123",
-  name: "Erika"
+  name: "Erika",
+  phone_number: "080-5678-9012"
 )
 erika_img = "https://res.cloudinary.com/dmnm5ct2h/image/upload/v1669606747/Ozei/user3_z8b9za.jpg"
 file = URI.open(erika_img)
