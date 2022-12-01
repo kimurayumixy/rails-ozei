@@ -5,7 +5,6 @@
       <h5>Request accepted</h5>
       <h2>Waiting confirmation from: <strong><%= booking.user.name %></strong></h2>
     <% elsif booking.status == "user_accepted"%>
-      <%# <h5>Accepted</h5> %>
       <h2><%= booking.user.name %></h2>
       <%# timer %>
       <% time = ((900+ (Time.now - booking.created_at))/60).to_int %>
@@ -13,7 +12,6 @@
       <%# timer end %>
     <% else %>
       <%# Restaurant Pending Render %>
-      <h4>Request From</h4>
       <%= image_tag booking.user.photo.attached? ? cl_image_path(booking.user.photo.key) : 'https://cdn2.aprico-media.com/production/imgs/images/000/029/940/original.png?1553946576' %>
       <%# time out %>
       <% time = ((900- (Time.now - booking.created_at))/60).to_int %>

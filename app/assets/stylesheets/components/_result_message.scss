@@ -1,5 +1,14 @@
 .result-message {
-  font-size: 8px;
+  font-size: 12px;
   position: relative;
-  top: 65px
+  top: 20px;
+  margin: 16px 0 -24px 0;
+  color:  gray;
+  padding: 0 0 0 4px;
+}
+
+.sentence-results-start {
+  p {
+    margin-left: 8px;
+  }
 }

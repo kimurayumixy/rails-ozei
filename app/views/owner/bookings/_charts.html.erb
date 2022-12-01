@@ -1,0 +1,30 @@
+<table class="charts-css column show-labels">
+  <thead>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row"> Jul </th>
+      <td style="--size: 0.01;"> <span class="data">  </span> </td>
+    </tr>
+    <tr>
+      <th scope="row"> Aug </th>
+      <td style="--size: 0.65;"> <span class="data"> 65 </span> </td>
+    </tr>
+    <tr>
+      <th scope="row"> Sep </th>
+      <td style="--size: 0.45;"> <span class="data"> 45 </span> </td>
+    </tr>
+    <tr>
+      <th scope="row"> Oct </th>
+      <td style="--size: 0.34;"> <span class="data"> 34 </span> </td>
+    </tr>
+    <tr>
+      <th scope="row"> Nov </th>
+      <td style="--size: 0.88;"> <span class="data"> 88 </span> </td>
+    </tr>
+    <tr>
+      <th scope="row"> Dec </th>
+      <td style="--size: 0.15;"> <span class="data"> <%= current_user.restaurants.first.bookings.count + 12 %> </span> </td>
+    </tr>
+  </tbody>
+</table>

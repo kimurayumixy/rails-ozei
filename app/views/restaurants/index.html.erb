@@ -1,11 +1,22 @@
 <%= render "shared/navbar" %>
 <div class="container">
-  <div class="info-search-text">
-    <% if @group_size == nil %>
-      <p class="result-message"> <%= "All results" %></p>
-    <% else %>
-      <p class="result-message"><%= "Result for #{@group_size} people in #{@input.capitalize}" %></p>
-    <% end %>
+  <div class="info-search-text d-flex">
+    <div class="sentence-results-start">
+      <% if @group_size == nil || @group_size == "1" %>
+        <p class="result-message"> <%= "All results " %></p>
+      <% else %>
+        <p class="result-message"><%= "Results for #{@group_size} people " %></p>
+      <% end %>
+    </div>
+    <!--location -->
+    <div class="sentence-results">
+      <% if @input == nil || @input == ""%>
+        <p class="result-message"> <%= " in Tokyo"%></p>
+      <% else %>
+        <p class="result-message"> <%= " - #{@input.capitalize}"%></p>
+      <% end %>
+    </div>
+    <!--location -->
   </div>
 </div>
 <br>
