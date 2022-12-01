@@ -3,7 +3,7 @@
     <% if @group_size == nil || @group_size == "1" %>
       <p class="result-message"> <%= "#{@restaurants.all.count} results " %></p>
     <% else %>
-      <p class="result-message"><%= "#{@restaurants.all.count} results for #{@group_size} people " %></p>
+      <p class="result-message"><%= "#{@restaurants.all.count} results" %></p>
     <% end %>
   </div>
   <!--location -->
