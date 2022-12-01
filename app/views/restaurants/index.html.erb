@@ -1,5 +1,5 @@
 <%= render "shared/navbar" %>
-<% if @restaurants.all.count <= 10 %>
+<% if @restaurants.length <= 10 %>
   <div class="fixed-results">
     <%= render 'sentence_results' %>
     <!--location -->
@@ -8,7 +8,7 @@
       class: "button-all-card",
       data: {button_target: "button",
       action: "click->request-all#submitAll"} do %>
-      Request All <small> > <%= @restaurants.all.count %></small>
+      Request All <small> > <%= @restaurants.length %></small>
     <% end %>
     <!-- all button-->
   </div>
@@ -28,3 +28,4 @@
   <% end %>
   <br>
 </div>
+

@@ -11,6 +11,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.number_of_people = (params[:booking][:number_of_people]).to_i
     @booking.status = "pending"
+    @booking.distance = (params[:booking][:distance])
     authorize @booking
     if @booking.save
       RestaurantChannel.broadcast_to(
@@ -60,6 +61,6 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:status, :number_of_people)
+    params.require(:booking).permit(:status, :number_of_people, :distance)
   end
 end
