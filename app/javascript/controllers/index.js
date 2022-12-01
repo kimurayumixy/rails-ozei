@@ -25,3 +25,5 @@ application.register("restaurant-subscription", RestaurantSubscriptionController
 import TagsController from "./tags_controller"
 application.register("tags", TagsController)
 
+import UserLocationController from "./user_location_controller"
+application.register("user-location", UserLocationController)
