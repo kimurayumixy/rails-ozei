@@ -3,8 +3,32 @@
   </thead>
   <tbody>
     <tr>
-      <th scope="row"> Jul </th>
+      <th scope="row"> Jan </th>
       <td style="--size: 0.01;"> <span class="data">  </span> </td>
+    </tr>
+    <tr>
+      <th scope="row"> Feb </th>
+      <td style="--size: 0.13;"> <span class="data"> 13 </span> </td>
+    </tr>
+    <tr>
+      <th scope="row"> Mar </th>
+      <td style="--size: 0.13;"> <span class="data"> 13 </span> </td>
+    </tr>
+    <tr>
+      <th scope="row"> Apr </th>
+      <td style="--size: 0.24;"> <span class="data"> 24</span> </td>
+    </tr>
+    <tr>
+      <th scope="row"> May </th>
+      <td style="--size: 0.25;"> <span class="data"> 26</span> </td>
+    </tr>
+    <tr>
+      <th scope="row"> June </th>
+      <td style="--size: 0.26;"> <span class="data"> 26</span> </td>
+    </tr>
+    <tr>
+      <th scope="row"> Jul </th>
+      <td style="--size: 0.36;"> <span class="data"> 36 </span> </td>
     </tr>
     <tr>
       <th scope="row"> Aug </th>
@@ -24,7 +48,7 @@
     </tr>
     <tr>
       <th scope="row"> Dec </th>
-      <td style="--size: 0.15;"> <span class="data"> <%= current_user.restaurants.first.bookings.count + 12 %> </span> </td>
+      <td style="--size: <%= ((current_user.restaurants.first.bookings.count + 12)/100.to_f ) %>;"> <span class="data"> <%= current_user.restaurants.first.bookings.count + 12 %> </span> </td>
     </tr>
   </tbody>
 </table>

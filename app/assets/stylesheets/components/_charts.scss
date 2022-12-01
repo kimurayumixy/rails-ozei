@@ -6,3 +6,13 @@
   0%  { transform: scaleY( 0 ); }
   15% { transform: scaleY( 1 ); }
 }
+
+#my-chart tr {
+  --color: #fdc;
+}
+#my-chart tr:nth-child(n+8):not(:last-child) {
+  --color: #f84;
+}
+#my-chart tr:last-child {
+  --color: repeating-linear-gradient(135deg, #fdc 0px, #fdc 6px, #f84 6px, #f84 12px);
+}
