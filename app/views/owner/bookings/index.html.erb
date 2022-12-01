@@ -31,7 +31,7 @@
     </div>
     <hr class="line-vr">
     <div class="statistics-div">
-      <h1>Statistics</h1>
+      <h1 class="reservation-titles">Statistics</h1>
       <div class="card-product mt-3 rounded d-flex flex-column">
         <div>
           Monthly Reservations
@@ -41,3 +41,26 @@
     </div>
   </div>
   <%# pending, restaurant_accepted, user_accepted, restaurant_rejected, user_rejected %>
+</div>
+<ul class="nav tabs-underlined" id="myTab" role="tablist">
+  <li class="nav-item" role="presentation">
+    <span class="nav-link tab-underlined active" id="bookings-tab" data-bs-toggle="tab" data-bs-target="#bookings-tab-pane" role="tab" aria-controls="bookings-tab-pane" aria-selected="true">Bookings</span>
+  </li>
+  <li class="nav-item" role="presentation">
+    <span class="nav-link tab-underlined" id="requests-tab" data-bs-toggle="tab" data-bs-target="#requests-tab-pane" role="tab" aria-controls="requests-tab-pane" aria-selected="false">Requests</span>
+  </li>
+  <li class="nav-item" role="presentation">
+    <span class="nav-link tab-underlined" id="conversations-tab" data-bs-toggle="tab" data-bs-target="#conversations-tab-pane" role="tab" aria-controls="conversations-tab-pane" aria-selected="false">Conversations</span>
+  </li>
+</ul>
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade py-3 show active" id="bookings-tab-pane" role="tabpanel" aria-labelledby="bookings-tab" tabindex="0">
+    This is the content for the Bookings tab. Notice in the tab HTML there is a href="#bookings". This is pointing to the id of this div..
+  </div>
+  <div class="tab-pane fade py-3" id="requests-tab-pane" role="tabpanel" aria-labelledby="requests-tab" tabindex="0">
+    This is the content for the Requests tab. Notice in the tab HTML there is a href="#requests". This is pointing to the id of this div..
+  </div>
+  <div class="tab-pane fade py-3" id="conversations-tab-pane" role="tabpanel" aria-labelledby="conversations-tab" tabindex="0">
+    This is the content for the Conversations tab. Notice in the tab HTML there is a href="#converstations". This is pointing to the id of this div.
+  </div>
+</div>
