@@ -1,19 +1,38 @@
 // ADDED FOR OWNER BOOKING START
 
+.reservation-titles {
+  color:#D47AE8 !important;
+  font-weight:bolder;
+}
+
+.booking-pending-card, .user-rejected-card, .user-accepted-card, .restaurant-accepted-card {
+  .card-product h2 {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+    padding-right: 8px;
+  }
+}
+
 .booking-pending-card {
   margin-top: 2rem;
+
+
 }
 
 .booking-pending-card {
   .card-product {
+
+
     img {
-      height: 120px;
+      height: 130px;
       border-radius: 8px 8px 8px 8px;
-      width: 150px;
+      width: 130px;
     }
 
     .flex-column {
       padding-left: 16px;
+      padding-top: 16px;
 
       p {
         font-style: italic;
@@ -87,6 +106,7 @@
 
 .user-accepted-card, .statistics-div {
   width: 100%;
+  height: 220px;
 }
 
 .user-accepted-card {
@@ -148,16 +168,16 @@
 }
 
 hr.line {
-  opacity: 10%;
-  border: 1px solid #000000;
+  opacity: 30%;
+  border: 1px solid #d47ae8;
   border-radius: 5px;
 
 }
 
 hr.line-vr {
-margin: 0px 6rem;
-opacity: 10%;
-border-left: 2px solid #000000;
+margin: 0px 4rem;
+opacity: 30%;
+border-left: 2px solid #d47ae8;;
 border-radius: 5px;
 }
 

@@ -12,7 +12,6 @@
       <%# timer end %>
     <% else %>
       <%# Restaurant Pending Render %>
-      <h4>Request From</h4>
       <%= image_tag booking.user.photo.attached? ? cl_image_path(booking.user.photo.key) : 'https://cdn2.aprico-media.com/production/imgs/images/000/029/940/original.png?1553946576' %>
       <%# time out %>
       <% time = ((900- (Time.now - booking.created_at))/60).to_int %>
