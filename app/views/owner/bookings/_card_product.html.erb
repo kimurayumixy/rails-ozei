@@ -30,8 +30,13 @@
       <p><%= booking.user.email %></p>
     </div>
     <div class="d-flex" id="group-size">
-      <h5><%= booking.number_of_people%></h5>
-      <p>people</p>
+      <% if booking.number_of_people > 1 %>
+        <h5><%= booking.number_of_people%></h5>
+        <p>people</p>
+      <% else %>
+        <h5><%= booking.number_of_people%></h5>
+        <p>person</p>
+      <% end %>
     </div>
     <%# buttons to accept/reject to customer's request(in case pending) %>
     <% if booking.status == "pending" %>
