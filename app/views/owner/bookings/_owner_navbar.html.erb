@@ -6,37 +6,39 @@
     <div class="form-desktop">
       <h1>
         <%= current_user.restaurants.first.name %>
+        <label class="switch">
+          <input type="checkbox">
+          <span class="slider round"></span>
+        </label>
       </h1>
     </div>
-    <div>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto">
+        <% if user_signed_in? %>
+          <li class="nav-item active">
+            <%= link_to bookings_path, class: "nav-link text-white" do %>
+              <small><%= "Welcome, #{current_user.name}!"%></small>
+            <% end %>
+          </li>
+          <li class="nav-item dropdown">
+            <%= image_tag current_user.photo.attached? ? cl_image_path(current_user.photo.key) : 'https://cdn2.aprico-media.com/production/imgs/images/000/029/940/original.png?1553946576', class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <%= link_to "My Bookings", bookings_path, class: "dropdown-item" %>
+              <%= link_to "My restaurants", owner_bookings_path, class: "dropdown-item" if current_user.has_restaurants? %>
+              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+            </div>
+          </li>
+        <% else %>
+          <li class="nav-item d-flex">
+            <%= link_to new_user_session_path, class: "nav-link text-white opacity-50" do %>
+              <%= image_tag "https://res.cloudinary.com/dmnm5ct2h/image/upload/v1669182822/Ozei/avatar_white_x4upmf.svg" %>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
     </div>
   </div>
   <%# Right Side Dropdown Icon + Menu %>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav me-auto">
-      <% if user_signed_in? %>
-        <li class="nav-item active">
-          <%= link_to bookings_path, class: "nav-link text-white" do %>
-            <small><%= "Welcome, #{current_user.name}!"%></small>
-          <% end %>
-        </li>
-        <li class="nav-item dropdown">
-          <%= image_tag current_user.photo.attached? ? cl_image_path(current_user.photo.key) : 'https://cdn2.aprico-media.com/production/imgs/images/000/029/940/original.png?1553946576', class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-            <%= link_to "My Bookings", bookings_path, class: "dropdown-item" %>
-            <%= link_to "My restaurants", owner_bookings_path, class: "dropdown-item" if current_user.has_restaurants? %>
-            <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
-          </div>
-        </li>
-      <% else %>
-        <li class="nav-item d-flex">
-          <%= link_to new_user_session_path, class: "nav-link text-white opacity-50" do %>
-            <%= image_tag "https://res.cloudinary.com/dmnm5ct2h/image/upload/v1669182822/Ozei/avatar_white_x4upmf.svg" %>
-          <% end %>
-        </li>
-      <% end %>
-    </ul>
-  </div>
   <%# Mobile Dropdown Menu %>
   <button class="navbar-toggler" type="button" data-action="click->navbar#openNav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class=""><i class="fa-solid fa-bars"></i></span>
