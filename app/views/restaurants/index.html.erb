@@ -1,30 +1,30 @@
 <%= render "shared/navbar" %>
-<div class="container">
-  <div class="info-search-text d-flex">
-    <div class="sentence-results-start">
-      <% if @group_size == nil || @group_size == "1" %>
-        <p class="result-message"> <%= "All results " %></p>
-      <% else %>
-        <p class="result-message"><%= "Results for #{@group_size} people " %></p>
-      <% end %>
-    </div>
+<% if @restaurants.all.count <= 10 %>
+  <div class="fixed-results">
+    <%= render 'sentence_results' %>
     <!--location -->
-    <div class="sentence-results">
-      <% if @input == nil || @input == ""%>
-        <p class="result-message"> <%= " in Tokyo"%></p>
-      <% else %>
-        <p class="result-message"> <%= " - #{@input.capitalize}"%></p>
-      <% end %>
-    </div>
-    <!--location -->
+    <!-- all button-->
+    <%= button_tag type: 'button',
+      class: "button-all-card",
+      data: {button_target: "button",
+      action: "click->request-all#submitAll"} do %>
+      Request All <small> > <%= @restaurants.all.count %></small>
+    <% end %>
+    <!-- all button-->
   </div>
+<% else %>
+  <div class="total">
+    <%= render 'sentence_results' %>
+  </div>
+<% end %>
+<div class="container">
+  <%= render 'list' %>
 </div>
 <br>
-  <%= render 'map_modal' %>
+<%= render 'map_modal' %>
 <div>
   <%= link_to bookings_path do %>
     <%= render 'request_icon' %>
   <% end %>
   <br>
-  <%= render 'list' %>
 </div>
