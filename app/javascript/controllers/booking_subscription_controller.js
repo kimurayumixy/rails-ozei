@@ -15,7 +15,7 @@ export default class extends Controller {
         this.bookingsTarget.innerHTML = data.button
         console.log(this.bookingStatusValue);
         if (data.status === "restaurant_rejected") {
-          document.getElementById("booking-" + this.bookingIdValue).classList.add("opacity-50")
+          document.getElementById("booking-" + this.bookingIdValue).classList.add("opacity-50", "grayscale-rejected")
           document.getElementById("booking-" + this.bookingIdValue).classList.add("order-last")
         }
         else if (data.status === "restaurant_accepted") {
