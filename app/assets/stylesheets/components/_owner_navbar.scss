@@ -2,7 +2,7 @@
   background:black;
 
   .container-fluid {
-    padding: 0px 7.7rem;
+    width: 82%;
   }
 
   a #navbar-brand {
@@ -12,22 +12,16 @@
 }
 
 #restaurant-name {
-  display: flex;
-  gap: 8px;
   align-items: center;
 
   h1 {
     color:white;
     font-weight:bolder;
+    position:relative;
+    left:55px;
   }
 
-  .switch {
-    margin-bottom: 0.5rem;
-
-    }
   }
-
-
 
 /* The switch - the box around the slider */
 .switch {
