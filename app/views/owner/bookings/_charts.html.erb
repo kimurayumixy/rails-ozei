@@ -1,6 +1,4 @@
-<table class="charts-css column show-labels">
-  <thead>
-  </thead>
+<table id="my-chart" class="charts-css column show-labels data-spacing-2">
   <tbody>
     <tr>
       <th scope="row"> Jan </th>
@@ -44,11 +42,11 @@
     </tr>
     <tr>
       <th scope="row"> Nov </th>
-      <td style="--size: 0.88;"> <span class="data"> 88 </span> </td>
+      <td style="--size: 0.88; --color-2"> <span class="data"> 88 </span> </td>
     </tr>
     <tr>
       <th scope="row"> Dec </th>
-      <td style="--size: <%= ((current_user.restaurants.first.bookings.count + 12)/100.to_f ) %>;"> <span class="data"> <%= current_user.restaurants.first.bookings.count + 12 %> </span> </td>
+      <td style="--size: <%= ((current_user.restaurants.first.bookings.count + 12)/100.to_f) %>;"> <span class="data"> <%= current_user.restaurants.first.bookings.count + 12 %> </span> </td>
     </tr>
   </tbody>
 </table>
