@@ -42,35 +42,35 @@
   }
   }
 
-.user-rejected-card {
-  .card-product {
-    height:100px;
-    filter: grayscale(1);
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.2) 0, rgba(0, 0, 0, 0.2) 100%);
-    color:gray;
+// .user-rejected-card {
+//   .card-product {
+//     height:100px;
+//     filter: grayscale(1);
+//     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.2) 0, rgba(0, 0, 0, 0.2) 100%);
+//     color:gray;
 
-    .flex-column {
-      padding-left: 16px;
-    }
+//     .flex-column {
+//       padding-left: 16px;
+//     }
 
-    .left-side-card {
-      p {
-        padding-top: 0 !important;
-      }
-    }
+//     .left-side-card {
+//       p {
+//         padding-top: 0 !important;
+//       }
+//     }
 
-      .btn {
-        color:gray;
-      }
+//       .btn {
+//         color:gray;
+//       }
 
-      img {
-        display:none;
-      }
+//       img {
+//         display:none;
+//       }
 
 
-    }
+//     }
 
-  }
+//   }
 
 .user-accepted-card {
 
