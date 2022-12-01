@@ -8,9 +8,9 @@ class RestaurantsController < ApplicationController
         # CHANGE NEAR VALUE TO 5KM
         policy_scope(Restaurant).search(params[:query]).geocoded
       elsif params[:lat].present? && params[:long].present?
-        # CHANGE NEAR VALUE TO 5KM
+        # CHANGE NEAR VALUE TO ADJUST SEARCH RANGE
         @location = [params[:lat], params[:long]]
-        policy_scope(Restaurant).near([params[:lat].to_f, params[:long].to_f], 500, order: 'distance')
+        policy_scope(Restaurant).near([params[:lat].to_f, params[:long].to_f], 10, order: 'distance')
       else
         policy_scope(Restaurant)
       end
