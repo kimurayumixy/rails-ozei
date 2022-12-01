@@ -1,17 +1,18 @@
 <%= render "owner/bookings/owner_navbar" %>
-<div class="container mt-3 mb-3 d-flex flex-column"
+ <div id="online-offline-div">
+    <p>Open for requests</p>
+    <label class="switch" data-controller="toggler">
+      <input data-action="input->toggler#toggle" data-target="toggler.input" type="checkbox">
+      <span class="slider round"></span>
+    </label>
+  </div>
+<div id="main-content" class="container mt-3 mb-3 d-flex flex-column"
     data-controller="restaurant-subscription"
     data-restaurant-subscription-owner-id-value="<%= current_user.id %>"
     data-action="click->restaurant-subscription#unmute"
   >
   <%= audio_tag "notification.mp3", class: "audio-play", muted: true, data: {restaurant_subscription_target: "notification"} %>
-  <div id="online-offline-div">
-    <p>Open for requests</p>
-    <label class="switch">
-      <input type="checkbox">
-      <span class="slider round"></span>
-    </label>
-  </div>
+
   <div class="statistics-div">
     <div class="card-product mt-3 rounded d-flex flex-column">
       <div>
@@ -20,45 +21,47 @@
       <%= render 'charts' %>
     </div>
   </div>
-  <ul class="nav tabs-underlined" id="myTab" role="tablist">
-    <li class="nav-item" role="presentation">
-      <span class="nav-link tab-underlined active" id="bookings-tab" data-bs-toggle="tab" data-bs-target="#bookings-tab-pane" role="tab" aria-controls="bookings-tab-pane" aria-selected="true">New Requests</span>
-    </li>
-    <li class="nav-item" role="presentation">
-      <span class="nav-link tab-underlined" id="requests-tab" data-bs-toggle="tab" data-bs-target="#requests-tab-pane" role="tab" aria-controls="requests-tab-pane" aria-selected="false">Accepted Requests</span>
-    </li>
-    <li class="nav-item" role="presentation">
-      <span class="nav-link tab-underlined" id="conversations-tab" data-bs-toggle="tab" data-bs-target="#conversations-tab-pane" role="tab" aria-controls="conversations-tab-pane" aria-selected="false">Confirmed Reservations</span>
-    </li>
-  </ul>
-  <div class="tab-content" id="myTabContent">
-    <div class="tab-pane fade py-3 show active" id="bookings-tab-pane" role="tabpanel" aria-labelledby="bookings-tab" tabindex="0">
-      <%# Booking pending %>
-      <div class="bookings booking-pending-card" data-restaurant-subscription-target="bookings">
-        <% @bookings.each do |booking| %>
-          <%= render "card_product", booking: booking if booking.status == "pending" %>
-        <% end %>
-      </div>
-    </div>
-    <div class="tab-pane fade py-3" id="requests-tab-pane" role="tabpanel" aria-labelledby="requests-tab" tabindex="0">
-      <%# Restaurant Accepted %>
-      <div class="bookings restaurant-accepted-card" data-restaurant-subscription-target="bookings">
-        <% @bookings.each do |booking| %>
-          <%= render "card_product", booking: booking if booking.status == "restaurant_accepted" %>
-        <% end %>
-      </div>
-    </div>
-    <div class="tab-pane fade py-3" id="conversations-tab-pane" role="tabpanel" aria-labelledby="conversations-tab" tabindex="0">
-      <div class="accepted-rejected d-flex justify-content-between">
-        <%# User Accepted %>
-        <div class="bookings user-accepted-card" data-restaurant-subscription-target="bookings">
+  <div >
+    <ul class="nav tabs-underlined" id="myTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <span class="nav-link tab-underlined active" id="bookings-tab" data-bs-toggle="tab" data-bs-target="#bookings-tab-pane" role="tab" aria-controls="bookings-tab-pane" aria-selected="true">New Requests</span>
+      </li>
+      <li class="nav-item" role="presentation">
+        <span class="nav-link tab-underlined" id="requests-tab" data-bs-toggle="tab" data-bs-target="#requests-tab-pane" role="tab" aria-controls="requests-tab-pane" aria-selected="false">Accepted Requests</span>
+      </li>
+      <li class="nav-item" role="presentation">
+        <span class="nav-link tab-underlined" id="conversations-tab" data-bs-toggle="tab" data-bs-target="#conversations-tab-pane" role="tab" aria-controls="conversations-tab-pane" aria-selected="false">Confirmed Reservations</span>
+      </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+      <div class="tab-pane fade py-3 show active" id="bookings-tab-pane" role="tabpanel" aria-labelledby="bookings-tab" tabindex="0">
+        <%# Booking pending %>
+        <div class="bookings booking-pending-card" data-restaurant-subscription-target="bookings">
           <% @bookings.each do |booking| %>
-            <%= render "card_product", booking: booking if booking.status == "user_accepted" %>
+            <%= render "card_product", booking: booking if booking.status == "pending" %>
           <% end %>
+        </div>
+      </div>
+      <div class="tab-pane fade py-3" id="requests-tab-pane" role="tabpanel" aria-labelledby="requests-tab" tabindex="0">
+        <%# Restaurant Accepted %>
+        <div class="bookings restaurant-accepted-card" data-restaurant-subscription-target="bookings">
+          <% @bookings.each do |booking| %>
+            <%= render "card_product", booking: booking if booking.status == "restaurant_accepted" %>
+          <% end %>
+        </div>
+      </div>
+      <div class="tab-pane fade py-3" id="conversations-tab-pane" role="tabpanel" aria-labelledby="conversations-tab" tabindex="0">
+        <div class="accepted-rejected d-flex justify-content-between">
+          <%# User Accepted %>
+          <div class="bookings user-accepted-card" data-restaurant-subscription-target="bookings">
+            <% @bookings.each do |booking| %>
+              <%= render "card_product", booking: booking if booking.status == "user_accepted" %>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
   </div>
+  <%# pending, restaurant_accepted, user_accepted, restaurant_rejected, user_rejected %>
 </div>
-<%# pending, restaurant_accepted, user_accepted, restaurant_rejected, user_rejected %>
 </div>

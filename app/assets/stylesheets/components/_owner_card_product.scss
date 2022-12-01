@@ -210,6 +210,8 @@ width: 16rem;
   justify-content:center;
   align-items: center;
   gap: 8px;
+  margin-top: 2rem;
+
 
   p {
     margin: 0;
@@ -219,5 +221,8 @@ width: 16rem;
 margin:0;
 }
 
+.gray-scale-all {
+  filter: blur(1px) grayscale(1);
+}
 
 // ADDED FOR OWNER BOOKING END
