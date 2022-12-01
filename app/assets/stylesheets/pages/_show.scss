@@ -79,7 +79,7 @@
 
   h1 {
     margin-top: 16px;
-    font-size: 36px;
+    font-size: 30px;
     color: #D47AE8;
   }
 }
@@ -104,4 +104,16 @@
   justify-content: space-evenly;
   align-items: center;
   color: gray;
+}
+
+#confirmation-message-show {
+  font-size: 24px;
+  background-color: #D47AE8;
+  color: white;
+  padding: 8px;
+  margin: 0;
+  margin-top: 16px;
+  line-height: 1.2;
+  box-shadow: 1px 1px 8px rgb(187, 187, 187);
+  border-radius: 8px;
 }
