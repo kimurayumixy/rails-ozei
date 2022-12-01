@@ -1,5 +1,7 @@
 <div>
-  <div class="card-restaurant" data-controller="button">
+  <div class="card-restaurant" data-controller="button mapbox-distance"
+    data-mapbox-distance-lat-value="<%= restaurant.latitude %>"
+    data-mapbox-distance-long-value="<%= restaurant.longitude %>">
     <%= link_to restaurant_path(restaurant, group_size: @group_size) do %>
       <%= render 'restaurants/carousel', restaurant: restaurant%>
       <div class="card-content">
@@ -13,6 +15,10 @@
             <h2><%= restaurant.name %></h2>
             <p><%= restaurant.category %></p>
             <h2 class="card-restaurant-pricing"><%= restaurant.price_range %></h2>
+            <span>
+              <p id='distance'></p>
+              <p id="time"></p>
+            </span>
           </div>
         </div>
       <% end %>

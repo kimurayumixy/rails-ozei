@@ -13,6 +13,9 @@ application.register("button", ButtonController)
 import MapController from "./map_controller"
 application.register("map", MapController)
 
+import MapboxDistanceController from "./mapbox_distance_controller"
+application.register("mapbox-distance", MapboxDistanceController)
+
 import ModalController from "./modal_controller"
 application.register("modal", ModalController)
 
