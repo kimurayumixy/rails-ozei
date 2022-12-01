@@ -5,6 +5,14 @@
     data-action="click->restaurant-subscription#unmute"
   >
   <%= audio_tag "notification.mp3", class: "audio-play", muted: true, data: {restaurant_subscription_target: "notification"} %>
+  <div class="statistics-div">
+    <div class="card-product mt-3 rounded d-flex flex-column">
+      <div>
+        Monthly Reservations
+      </div>
+      <%= render 'charts' %>
+    </div>
+  </div>
   <ul class="nav tabs-underlined" id="myTab" role="tablist">
     <li class="nav-item" role="presentation">
       <span class="nav-link tab-underlined active" id="bookings-tab" data-bs-toggle="tab" data-bs-target="#bookings-tab-pane" role="tab" aria-controls="bookings-tab-pane" aria-selected="true">New Requests</span>
@@ -27,7 +35,6 @@
     </div>
     <div class="tab-pane fade py-3" id="requests-tab-pane" role="tabpanel" aria-labelledby="requests-tab" tabindex="0">
       <%# Restaurant Accepted %>
-      <hr class="line">
       <div class="bookings restaurant-accepted-card" data-restaurant-subscription-target="bookings">
         <% @bookings.each do |booking| %>
           <%= render "card_product", booking: booking if booking.status == "restaurant_accepted" %>
@@ -43,15 +50,6 @@
           <% end %>
         </div>
       </div>
-    </div>
-  </div>
-  <div class="statistics-div">
-    <h1 class="reservation-titles">Statistics</h1>
-    <div class="card-product mt-3 rounded d-flex flex-column">
-      <div>
-        Monthly Reservations
-      </div>
-      <%= render 'charts' %>
     </div>
   </div>
 </div>
