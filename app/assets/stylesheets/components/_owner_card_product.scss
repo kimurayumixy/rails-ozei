@@ -1,5 +1,7 @@
 // ADDED FOR OWNER BOOKING START
 
+
+
 .statistics-div {
   margin-top: 4rem !important;
 }
@@ -201,6 +203,18 @@ padding-bottom: 16px;
 width: 16rem;
 }
 
+#online-offline-div {
+  width:100%;
+  text-align:center;
+  display:flex;
+  justify-content:center;
+  align-items: center;
+  gap: 8px;
+
+  p {
+    margin: 0;
+  }
+}
 .card-product .group-size h5 {
 margin:0;
 }

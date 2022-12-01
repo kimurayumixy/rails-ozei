@@ -5,6 +5,13 @@
     data-action="click->restaurant-subscription#unmute"
   >
   <%= audio_tag "notification.mp3", class: "audio-play", muted: true, data: {restaurant_subscription_target: "notification"} %>
+  <div id="online-offline-div">
+    <p>Open for requests</p>
+    <label class="switch">
+      <input type="checkbox">
+      <span class="slider round"></span>
+    </label>
+  </div>
   <div class="statistics-div">
     <div class="card-product mt-3 rounded d-flex flex-column">
       <div>
