@@ -22,7 +22,7 @@
   }
 
   img {
-    height: 160px;
+    height: 140px;
     width: 100%;
     object-fit: cover;
     display: block;
@@ -31,7 +31,7 @@
   h2 {
     font-size: 16px;
     font-weight: bold;
-    margin: 0;
+    margin: 0 0 4px 0;
     color: #434242;
 
   }
@@ -74,6 +74,17 @@
   }
 }
 
+
+.fixed-results {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  background-color: rgb(244, 244, 244);
+  padding-bottom: 44px;
+  z-index: 85;
+  box-shadow: 0px 0px 8px gray;
+}
+
 .cards {
   margin: 0 auto;
   // max-width: 1200px;
@@ -101,7 +112,6 @@
 
 .info-search-text {
   color: #D47AE8;
-  float: right;
   margin-right: 8px;
 }
 

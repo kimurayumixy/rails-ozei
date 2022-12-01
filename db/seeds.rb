@@ -307,7 +307,7 @@ separator_line
 puts "Creating Soren's Izakaya"
 soren_restaurant = Restaurant.create!(
   user: soren,
-  name: "Ozei Diner",
+  name: "Soren's Diner",
   description: "You can enjoy authentic BBQ in the middle of Shibuya. Our BBQ course is not only about grilled vegetables and meat! We also serve salted cabbage and edamame as snacks, cheese fondue, garlic toast, and even dessert! You are sure to be very satisfied! This price is unbeatable in Tokyo...!",
   category: "Izakaya",
   address: "2-9-10 Dougenzaka, Shibuya Ku, Tokyo",
