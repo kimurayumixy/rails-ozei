@@ -1,9 +1,9 @@
 <div class="info-search-text d-flex">
   <div class="sentence-results-start">
     <% if @group_size == nil || @group_size == "1" %>
-      <p class="result-message"> <%= "#{@restaurants.all.count} results " %></p>
+      <p class="result-message"> <%= "#{@restaurants.length} results " %></p>
     <% else %>
-      <p class="result-message"><%= "#{@restaurants.all.count} results" %></p>
+      <p class="result-message"><%= "#{@restaurants.length} results" %></p>
     <% end %>
   </div>
   <!--location -->

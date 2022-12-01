@@ -19,6 +19,8 @@
         <% end %>
         <%# log close  %>
         <%= form_with url: restaurants_path, method: :get do |form| %>
+          <%= hidden_field_tag :long, nil, data: { user_location_target: 'long' } %>
+          <%= hidden_field_tag :lat, nil, data: { user_location_target: 'lat' } %>
           <small>
             <p class="cssanimation sequence fadeInBottom text-white">How many people today?</p>
           </small>
