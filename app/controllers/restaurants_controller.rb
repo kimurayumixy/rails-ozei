@@ -10,7 +10,7 @@ class RestaurantsController < ApplicationController
       elsif params[:lat].present? && params[:long].present?
         # CHANGE NEAR VALUE TO ADJUST SEARCH RANGE
         @location = [params[:lat], params[:long]]
-        policy_scope(Restaurant).near([params[:lat].to_f, params[:long].to_f], 1, order: 'distance')
+        policy_scope(Restaurant).near([params[:lat].to_f, params[:long].to_f], 5, order: 'distance')
       else
         policy_scope(Restaurant)
       end
