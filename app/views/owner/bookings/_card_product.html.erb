@@ -6,8 +6,12 @@
     <% elsif booking.status == "user_accepted"%>
       <h2><%= booking.user.name %></h2>
       <%# timer %>
-      <% time = ((900+ (Time.now - booking.created_at))/60).to_int %>
-      <p><%= time %> minutes ago</p>
+      <% time = (((booking.created_at - Time.now)/60) * -1).to_int %>
+      <% if time < 1 %>
+        <p>Less than 1 minute ago</p>
+      <% else %>
+        <p><%= pluralize(time, 'minute') %> ago</p>
+      <% end %>
       <%# timer end %>
     <% else %>
       <%# Restaurant Pending Render %>
