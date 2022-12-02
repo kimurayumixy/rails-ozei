@@ -19,7 +19,7 @@
               data-booking-subscription-target="bookings">
           <% if booking.status == "pending" %>
             <div class="pending">
-              <small> <%= "pending" %></small>
+              <small class="fst-italic"> <%= "processing your request" %></small>
             </div>
           <% end %>
           <% if booking.status == "restaurant_accepted" %>
