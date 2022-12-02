@@ -27,7 +27,9 @@
       <h2><%= booking.user.name %></h2>
       <p><%= booking.user.phone_number %></p>
       <p><%= booking.user.email %></p>
-      <p><%= booking.distance %> km away</p>
+      <% if @location %>
+        <p><%= booking.distance %> km away</p>
+      <% end %>
     </div>
     <%# group size %>
     <div class="d-flex" id="group-size">
