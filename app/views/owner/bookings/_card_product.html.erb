@@ -57,7 +57,7 @@
         <div class="owner-reject">
           <%= simple_form_for booking, url: owner_booking_path(booking) do |f| %>
             <%= f.input :status, as: :hidden, input_html: { value: 'restaurant_rejected'} %>
-            <%= f.submit 'Reject', class: 'btn btn-light' %>
+            <%= f.submit 'Decline', class: 'btn btn-light' %>
           <% end %>
         </div>
       </div>
@@ -68,7 +68,7 @@
         <div class="d-flex justify-content-center">
           <% if booking.status == "restaurant_accepted" %>
             <a href="#" class="btn btn-success">
-              <%= "Waiting for confirmation" %>
+              <%= "Waiting for customer confirmation" %>
             </a>
           <% elsif booking.status == "restaurant_rejected" %>
             <a href="#" class="btn btn-danger">
@@ -76,7 +76,7 @@
             </a>
           <% elsif booking.status == "user_accepted" %>
             <a href="#" class="btn btn-primary">
-              <%= "Arriving soon" %>
+              <%= "Customer arriving soon" %>
             </a>
           <% end %>
         </div>
