@@ -1,7 +1,9 @@
 <%= render "shared/navbar" %>
 <div class="container mt-3 mb-3">
   <div class="title">
-    <h5>My requests</h5>
+    <small>
+      <p class="text-warning mb-0">My requests</p>
+    </small>
   </div>
   <div class="bookings d-flex flex-column">
     <% @bookings.each do |booking| %>
