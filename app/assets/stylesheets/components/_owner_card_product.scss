@@ -3,8 +3,15 @@
 
 
 .statistics-div {
-  margin-top: 4rem !important;
+  margin-top: 1rem !important;
+
+  .card-product {
+    div:first-child {
+      margin-top:1rem;
+  }
+  }
 }
+
 
 .reservation-titles {
   color:#D47AE8 !important;
