@@ -9,14 +9,9 @@
     </div>
     <div class="lp-menu">
       <div class="searchbar-lp">
+        <h1 class="cssanimation sequence fadeInBottom text-white">Last Minute <strong class="text-primary">Reservations!</strong></h1>
+        <br>
         <%# log open %>
-        <% if user_signed_in? %>
-          <%= link_to bookings_path, class: "btn text-white" do %>
-            <p class="cssanimation sequence fadeInBottom">Welcome, <strong id="logged"><%="#{current_user.name}!"%></strong></p>
-          <% end %>
-        <% else %>
-          <p class="cssanimation sequence fadeInBottom"> <%= link_to "login", new_user_session_path, class: "nav-link text-white opacity-50" %></p>
-        <% end %>
         <%# log close  %>
         <%= form_with url: restaurants_path, method: :get do |form| %>
           <%= hidden_field_tag :long, nil, data: { user_location_target: 'long' } %>
