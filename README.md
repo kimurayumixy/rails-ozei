@@ -3,6 +3,9 @@
 Last minutes reservation for group of people.
 
 _DROP SCREENSHOT HERE_
+<img width="320" alt="Screen Shot 2022-12-05 at 16 30 07" src="https://user-images.githubusercontent.com/88379080/205579200-2eff1040-2ebd-4b4e-8115-80a3d9d7ae3a.png"><img width="1424" alt="Screen Shot 2022-12-05 at 16 31 58" src="https://user-images.githubusercontent.com/88379080/205579288-3bc8b3ae-458c-4277-8cd4-1bfdbc238562.png">
+
+
 <br>
 App home: https://www.ozei.fun/
    
